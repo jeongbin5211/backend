@@ -1,0 +1,167 @@
+1. JDK 다운로드 및 설치
+ - jdk1.8 다운로드 검색 : 개발할때 사용
+   - jre: 자바프로그램을 실행만 하는것(다운x)
+ - url : www.oracle.com -> Products -> Java -> Download Java Now -> window -> x64 MSI Installer
+
+윈도우 키 + e : 탐색기
+윈도우 키 + m : 바탕화면 바로가기
+윈도우 키 + r : 실행
+
+2. Notepad++ (기본 저장 위치 : C:\temp)
+
+3. IDE : 프로그램 개발을 편하게 하기 위한 통합개발툴
+ - eclipse, IntelliJ
+ - www.eclipse.org : j2ee, j2se
+ - eclipse 기본 저장 위치 : D:\본인폴더\java\source
+
+4. 고정배열[10],  동적배열<10>
+   ArrayList, HashMap
+   객체 : 회원가입 =>  아이디(글자), 비밀번호(숫자) 
+
+   자바 = Native Java = 표준 자바(로컬 자바)
+   웹 자바 = spring = spring framework = spring boot
+
+   html5(화면 구성), css(화면 디자인)
+   javascript = 서버 작업을 할수없음 => node.js생김 => 서버 작업 가능 
+   => jquery, Ajax, React.js, Vue.js, Angular.js, json
+  
+   데이터베이스
+   - 관계형 데이터베이스(백엔드) : Mysql(Mariadb), Mssql, Oracle,
+   - NoSQL : MongoDB(프론트엔드)
+
+1. 변수 => 이름규칙
+2. if, for...
+
+
+=> stack(변수), heap(객체)
+
+객체지향 하는이유 -> 유지보수 편하게~
+
+--------------------------------------
+취업 준비 : 포트폴리오 주제
+
+
+
+--------------------------------------
+1. jdk 설치 후 환경변수 설정
+  내 pc -> 속성 -> 고급시스템 설정 -> 고급 -> 환경변수 -> 시스템 변수 -> Path, JAVA_HOME 설정
+  -> 찾아보기(path는 bin선택, JAVA_HOME은 bin은 빼고선택)
+2. 설치 확인
+  cmd -> javac, java로 설치 확인 -> exit 입력시 닫힘
+
+3. bin = 실행 파일이 저장된 폴더
+   컴퓨터는 0, 1 만 읽음
+  - 코드 작성 -> javac로 컴파일(Compiler) ->                             java실행 -> 화면으로 볼 수 있음
+         a      -> 컴퓨터가 읽을 수 있게 변환시킴(컴파일) -> 00000011
+
+
+	Compiler = 포팅(변환)
+
+   lib(라이브러리) : 추가로 필요한 프로그램이 저장되는곳 (jar로 압축된 파일)
+         db-connect.jar
+
+
+-------------------------------------\
+1. 자바 파일 생성(클래스 -> 하나의 프로그램)
+  - 클래스(객체) : 변수, 메소드(동작), getter, setter 모든 것을 포함하고 있는 덩어리
+  - 파일이름 = 클래스이름이 동일하게 작성해야한다.
+  - 클래스 이름은 무조건 첫글자를 대문자로 작성해야 한다.
+  - 자바는 대소문자를 정확하게 지켜서 작성해야한다.
+
+  Hello World~ 출력하는 자바 프로그램 작성
+  1. 클래스 : public class 이름 {}
+  - temp(임시폴더)에 저장
+
+	사람이 작성한 영어를 컴퓨터가 인식할 수 있게 컴파일해야함(javac)
+	실행은 java
+
+	윈도우 + r => cmd
+
+	package 없을때 cmd 창에 순서대로 입력
+	javac 파일이름.java
+	java 파일이름
+
+
+
+	package 있을때
+	javac -d . 파일이름.java
+
+
+
+-------------------------------------------
+
+print() : 이어 적을 때
+println() : 개행(줄바꿈 할 때)
+
+1. Hello
+   World 두 줄로 출력하는 프로그램 작성
+   (0) 자바에서는 폴더(html, css, js)라고 하지 않습니다. -> 패키지(.java, .class)
+       Java Project -> 큰 폴더 라고 생각하면됨
+   (1) 파일이름 : Hello.java
+   (2) 주석 작성 : 유지보수할 때 설명 글 (프로그램으로 실행 되지 않음)
+        여러 줄 일 때 : /* */
+        한줄 일 때 : //
+   (3) 클래스 생성
+   (4) 출력 코드
+
+이름규칙
+1. 패키지, 메소드, 변수 이름은 소문자로 시작
+   - 단어와 단어가 이어질 때는 이어지는 단어의 첫글자는 대문자
+   num
+   num + string => numString (camel case 낙타)
+   log + in => logIn
+
+2. 클래스는 대문자로 시작
+
+3. 
+강형 타입 체크 프로그램
+C, C++, Java
+- 타입을 정확하게 체크
+  int 10
+  double 0.1
+  float
+  String abcde
+
+약형 타입 체크 프로그램
+javascript, 웹 언어
+- 10, abcde
+- let 10
+  let abcde
+
+
+--------------------------------
+1. primitive Type(기본형) = 스택메모리에 저장
+정수 : int
+- int a = 10;
+실수 : double
+논리형 : boolean
+문자열 : String
+
+List<Integer>
+2. Reference Type (참조 타입) = 힙 메모리에 저장
+- 객체, 배열
+문자열 : String
+정수 : Integer
+실수 : Double
+논리형 : Boolean
+
+
+---------------------------------
+100 숫자를 출력하세요.
+단, 기존 자바 프로젝트를 활용한다.
+
+1. 클래스 이름은 Var.java
+2. 주석
+3. 변수 이름은 num
+4. 정수값 100 입력
+5. 출력
+
+----------------------------------
+10 + 20 숫자를 출력하세요.
+단, 기존 자바 프로젝트를 활용한다.
+
+1. 클래스 이름은 Var.java
+2. 주석
+3. 변수 이름은 num
+4. 정수 10 + 20 입력
+5. 출력
