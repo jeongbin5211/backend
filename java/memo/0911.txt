@@ -86,6 +86,68 @@ sum += i;
 
 IncDecEx.java
 
+-------------------------------------------------
+ArithEx.java
+
+Arithmetric Operator(산술연산자)
++ - * / % -> 홀수, 짝수
+
+비교연산자
+> < ==, != 결과는 true, false
+
+논리연산자
+&&, ||
+
+
+---------------------------------------------------
+변수의 타입
+(1) 기본형 (Primitive Type)
+ int a = 0;
+ double d = 0.0;
+ boolean b = false; 
+
+ String str = "";
+ String은 기본형, 참조형 둘다 포함됩니다.
+ String str = null;
+
+(2) 참조형 (Reference Type) : 반복문과 같이 사용(for, 향상된for)
+ - 첫글자가 대문자로 시작 ex) Integer, Double, Float, Char, Boolean
+			 객체
+ - 데이터를 묶음으로 처리하는 것
+ - 배열(고정배열[], 동적배열<참조형 또는 객체가 들어감>) : ArrayList(목록출력할때), HashMap(JSON출력할때)
+ 		동적<Integer> 동적<Member>
+ - 초기화 null
+
+ex) 
+회원가입 : Member.java >  (폴더이름에 model, dto 들어가있으면 객체)
+아이디 : 문자열
+비밀번호 : 문자열
+이름 : 문자열
+나이 : 정수형
+이메일주소 : 문자형
+
+for 
+
+-------------------------------------------------
+대입연산자 (Assignment Operator)
+int num = 10;
+num = num + 2; -> num += 2;
+
+AssignEx.java
+
+클래스에서는 변수
+
+객체
+	=> 변수라 하지않고 필드, 멤버변수라고 한다.
+	=> 생성자(), 생성자(매개변수 = 파라미터 = parameter)
+	=> 정보은닉, 캡슐화
+	getter() - 값을 가져올때, setter() - 값을 저장할 때
+
+	=> 추가적인 동작이 필요할 때는 메소드 생성 후 사용
+
+
+
+
 
 
 
