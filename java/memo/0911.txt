@@ -1,0 +1,101 @@
+1. 설치 완
+(1) jdk, eclipse(intelli j)
+
+- jdk download
+  - 내 pc -> 고급 -> 환경설정 -> JAVA_HOME(JDK 설치 폴더)
+                                      -> PATH(javac, java 위치해 있는 폴더)
+                                      -> JDK설치폴더\bin
+                                      -> %JAVA_HOME%bin
+  - 환경변수 설정하는 이유 : 유지보수를 편하게 하기 위함
+
+  www.oracle.com => projects => java (반드시 기억하기)
+
+- eclipse.org download
+
+script : 끼워넣어서 사용하는 프로그램
+javascript, typescript, 웹 프로그램 : html 안에 프로그래밍
+
+middleware : 다른프로그램을 중간에서 연결시켜주는 역할을 함
+
+자바     <middleware가 중간에서 처리>     저장(DB)
+                                                      Mail Server
+
+jdk, jre 구분하기
+
+
+2. 변수와 객체
+   차이점
+   변수(하나)
+   객체(타입이 동일하거나 다른 여러 개의 데이터를 처리)
+
+   비슷한 점
+   변수든 객체든 선언하고 초기화 작업이 필요함
+
+
+   객체는 선언과 초기화를 처리하는 방법으로 new(생성자) 사용
+   -> 반복문을 함께 사용
+
+1. num 정수를 선언하고 100값으로 초기화 하시오.
+   int num; -> 선언
+   num = 100; -> 초기화
+
+   int num = 100; -> 선언&초기화
+
+
+
+   String str;
+   str = new String();
+   
+   String str = new String();
+
+
+----------------------------------------------
+
+PrintEx.java
+print() : 줄바꿈 없는 출력메소드
+println() : 줄바꿈 출력메소드
+
+정수 5와 8을 더한 값을 출력하시오.
+
+--------------------------------------------
+PrintEx2.java
+
+char
+boolean
+
+html
+로그인 -> 한 페이지에서만 정보를 유지 할 수 있음
+세션(연결), 쿠키 => AJax
+(Session) login
+
+----------------------------------------------
+1. Operator: 부호
+Increment AND Decrement Operator(증감연산자)
+
+int a = 1; // + 1
+int result = a + 1;
+
+int result = a++;
+int result = ++a;
+
+int result = --a;
+int result = a--;
+
+sum = sum + i;
+sum += i;
+
+IncDecEx.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
