@@ -1,0 +1,67 @@
+1. 실수 : 부동소수점 오차
+  (1) float(4byte) : 소수점 7자리 이상부터 오차 발생
+  (2) double(8byte) : 소수점 15자리 이상부터 오차 발생
+
+FloatDoubleEx.java
+
+2. 타입 캐스팅(형 변환) : 업 캐스팅(자동 : 작은 -> 큰), 다운 캐스팅(강제 : 큰 -> 작은)
+		       묵시적 형변환	       명시적 형변환
+
+CastEx.java
+
+3. 대입연산자 (=), 비교연산자 (> , < , 결과는 true, false)
+String 기본, 참조타입 둘다 가능
+
+값을 비교할 때(equals), 주소를 비교할 때(==)
+String str = "";
+String str = null;
+
+String str = new String();
+
+StringEx.java
+
+------------------------------------------------------
+1. 참조형(Reference)
+(고정)배열[숫자] => 개수 => length();
+
+(동적)배열<참조> => 개수 => size(); 
+
+문자열 다루기(일반적으로 인덱스 : 0부터 시작)
+이메일 주소 체크 : 유효성검사 @ - 정규식(regex)
+charAt
+
+replaceAll() : 바꾸기
+
+substring : 추출 -> 남자, 여자 구분하는
+
+StringEx2.java
+
+StringEx3.java
+
+변수.toUpperCase()
+변수.split("문자"); => 배열 => for
+printf -> format(형식을 지정해서 출력)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
