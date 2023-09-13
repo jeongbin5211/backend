@@ -1,0 +1,42 @@
+1. 웹은 html -> input 사용
+
+   Scanner : jdk를 깔면 숨겨져있어서 사용하려면 import 해야함
+   - 입력을 받아서 처리
+   - System.in...
+
+   printf : System.out
+
+   VarEx.java
+
+command / 터미널(서버)
+
+ScannerEx.java
+
+11:00 ~ 11:50
+
+형변환
+1. 문자열을 숫자로
+2. 숫자를 문자열로
+3. Scanner -> 형 변환
+
+ScannerEx2.java
+
+----------------------------
+12:00 ~ 12: 50
+
+제어문
+ContEx.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
