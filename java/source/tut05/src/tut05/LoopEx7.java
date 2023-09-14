@@ -6,6 +6,10 @@ public class LoopEx7 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+
+		// 잔액, 커피값, 재고수량 변수는 반복문 밖에 작성해야한다.
+		// 반복문 안에 작성하면 계속 초기화되기 때문이다.
+		
 		int money = 10000;
 		int coffee = 3000;
 		int cnt = 10;
