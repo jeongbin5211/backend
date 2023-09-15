@@ -13,7 +13,7 @@ public class PrintEx {
 		System.out.println("");
 		
 		// 10을 8진수로 표현한 값은 12입니다.
-		System.out.printf("8진수 출력값은 %o(8)입니다.\n", num); // 
+		System.out.printf("%d을 8진수로 출력한 값은 %o입니다.\n", num, num); 
 		System.out.println(String.format("8진수 출력값은 %o입니다.", num)); // 12 => 십이(x), 일 이(0)
 		System.out.println("");
 		

@@ -8,12 +8,12 @@ public class ScopeEx {
 		int num = 10; // 전역변수
 		{
 			int num2 = 5; // 지역변수
-			num = num+1;
+			num = num + 1;
 			System.out.println(num);
 		}
 		
 		System.out.println(num);
-//		System.out.println(num2); // 출력 불가능
+//		System.out.println(num2); // num2는 지역변수라서 출력이 불가능
 		
 		
 		

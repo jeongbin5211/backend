@@ -28,7 +28,7 @@ public class OperEx {
 //		}
 		
 		// 프로그래밍은 중복되거나 불필요한 내용은 줄이려고 합니다.
-		// 객체, 배열은 
+		
 		if (b) // b == (b == true)
 			System.out.println("두 수의 값은 같습니다.");
 		else
