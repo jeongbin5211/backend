@@ -1,0 +1,65 @@
+9:00 ~ 9:50
+
+javac (컴파일)
+
+java (컴파일된 파일 실행)
+
+java -version
+
+1. 다운로드
+
+www.oracle.com (설치)
+- JDK 다운로드
+- Products -> java -> Java SE -> download -> 운영체제(window) -> MSI Installer
+
+설치 경로
+C:\Program Files\Java\jdk-20\ -> 커스터마이징가능(ex -> C:\jdk-20\)
+
+www.eclipse.org (압축 해제)
+- eclipse 다운로드
+- Download -> Download Packages -> .86 64 -> download
+- 여기에 압축풀기 -> 이클립스 실행 -> browser -> 
+
+환경변수 설정하기
+내pc 속성 -> 고급시스템설정 -> 고급 -> 환경변수 -> 시스템 변수 -> 
+
+Path 추가(내용 추가)
+찾아보기 -> JDK가 설치된 위치\bin
+
+JAVA_HOME
+찾아보기 -> JDK가 설치된 위치
+
+
+
+---------------------------------------
+
+10:00 ~ 10:50
+
+Test.java -> 클래스로 생성
+
+언어가 깨질 경우 인코딩을 해야함
+
+window -> preferences -> general -> workspace -> 인코딩타입
+
+인코딩 -> 컴퓨터가 읽을 수 있게 변환
+디코딩 -> 사람이 읽을 수 있게 변환
+
+code - decode => codec
+
+폰트 변경하기
+preferences -> general -> appearance -> colors and fonts -> basic -> text font
+
+Variable.java
+
+----------------------------------------
+
+11:00 ~ 11:50
+
+print(); => 개행x
+println(); => 개행
+printf(); => 출력형식 맞춰
+println( String.format() ); 개행 + 출력형식
+
+PrintEx.java
+
+12:00 ~ 12:50
