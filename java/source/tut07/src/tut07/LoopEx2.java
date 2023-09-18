@@ -22,6 +22,8 @@ public class LoopEx2 {
 		
 		System.out.println("----------------------------------");
 		
+		// 1 ~ 100 사이 정수 중 홀수의 합 구하기
+
 		sum = 0;
 		
 		for (int i = 1; i <= 100; i += 2) {

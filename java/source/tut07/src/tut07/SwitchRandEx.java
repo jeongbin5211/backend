@@ -1,7 +1,5 @@
 package tut07;
 
-import java.util.Scanner;
-
 public class SwitchRandEx {
 
 	public static void main(String[] args) {

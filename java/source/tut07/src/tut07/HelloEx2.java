@@ -12,7 +12,7 @@ public class HelloEx2 {
 		// System.out.println("Koreait 아카데미");
 		
 		// 지역만 바꾸고 싶을때 
-		// ()안에 원하는 타입 + 매개변수명
+		// ()안에 원하는 타입 + 매개변수명 ex) (String str)
 		
 		// 부산 코리아아이티 아카데미
 		// 서울 코리아아이티 아카데미
