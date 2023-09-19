@@ -23,7 +23,7 @@ Integer i = new Integer(100);
 
 	2. 메소드 오버로딩
 	   
-객체의 구성 요소(생갹 가능)
+객체의 구성 요소(생략 가능)
 1. 필드 ( 변수를 필드라고 부름), 공유변수
 2. 생성자 : 객체 생성 시 처음 값 지정
 3. getter, setter : 필드에 저장할 때 set, 출력할 때 get
@@ -91,7 +91,6 @@ public class 한번만 사용
 class 파일이름
 
 
-LoginEx.java
 
 Login.java
 
