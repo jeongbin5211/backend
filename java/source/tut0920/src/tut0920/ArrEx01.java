@@ -27,7 +27,7 @@ public class ArrEx01 {
 		// 생성자 : 초기화
 		// Member m = new Member(); // 이건 초기화 된것
 		
-		int [] value = new int[3];
+		int [] value = new int[3]; // 초기화x
 		value[0] = 100; // 초기화
 		value[1] = 200; // 초기화
 		value[2] = 300; // 초기화

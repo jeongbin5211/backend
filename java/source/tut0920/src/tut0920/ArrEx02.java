@@ -18,6 +18,7 @@ public class ArrEx02 {
 		// 고정배열.length, 가변배열.size() -> 배열 길이
 		System.out.println(arr4.length);
 		// toString -> 문자열로 표현해주세요. (주로 확인용으로 사용됨)
+		// Arrays를 import 해야함
 		
 		System.out.println(Arrays.toString(arr4)); // 배열일 때 [] 출력됨 [Red, Green, Blue]
 		

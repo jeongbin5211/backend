@@ -15,7 +15,7 @@ Object(묶음 {}) O P
 동적배열<참조타입> : 처음 개수는 정해져 있지만 자동으로 공간을 늘렸다 줄였다함(동적으로 관리)
 
 List 순서가 있는
-- ArratList, Vector
+- ArrayList, Vector
 List a = new ArrayList
 
 Map

@@ -3,7 +3,7 @@ package tut0920;
 public class UsersEx4 {
 
 	public static void main(String[] args) {
-		// UserEx3.java 간단하게
+		// UserEx3.java 간단하게 표현하기 -> 구조 분해 할당
 		
 		Users2[] u2 = new Users2[3];
 		
