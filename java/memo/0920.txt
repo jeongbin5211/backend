@@ -1,0 +1,131 @@
+
+9:00 ~ 9:50
+
+객체에 데이터를 저장하는 방식 : 캡슐화
+1. 필드에 직접저장 -> 되도록 사용x
+2. 생성자를 통해서 저장
+3. getter, setter
+
+Object(묶음 {}) O P
+
+묶음 : 객체 - 타입이 다르고 많은 데이터를 이름 하나로 관리
+
+고정배열[기본, 참조타입] : 개수를 정하고 작업
+
+동적배열<참조타입> : 처음 개수는 정해져 있지만 자동으로 공간을 늘렸다 줄였다함(동적으로 관리)
+
+List 순서가 있는
+- ArratList, Vector
+List a = new ArrayList
+
+Map
+- HashMap : 순서가 없는 동적배열 
+
+[
+	{
+	String, int, double // 한명
+	},
+	{
+ 	String, int, double
+	}
+]
+
+자바 + DB(Index)
+
+고정배열
+1. int[] num = null;
+   num = int[10];
+=> int[] num = int[10]; // 메모리 생성
+
+Register[] r = new Register[3]; // 다른 타입들을 한번에 처리할 수 있음
+
+	1번째 회원정보
+	private String userid;
+	private String userpw;
+	private int age;
+
+	2번째 회원정보
+	private String userid;
+	private String userpw;
+	private int age;
+
+	3번째 회원정보
+	private String userid;
+	private String userpw;
+	private int age;
+
+2. int[] num = int[] {1, 2, 3, 4, 5}; // 메소드형
+	public int add(int[] num){
+	}
+
+3. int [] num = {}; // List배열
+
+ArrEx01.java
+
+
+---------------------------------------------
+
+10:00 ~ 10:50
+
+ArrEx01.java 이어서 계속
+
+
+
+---------------------------------------------
+
+11:00 ~ 11:50
+
+ArrEx02.java
+
+ArrEx03.java
+
+객체 지향 언어는 값, 동작으로 이루어 집니다.
+값 : 변수
+동작 : 메소드()
+
+합계, 평균 class 따로 만들기 -> Cal
+
+같은 파일에서 클래스가 여러개일 때는 
+public class는 한 번만 존재해야함
+
+
+---------------------------------------------
+
+12:00 ~ 12:50
+
+ArrEx03.java 합계, 평균
+
+ArrEx03.java -> Cal.java 분리시키기
+
+ArrEx03.java 안에 class Disp 작성해본 뒤 
+Disp.java로 분리시켜보기 
+
+---------------------------------------------
+
+2:00 ~ 2:50
+
+
+
+---------------------------------------------
+
+3:00 ~ 3:50
+
+
+---------------------------------------------
+
+4:00 ~ 4:50
+
+
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
