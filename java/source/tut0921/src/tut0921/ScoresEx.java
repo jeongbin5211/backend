@@ -111,7 +111,7 @@ public class ScoresEx {
 				
 				// 최대값, 최소값 = 비교값
 //				최대값 = 비교값(가장 값이 작은 정수 => 0)
-//				최솟값 = 비교값(가장 값이 큰 정수 => 9)
+//				최소값 = 비교값(가장 값이 큰 정수 => 9)
 //				System.out.println(Arrays.toString(scores));
 				int max = 0; // 비교값
 				for (int i = 0; i < scores.length; i++) {
