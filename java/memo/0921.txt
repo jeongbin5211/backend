@@ -91,12 +91,43 @@ ScoresEx.java
 
 2:00 ~ 2:50
 
+dao -> new package -> tut0921.dao
+
+ScoresDao.java
+
 
 ------------------------------------------------
 
 3:00 ~ 3:50
 
+emp (new java project)
+EmployeeEx.java (class)
+
+- service (package)
+  EmployeeSrv.java (class)
+- vo (package)
+  Employee.java (class)
+
+필드
+부서 -> 문자열
+사번 -> 예시 -> 100(부서번호) 000(직책번호) 001(입사순서)
+	"900900001
+이름 -> 문자열 -> name, emp_name
+급여 -> 정수 -> emp_salary, money
+입사일 -> 날짜 -> startDate
+퇴사일 -> 날짜 -> endDate
+
+객체 작명 empID
+db  작명  emp_id
+
 
 ------------------------------------------------
 
 4:00 ~ 4:50
+
+Employee.java - 필드, 생성자, getter setter, 메소드
+
+EmployeeSrv.java - 출력코드관리, 출력메소드관리
+
+EmployeeEx.java - main메소드
+
