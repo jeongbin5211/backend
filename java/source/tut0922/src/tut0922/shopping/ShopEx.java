@@ -7,6 +7,7 @@ public class ShopEx {
 		// 판매자로 회원가입 -> 판매자 승인 -> 상품 등록(여러 개)
 		
 		// 허정빈만 쓸 수 있는 List 배열 공간 생성
+		// Seller가 List<Item> list = null;
 		Seller seller = new Seller(10001, "허정빈");
 		
 		

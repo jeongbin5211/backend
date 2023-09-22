@@ -26,7 +26,7 @@ public class ListEx02 {
 		List<String> alist = new ArrayList<>();
 		
 		alist.add("#ff 00 00"); // 색상코드 red
-		alist.add("f00"); // red
+		alist.add("#f00"); // red
 		
 		alist.add("#00 00 ff"); // green
 		alist.add("0f0"); // green
