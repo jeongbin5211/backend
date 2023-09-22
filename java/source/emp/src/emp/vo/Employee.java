@@ -14,13 +14,13 @@ public class Employee {
 	
 	public Employee() {}
 	
-	public Employee(Long id, String dept, String name, int salary, LocalDate startDate, LocalDate endDate) {
+	public Employee(Long id, String dept, String name, int salary /*  , LocalDate startDate, LocalDate endDate */) {
 		this.id = id;
 		this.dept = dept;
 		this.name = name;
 		this.salary = salary;
-		this.startDate = startDate;
-		this.endDate = endDate;
+//		this.startDate = startDate;
+//		this.endDate = endDate;
 	}
 
 	// getter, setter
