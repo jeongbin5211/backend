@@ -28,10 +28,10 @@ public class ListEx02 {
 		alist.add("#ff 00 00"); // 색상코드 red
 		alist.add("#f00"); // red
 		
-		alist.add("#00 00 ff"); // green
-		alist.add("0f0"); // green
+		alist.add("#00 ff 00"); // green
+		alist.add("#0f0"); // green
 		
-		alist.add("0 0 255"); // blue #00f -> f(255)
+		alist.add("0 0 255"); // blue #00f 에서 f는 255
 		
 		alist.remove(2);
 		alist.remove("#f00");
