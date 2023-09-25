@@ -15,14 +15,21 @@ public class RegisterEx {
 		
 		System.out.println("--------------------");
 		
-		boolean result = dao.removeRegister(1001);
-		if( result ) {
-			System.out.println("삭제되었습니다.");
-		}else {
-			System.out.println("존재하지 않는 아이디 입니다.");
-		}
+//		boolean result = dao.removeRegister(1001);
+//		if( result ) {
+//			System.out.println("삭제되었습니다.");
+//		}else {
+//			System.out.println("존재하지 않는 아이디 입니다.");
+//		}
+//		
+//		System.out.println(result); // true
 		
-		System.out.println(result); // true
+		boolean result = dao.removeRegister(101);
+		
+		if(result)
+			System.out.println("삭제 되었습니다.");
+		else
+			System.out.println("없는 회원번호입니다.");
 		
 		dao.showInfo();
 	}

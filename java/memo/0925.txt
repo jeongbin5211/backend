@@ -80,16 +80,53 @@ RegisterEx - removeRegister
 
 2:00 ~ 2:50
 
+RegisterEx - removeRegister (remaster)
+
+List index 번호로 구분 : get(i)
+Set 값(객체)로 구분 - remove(객체)
+Map key 구분
+
+
+Map
+
+<k,v>
+<key, value>
+
+자바형식은 ->
+
+자스형식은 =>
+
+<userid, "korea">
+< key   ,  value >
+
+
+num = 100
+
+Object obj = num; (Object에는 모든 타입이 들어갈 수 있다. 최상위타입)
+
+
+
+mapEx
+
+MapEx01.java
+
+공공데이터 포털
+data.go.kr
+
 
 ---------------------------------------------------
 
 3:00 ~ 3:50
 
+MapEx02 - 객체 사용(Board)
 
 ---------------------------------------------------
 
 4:00 ~ 4:50
 
+Member.java
+MemberDao.java
+MemberEx.java
 
 --------------------------------------------------
 
