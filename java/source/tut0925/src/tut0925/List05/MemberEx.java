@@ -8,7 +8,7 @@ public class MemberEx {
 		
 		MemberDao md = new MemberDao(); // 초기화
 		
-		md.addMember(new Member("홍길동", "1111"));
+		md.addMember(new Member("홍길동", "1111")); // 객체이기 때문에 초기화
 		md.addMember(new Member("김철수", "2222"));
 		
 		md.showInfo(); // 2
