@@ -57,15 +57,84 @@ CharSet
 
 2:00 ~ 2:50
 
+StreamEx
+
+
+
+웹서비스의 종류
+홈페이지
+도메인
+Ftp(파일 업로드
+Ssh(원격접속)
+dns(도메인서버)
+
 
 -------------------------------------------------
 
 3:00 ~ 3:50
 
+파일, 이미지, 첨부파일 -> byte[]
 
+StreamEx02 - 덮어쓰기, 이어쓰기 
+
+StreamEx03 - k o r e a
 -------------------------------------------------
 
 4:00 ~ 4:50
+
+상속 extends : 새로 만드는게 아니라 기존에 있는 자료를 물려받는것
+
+상속,
+오버라이드
+추사오하
+인터페이스
+다형성
+
+강제성이 있는지 없는지에 따라 오버로드, 오버라이드 나뉨
+다중상속이냐 아니냐에 따라 추상화 or 인터페이스
+다형성( 부모 (new Child())) - polymorphism
+
+만들때는 interface - 몸통 { } 이 없음, 다중 상속 가능
+	ex ) public void sum();
+
+사용할 때는 implements
+
+다중상속
+강제성을 띄는 override
+부모 생성자()를 가져다쓰면 super();
+내 생성자 가져다 쓰면 this();
+
+
+클래스이름 extends 가져올 클래스명
+
+inheritance
+
+Vehicle.java
+HyundaiEx.java
+KiaEx.java
+Auto.java - main
+
+현대차
+- model, color;
+- void start(), void stop()
+- name = 소나타
+
+기아차
+- model, color;
+- void start(), void stop()
+- name = k5
+
+=>
+
+vehicle
+- model, color;
+- void start(), void stop()
+
+현대차 extands Vehicle
+- name = 소나타
+
+기아차 extands Vehicle
+- name = k5
 
 
 -------------------------------------------------

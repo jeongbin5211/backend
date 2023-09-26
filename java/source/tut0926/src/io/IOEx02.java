@@ -29,7 +29,7 @@ public class IOEx02 {
 				System.out.println("파일이 이미 존재합니다.");
 			}
 			
-			System.out.println(file.getAbsolutePath());
+			System.out.println(file.getAbsolutePath()); // 절대경로 출력
 			
 			// 작업(이클립스) 위치 출력
 			System.out.println(System.getProperty("user.dir"));
