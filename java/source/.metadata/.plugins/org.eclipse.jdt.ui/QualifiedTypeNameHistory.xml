@@ -25,4 +25,9 @@
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="inheritance.KiaEx"/>
     <fullyQualifiedTypeName name="inheritance.AddCompany"/>
+    <fullyQualifiedTypeName name="polymorphism.Linux"/>
+    <fullyQualifiedTypeName name="polymorphism.Apple"/>
+    <fullyQualifiedTypeName name="polymorphism.Ms"/>
+    <fullyQualifiedTypeName name="polymorphism.Os"/>
+    <fullyQualifiedTypeName name="polymorphism.OsStart"/>
 </qualifiedTypeNameHistroy>

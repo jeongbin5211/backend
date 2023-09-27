@@ -82,15 +82,82 @@ InherEx04.java
 
 2:00 ~ 2:50
 
+Override 덮어쓰기(본체 고쳐쓰기)
+
+Cell.java
+전원 On, Off(전원을 켭니다. 끕니다.)
+
+AndroidCell.java
+전원 On, Off
+
+
+AppleCell.java
+전원 On, Off
+
+Cell.Ex.java
 
 ---------------------------------------
 
 3:00 ~ 3:50
 
+abstract : 단일상속 extends
+본체 x
+Override
+
+AbsEx
+
+Computer
+OSsystem
+
+interface -> implements : 다중상속
+본체 x
+Override
+
+
+
+DBEx.java
+
+데이터베이스 시작, 종료
+데이터베이스 쿼리 insert, update, delete, select (강제)
+transaction(강제x)
+
+Mysql
+Oracle
+
+Transaction
+4단계 : 1~4 다 만족해야 성공
+
+ATM
 
 ---------------------------------------
 
 4:00 ~ 4:50
 
+Polymorphism 다형성
+
+PolyEx.java
+상속(부모) -> 자식
+
+별도 클래스 처리
+
+다형성 -> 객체지향
+
+
+커널 : kernel (두뇌)
+
+class OS {
+	sysout("운영체제를 시작합니다.");
+}
+
+MS
+void run();
+
+Apple
+void run();
+
+Linux
+void run();
+
+  
 
 ---------------------------------------
