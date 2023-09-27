@@ -24,4 +24,5 @@
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="inheritance.KiaEx"/>
+    <fullyQualifiedTypeName name="inheritance.AddCompany"/>
 </qualifiedTypeNameHistroy>

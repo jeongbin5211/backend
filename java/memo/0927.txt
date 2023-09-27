@@ -1,0 +1,96 @@
+
+9:00 ~ 9:50
+
+wrox, oreilly
+
+inheritance
+
+Desktop : 계산기 + add, title, turnon(), turnoff()
+- ms
+new 생성자()
+
+Laptop : 계산기 + add, title, turnon(), turnoff()
+- mac
+new 생성자()
+
+
+=> 상속 이용하기
+
+add, title, turnon(), turnoff()
+
+Dexktop : 계산기 extends Add
+- ms
+new 생성자()
+
+Laptop : 계산기 extends Add
+- mac
+new 생성자()
+
+실행 inherEx01.java
+
+---------------------------------------
+
+10:00 ~ 10:50
+
+inherEx01.java
+
+inherEx02.java
+
+기존 더하기 빼기 상속에서 곱하기 나누기 추가하기
+
+1. 더하기, 빼기 : Cal
+- main
+
+2. 더하기, 빼기 : Cal
+   추가 : 곱하기, 나누기 : AdvCal.java
+
+
+---------------------------------------
+
+11:00 ~ 11:50
+
+사람클래스
+이름, 나이
+void sleep(), void eat()
+
+학생클래스
+학번
+이름, 나이
+void sleep(), void eat()
+학생은 공부를 합니다.
+
+사원클래스
+사번
+이름, 나이
+void sleep(), void eat()
+출근합니다.
+
+IngerEx03.java
+
+---------------------------------------
+
+12:00 ~ 12:50
+
+phone
+모델, 색상
+전원 on, off
+
+InherEx04.java
+
+
+---------------------------------------
+
+2:00 ~ 2:50
+
+
+---------------------------------------
+
+3:00 ~ 3:50
+
+
+---------------------------------------
+
+4:00 ~ 4:50
+
+
+---------------------------------------
