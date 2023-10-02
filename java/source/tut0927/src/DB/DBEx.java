@@ -35,7 +35,7 @@ class Mysql implements QueryEx {
 
 	@Override
 	public void select() {
-		System.out.println("오라클 데이터베이스로 검색합니다.");
+		
 	}
 	
 }
@@ -59,7 +59,7 @@ class Oracle implements QueryEx {
 
 	@Override
 	public void select() {
-		
+		System.out.println("오라클 데이터베이스로 검색합니다.");
 	}
 	
 }
