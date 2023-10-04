@@ -1,0 +1,364 @@
+
+9:00 ~ 9:50
+
+JDBC
+
+JDK <- Mysql Connector -> Mysql
+	미들웨어(middleware)	
+
+DDL : CREATRE, DROP
+DCL : INSERT, SELECT, UPDATE, DELETE
+
+
+mysql.com == Mariadb
+Oracle
+Mssql
+
+mysql community (GPL) downloads
+
+1. MySQL Community Server 8.0.34 msi
+
+2. Connector/J 아카이브
+
+Microsoft Visual C++ 동의 후 설치
+
+
+환경변수 설정 -> PATH -> 찾아보기 -> mysql bin 설정
+
+cmd -> mysql -uroot -p -> 비밀번호 입력(1234)
+
+
+
+-------------------------------------------
+
+10:00 ~ 10:50
+
+SQL : 구조적 질의어 - Structured Query Language
+ANSI SQL : 모든 데이터베이스에서 공통으로 사용 가능
+
+데이터베이스(큰 폴더) -> 테이블(작은 폴더 : 여러개 존재 - 실제 데이터가 저장)
+
+데이터베이스 정의어(D Definition L) 
+- 생성(CREATE), 제거(DROP), 변경(ALTER)
+
+use 데이터베이스명;(큰 폴더 안으로 들어가기)
+
+데이터베이스 조작어(D Manupulate L)
+- 입력(INSERT) 검색(SELECT) 수정(UPDATE) 삭제(DELETE)  
+
+데이터베이스 제어어(D Control L) : 보안 - 계정 생성할때 보통 사용
+
+서버 : 최고관리자(root) -> 일반계정에 권한 부여
+
+
+객체 == 테이블 (Member.java)
+
+대소문자 구분x
+DB에서 숫자는 INT, 글자는 VARCHAR(저장할 글자수)
+변동이 없는 경우 char(n);
+
+예시)
+
+먼저 show databases; 를 통해 큰 폴더 존재 확인
+
+
+쇼핑몰(데이터베이스 - 큰 폴더) - SHOP
+use 데이터베이스명;
+use SHOP;
+
+- 회원가입 : 객체(아이디, 이름, 나이) - SHOP_Member 테이블
+create table SHOP_MEMBER(
+userid varchar(15),
+name varchar(10),
+tel char(15), -> 변동이 없는경우 char
+jumin char(14)
+age int
+date date
+);
+
+show tables;
+
+타입을 정확하게 명시했는지 확인하기
+desc 테이블명;
+
+drop table 테이블명;
+show tables;
+
+drop database 데이터베이스명;
+show databases;
+
+- 상품등록 : 객체(상품이름, 가격) - SHOP_Items 테이블
+
+
+전사적자원관리(ERP) - 데이터베이스
+- 사원관리 : Employees 테이블
+- 급여관리 : Salary 테이블
+- 자재관리 : Stuff 테이블
+
+-------------------------------------------
+
+11:00 ~ 11:50
+
+데이터베이스 K_ERP
+전사적자원관리(ERP) - 데이터베이스
+- 사원관리 : Employees 테이블 : K_ERP_EMP 테이블
+사번(int), 사원명(char(5)), 급여(int), 입사일 datetime ->년월일시 (date년월시)
+
+create table k_erp_emp(
+id int,
+name char(5),
+salary int,
+startDate date
+);
+
+- 급여관리 : Salary 테이블 : K_ERP_SALARY 테이블
+- 자재관리 : Stuff 테이블 : K_ERP_STUFF 테이블
+
+
+mysqldump -> 백업할 떄 사용
+
+mysqldump -uroot -p 백업할 데이터베이스이름 > 백업이름.확장자
+
+mysqldump -uroot -p k_erp > ./20231004_erp.dump
+
+or
+
+mysqldump -uroot -p k_erp > ./20231004_erp.sql
+
+-------------------------------------------
+
+12:00 ~ 12:50
+
+db 연결
+
+jar파일 위치확인
+
+show databases;
+
+create database shop;
+
+show databases;
+
+3306(포트번호)
+
+내컴퓨터 이름 또는 ip주소
+
+localhost OR 127.0.01
+
+
+https://localhost
+
+jdbc:mysql://localhost:3306/shop
+
+
+jdbcEx01
+
+프로젝트 우클릭 -> build path -> libraries
+
+import java.sql.*; -> module java 삭제
+
+
+쇼핑몰
+- 회원가입 테이블
+  (회원번호, 회원이름, 포인트)
+- 회원번호 : INT
+- 회원이름 : VARCHAR()
+- 전화번호 : CHAR(13)
+- 포인트 : int
+- 가입일
+
+create table member(
+id int,
+name varchar(20),
+tel char(13),
+point int,
+regdate date
+);
+
+insert into 테이블명 values(값1, 값2,...);
+
+insert into member values(1001, '홍길동', '010-1234-5678', 1000, now());
+
+select * from member;
+
+DDL : CREATE, DROP, ALTER
+
+DML : INSERT, SELECT, UPDATE, DELETE
+
+-------------------------------------------
+
+2:00 ~ 2:50
+
+제약조건
+쇼핑몰(SHOP)
+- 회원가입
+- 이메일
+- 비밀번호
+- 이름
+- 주소
+
+1. mysql 접속
+2. shop database;
+
+3-1. 미리 생성된 데이터베이스가 있으면
+      USE 데이터베이스명;
+
+3-2. 만들어진 데이터베이스가 없다면
+      create database  생성할 데이터베이스명;
+
+4. 테이블 이름 확인
+
+5. 테이블 생성 -> 자바에서 필드명과 동일하게 작업
+   필드명을 만들때
+   디비는 _ 로 단어를 연결하고
+   자바는 카멜 표기법으로 연결합니다.
+   - 제약조건을 지정하야함
+   - NOT NULL : 절대 값이 비면 안되는 필드
+
+create table member(
+email varchar(50) NOT NULL unique,
+passwd varchar(15) NOT NULL,
+name varchar(10) NOT NULL,
+post char(5),
+addr1 varchar(100),
+addr2 varchar(50)
+);
+
+show tables;
+desc 테이블명; -- 테이블 구조확인
+
+6. CRUD 작업
+
+기본키(primary key) : 빈값도 안되고 중복된 값도 안됨(pk)
+-> 유일한 나를 구분해 준다(수정, 삭제, 검색 내 것만 처리가 가능)
+
+unique : 빈값은 허용하지만 중복된 값은 허용하지않는다.
+
+create table member(
+email varchar(50) NOT NULL,
+passwd varchar(15) NOT NULL,
+name varchar(10) NOT NULL,
+post char(5),
+addr1 varchar(100),
+addr2 varchar(50),
+primary key(email)
+);
+
+create table member(
+email varchar(50) NOT NULL primary key,
+passwd varchar(15) NOT NULL,
+name varchar(10) NOT NULL,
+post char(5),
+addr1 varchar(100),
+addr2 varchar(50)
+);
+
+INSERT INTO 테이블명 VALUES(값);
+
+INSERT INTO member VALUES('mail@mail.com','1234','허정빈','12345','주소1','상세주소1'), ('mail2@mail.com', '1234', '허지혁', '12345', '주소2', '상세주소2');
+
+SELECT * FROM MEMBER;
+
+SELECT COUNT(*) FROM MEMBER; -- 사원 수 출력할 때
+
+SELECT COUNT(*) AS 회원수 FROM MEMBER;
+
+SELECT COUNT(*) AS '회원 수' FROM MEMBER;
+
+
+create table member(
+id int not null primary key,
+name varchar(50),
+passwd varchar(10)
+);
+
+insert into member values(101, '홍', '1111'), (102, '길', '1111'), (103, '동', '1111');
+
+-------------------------------------------
+
+3:00 ~ 3:50
+
+select * from member; -- 출력
+
+delete from member; -- 전체삭제
+
+delete from member where id = 101; 
+
+create table member(
+id int NOT NULL auto_increment,
+name varchar(10) not null,
+passwd varchar(20) not null,
+primary key(id)
+);
+
+insert into member values(null, '홍길동', '1234');
+
+insert into member values(null, '홍길동', '1234');
+
+insert into member values(null, '홍길동', '1234');
+
+select * from member;
+
+delete from member where id = 6;
+
+update 테이블명 set
+컬럼명1 = 값, 컬럼명2 = 값
+where 조건 = 값;
+
+컬럼명 = 필드
+
+이름, 비번, 5번 수정
+
+UPDATE MEMBER SET name = '코리아', passwd = '1111'
+where id = 5;
+
+
+정리
+
+입력
+INSERT INTO 테이블명 VALUES();
+
+삭제
+DELETE FROM 테이블명 WHERE 컬럼 = 값;
+
+수정
+UPDATE FROM 테이블명 SET 수정할 컬럼1 = 값, 수정할 컬럼2 = 값
+WHERE 컬럼 = 값;
+
+전체 검색
+SELECT * FROM MEMBER;
+
+조건 검색
+SELECT * FROM 테이블명 WHERE 컬럼 = 값;
+
+
+-------------------------------------------
+
+4:00 ~ 4:50
+
+회원번호, 이름, 비번을 데이터베이스에 저장하는 JDBC 프로그램을 완성하세요.
+
+jdbcEx02.java
+
+
+0. 데이터베이스/테이블 생성 : mydb/register
+1. 드라이버등록
+2. Class.forName()
+3. url, id, pwd
+4. insert
+
+order by id desc : id를 기준으로 내림차순
+order by id asc : id를 기준으로 오름차순
+
+asc : 1 - 9, ㄱ - ㅎ, a ~ z
+desc: 9 - 1, ㅎ - ㄱ, z ~ a
+
+select * from register order by id desc;
+
+select * from register order by name asc;
+
+홍길동, 부산
+홍길동, 서울
+
+select * from register order by name asc region desc; -- 2단 정렬
+
