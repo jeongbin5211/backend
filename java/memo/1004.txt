@@ -184,6 +184,7 @@ select * from member;
 DDL : CREATE, DROP, ALTER
 
 DML : INSERT, SELECT, UPDATE, DELETE
+            입력     출력     수정       삭제
 
 -------------------------------------------
 

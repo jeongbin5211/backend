@@ -1,4 +1,4 @@
-package jdbcprj2;
+package jdbc1004;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
