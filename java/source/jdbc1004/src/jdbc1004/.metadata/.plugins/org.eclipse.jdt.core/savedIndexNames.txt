@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+D:\hjb-backend\java\source\jdbc1004\src\jdbc1004\.metadata\.plugins\org.eclipse.jdt.core
