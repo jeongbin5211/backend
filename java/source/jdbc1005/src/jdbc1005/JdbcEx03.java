@@ -66,6 +66,7 @@ class DeleteDao {
 	}
 }
 
+
 public class JdbcEx03 {
 
 	public static void main(String[] args) {

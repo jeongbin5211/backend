@@ -100,4 +100,60 @@ update, delete
 
 C R U D == I S U D
 
+----------------------------------------------------
 
+2:00 ~ 2:50
+
+mysql + jdbc
+
+JdbcEx04
+
+mysql + jdbc
+db : shop
+table : items
+상품번호 : int, not null, pk
+상품이름 : not null, 문자열
+상품가격 : not null, 숫자
+상품재고 : not null, 숫자
+상품등록일 : not null, 날짜시간
+
+create database shop;
+use shop;
+
+create table items(
+item_id int not null auto_increment,
+item_name varchar(20) not null unique,
+item_price int not null,
+item_stock int not null,
+item_date datetime not null,
+primary key(item_id)
+);
+
+SELECT * FROM items;
+
+SELECT 컬럼1, 컬럼2... FROM items;
+
+SELECT item_id, item_name FROM items;
+
+SELECT A.item_id, A.item_name FROM items A(별명 부여);
+
+----------------------------------------------------
+
+3:00 ~ 3:50
+
+JdbcEx05
+items.java
+
+getter, setter
+
+void insertItem() {}
+
+----------------------------------------------------
+
+4:00 ~ 4:50
+
+void selectItem() {}
+
+execute(), executeQuery(), executeUpdate() 차이점
+https://lecafecreme.tistory.com/24
+----------------------------------------------------
