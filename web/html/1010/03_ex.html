@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h, p 예제</title>
+    <style>
+
+        * {
+            /* 기본 여백(바깥여백, 안쪽여백, 옵션) 제거 */
+            /* reset.css */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        p {
+            /* 기본크기는 16px = 1rem */
+            font-size: 20px;
+            line-height: 30px;
+
+            /* 현재 줄간격의 1.5배 */
+            line-height: 1.5;
+
+            /* 균등정렬 */
+            text-align: justify;
+
+
+            margin-top: 50px;
+        }
+
+        div {
+            width: 50%;
+
+            padding: 20px 20px 20px 20px;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- target="_blank" : 새창으로 띄우기 -->
+        <a href="http://www.koreaitjob.co.kr" target="_blank">
+            <h1>코리아IT아카데미에서는</h1>
+        </a>
+        
+        <h2>누구든지 IT전문가가 될 수 있습니다.</h2>
+
+        <!-- 의미없는 더미텍스트 만들기 lorem숫자 -->
+        <!-- ex) lorem50 -> 50글자 만들기 -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsam maiores tempore similique cum, quam dolorem fugiat itaque, modi possimus quod quos molestias inventore quasi explicabo minus odit laborum magni fuga dolorum commodi debitis voluptatum iure? Quas, provident? Asperiores, ratione.
+        </p>  
+    </div>
+
+
+</body>
+</html>

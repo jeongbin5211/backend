@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 페이지에 이미지 넣기</title>
+
+    <style>
+        img {
+            /* border-radius: 50%; */
+            border-radius: 5px;
+        }
+
+        /* hover */
+        img:hover {
+            /* 마우스 hover시 사진 확대 */
+            transform: scale(1.5); 
+
+            /* 마우스 hover시 사진이 커지는 속도 조절 */
+            transition: 1s;
+
+            /* 이미지 회전 */
+            transform: rotate(-180deg);
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            color: red;
+            font-weight: bolder;
+            font-style: italic;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- 
+        절대경로 - c:\, d:\
+        상대경로 : ../../
+    -->
+
+    <!-- 웹 접근성 -->
+    <img src="./images/car.jpg" alt="car" width="100px" title="car2"/>
+
+    사진 jpg : 배경 흰색
+    jpeg : 원본 용량의 1/50로 압축
+    배경투명처리 : png - 사진 또는 로고
+
+    <div>
+        <!-- 이동(하이퍼링크) -->
+        <a href="https://www.naver.com" target="_blank">네이버로 이동</a>
+        <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/">네이버 로그인 페이지</a>
+    </div>
+
+    <br />
+
+    name="userid" : 프로그래밍 이름
+    class="userid" : css 디자인할 때 이름
+    id ="userid" : javascript 작업할 때 이름
+
+    아이디 : <input name="userid" type="text" maxlength="12" ><br>
+    비밀번호 : <input name="password" type="password" maxlength="12" >
+    <button>로그인</button>
+
+</body>
+</html>
