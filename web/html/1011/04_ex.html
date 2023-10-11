@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h, p 예제 2</title>
+    <style>
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        div {
+            
+            width: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            padding: 8px;
+            margin: 20px;
+        }
+
+        span {
+            color: blue;
+        }
+
+        #box1 {
+            background-color: aliceblue;
+        }
+
+        .box2 {
+            background-color: blue;
+        }
+
+        p:first-child {
+            
+        }
+
+        p:last-child {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        p:nth-child(1) {
+
+        }
+
+        p:nth-child(2) {
+
+        }
+
+        .sub {
+            margin-top: 20px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        i {
+            color: tomato;
+            
+        }
+
+        i:hover {
+            color: blue;
+            transition: 2s;
+
+            /* 커서를 손가락모양 */
+            /* a태그는 디폴트 */
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 10px;
+            border: 0;
+            background-color: greenyellow;
+            cursor: pointer;
+            color: azure;
+        }
+
+        button:hover {
+            transition: 0.8s;
+            background-color: green;
+            
+        }
+
+        .c_red {
+            color: red;
+        }
+
+        img {
+            width: 200px;
+            border-radius: 50%;
+        }
+
+        img:hover {
+            transition: 0.8s;
+            transform: rotate(180deg);
+            
+        }
+    </style>
+    <!-- 외부 라이브러리 : html 밖에서 가져온것들 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="box1">
+       a
+    </div>
+    <div class="box2">
+        b
+    </div>
+
+    <p>
+        문장1  
+    </p>
+
+    <div>
+        <h2><i class="fa-solid fa-database"></i><span class="c_red">코리아IT아카데미</span>에서는<br> <span>누구든지 IT전문가가 될 수 있습니다.</span></h2>
+        <img src="../1010/images/car.jpg" alt="car" title="이미지 위에 마우스를 올리면 보이는 글자">
+        <p class="sub">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptates iste, aut omnis magnam accusamus fuga accusantium eius sequi quisquam provident neque veniam nam tenetur sit quo, consectetur asperiores quaerat.
+            <a href="https://www.naver.com" target="_blank">
+                <button>naver</button>
+            </a>
+        </p>
+    </div>
+</body>
+</html>

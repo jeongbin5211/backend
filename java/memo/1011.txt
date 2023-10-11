@@ -1,0 +1,68 @@
+
+9:00 ~ 9:50
+
+Linux - centOS, Ubuntu
+
+
+* Static : 공유(누적)
+
+
+* Singleton : 객체 1개만 생성해서 공유해서 사용
+사용할 때 메모리 주소를 하나로 처리
+
+객체를 여러개 만들 때 : 메모리 주소가 여러개 생김
+Company c1 = new Company();
+Company c2 = new Company();
+
+Singleton 을 만들 때 public 대신 private 사용
+
+insert, select, update, delete -> singleton으로 처리해보기
+
+SingletonEx
+
+------------------------------------------------
+
+10:00 ~ 10:50
+
+회원가입 프로그램
+DB : mydb
+table : member
+Column
+
+create table member(
+id int not null auto_increment primary key,
+email varchar(50) not null,
+passwd varchar(20) not null,
+name varchar(20) not null,
+depart varchar(20),
+position varchar(20),
+salary int,
+startDate date,
+endDate date
+);
+
+singletonEx
+- Member.java
+- MemberDao.java
+- DBConnect.java
+- MemberEx.java
+
+
+
+------------------------------------------------
+
+2:00 ~ 2:50
+
+1. 파일이름.html
+2. ! tab : html 기본 구조를 자동으로 생성 emmet
+3. reset.css : html에서 기본으로 가지고 있는 여백 제거(모든 페이지)
+4. 제목은 h1 ~ h6
+   문장 p
+   부분 또는 특정 단어를 표시할 때 span
+   한 줄 바꿈 br
+5. 글씨체, 아이콘
+   fonts.google.com
+
+   fontawesome cdn
+   fontawesome.com
+
