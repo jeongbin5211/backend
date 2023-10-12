@@ -2,6 +2,7 @@ package singletonEx;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 public class MemberEx {
 
@@ -17,6 +18,8 @@ public class MemberEx {
 		// db.getConnection();
 		
 //		System.out.println(menu);
+		
+		Scanner sc = new Scanner(System.in);
 		
 		boolean run = false;
 		while (!run) {
@@ -52,11 +55,39 @@ public class MemberEx {
 				break;
 				
 			case 4 :
-				dao.deleteMember(0);
+				System.out.println("-------------------------------");
+				System.out.println("4. 회원 삭제");
+				System.out.println("-------------------------------\n");
+				System.out.print("삭제할 번호를 입력해주세요. >> ");
+				int id = sc.nextInt();
+				
+				int delete = dao.deleteMember(id);
+				
+				if (delete > 0) {
+					System.out.println(id + "번 회원을 삭제했습니다.");
+				}else {
+					System.out.println("Fail");
+				}
 				break;
 				
 			case 5 :
-				dao.searchMember(0);
+				System.out.println("-------------------------------");
+				System.out.println("5. 회원 검색");
+				System.out.println("-------------------------------\n");
+				System.out.print("검색할 회원번호를 입력해주세요. >> ");
+				int search = sc.nextInt();
+				
+				Member m = dao.searchMember(search);
+				
+				if (m == null) {
+					System.out.println("검색된 회원이 없습니다.");
+				}else {
+					System.out.println(search + "번 회원정보입니다.");
+					System.out.println(m.toString());
+				}
+				
+				System.out.println("");
+				
 				break;
 				
 			case 6 :

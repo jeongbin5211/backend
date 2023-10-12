@@ -123,21 +123,57 @@ public class MemberDao {
 	// 회원삭제
 	// pk(primary key) 를 통해서 하나만 삭제하니까 int pk 파라미터 사용
 	
-	int deleteMember(int pk) {
-		System.out.println("-------------------------------");
-		System.out.println("4. 회원 삭제");
-		System.out.println("-------------------------------\n");
-		return 0;
+	int deleteMember(int pk) throws SQLException {
+//		System.out.println(pk);
+		
+		conn = db.getConnection();
+		
+		String sql = "delete from member where id = ?";
+		
+		ps = conn.prepareStatement(sql);
+		
+		ps.setInt(1, pk);
+		
+		int row = ps.executeUpdate();
+		
+		return row;
 	}
 	
 	// 회원검색 - 결과가 하나만 나오기때문에 List 안쓰고 Member 사용
 	// pk 검색
 	
-	Member searchMember(int pk) {
-		System.out.println("-------------------------------");
-		System.out.println("5. 회원 검색");
-		System.out.println("-------------------------------\n");
-		return null;
+	Member searchMember(int searchID) throws SQLException {
+
+		conn = db.getConnection();
+		
+		String sql = "select * from member where id = ?";
+		
+		ps = conn.prepareStatement(sql);
+		
+		ps.setInt(1, searchID);
+		
+		rs = ps.executeQuery();
+		
+		// 결과값이 하나이므로 루프 안해도됨
+		
+		Member m = null;
+		
+		if (rs.next()) {
+			m = new Member();
+			
+			m.setId(rs.getInt(1));
+			m.setEmail(rs.getString(2));
+			m.setPasswd(rs.getString(3));
+			m.setName(rs.getString(4));
+			m.setDepart(rs.getString(5));
+			m.setPosition(rs.getString(6));
+			m.setSalary(rs.getInt(7));
+			m.setStartDate(rs.getString(8));
+			m.setEndDate(rs.getString(9));
+			
+		}
+		
+		return m;
 	}
 	
 	// 종료

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제1</title>
+    <link rel="stylesheet" href="../1011/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1920px = 100% */
+        main {
+            width: 1400px;
+            /* width : 1400/1920 * 100 ; */
+            margin: 0 auto;
+            /* background-color: azure; */
+        }
+
+        h2 {
+            /* font-size: 35px; */
+            /* 35/16 => rem */
+            font-size: 2.1875rem;
+        }
+
+        h2, .han, #han {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .han {
+            margin: 10px 0;
+            
+            /* alpha 값 : 투명도 처리 0(투명) ~ 1까지(불투명) */
+            color: rgba(0, 0, 0, 0.5); 
+            font-style: italic;
+            text-decoration: underline;
+            /* 14px */
+            font-size: 0.875rem;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        article {
+            padding: 10px 5px;
+        }
+
+        .contents {
+            color: rgba(0, 0, 0, 0.8);
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .btn {
+            border: none;
+            border: 0;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            font-size: 18px;
+            border: 1px solid #eeeeee;
+            padding: 14px 20px;
+
+            /* 
+            정원 : 50% 
+            타원 : 50px
+            */
+            border-radius: 50px;
+        }
+
+        .btn:hover {
+            background-color: violet;
+            transition: 0.8s;
+            cursor: pointer;
+            color: #ffffff;
+            /* border: 0; */
+            /* border: 1px solid transparent; */
+            border: 1px solid #000;
+        }
+
+        .fa-solid {
+            color: red;
+            cursor: pointer;
+        }
+
+        hr {
+            border: 0;
+            /* color: rgba(0, 0, 0, 0.8); */
+            border-top: 1px solid rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <h2 id="han">유튜버 김용호, 부산 호텔서 숨진 채 발견</h2>
+            <p class="han">기사입력 2023-10-12 14:04:21</p>
+            <p class="contents">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minima, natus debitis aut odit facilis quas velit obcaecati laborum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum distinctio eius itaque praesentium saepe. Libero debitis officiis consectetur, deserunt, quaerat soluta officia corrupti asperiores dolor non nobis quisquam, sapiente tempora. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum aspernatur nihil ad explicabo perspiciatis perferendis, assumenda veniam quae debitis facilis voluptas error voluptates placeat voluptatem ipsum atque? Magni, illo iste!
+                <i class="fa-solid fa-plus"></i>
+            </p>
+            <button class="btn">Continue Reading</button>
+        </article>
+        <hr />
+        <article>
+            <h2 id="han">유튜버 김용호, 부산 호텔서 숨진 채 발견</h2>
+            <p class="han">기사입력 2023-10-12 14:04:21</p>
+            <p class="contents">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minima, natus debitis aut odit facilis quas velit obcaecati laborum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum distinctio eius itaque praesentium saepe. Libero debitis officiis consectetur, deserunt, quaerat soluta officia corrupti asperiores dolor non nobis quisquam, sapiente tempora. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum aspernatur nihil ad explicabo perspiciatis perferendis, assumenda veniam quae debitis facilis voluptas error voluptates placeat voluptatem ipsum atque? Magni, illo iste!
+                <i class="fa-solid fa-plus"></i>
+            </p>
+            <button class="btn">Continue Reading</button>
+        </article>
+    </main>
+</body>
+</html>

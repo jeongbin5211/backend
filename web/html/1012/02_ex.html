@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 강조할 때</title>
+
+    <style>
+        .txt5 > span {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 강조할 내용이 1개일 때 -->
+    진하게 strong <br>
+    이텔릭 em <br>
+    형광펜 mark <br>
+    <p class="txt1"><strong>코리아</strong>아이티 아카데미</p>
+    <p class="txt2"><em>코리아</em>아이티 아카데미</p>
+    <p class="txt3"><mark>코리아</mark>아이티 아카데미</p>
+    <p class="txt4"><mark><strong><em>코리아</em></strong></mark>아이티 아카데미</p>
+    <!-- 진하게 + 빨간 + 밑줄 -->
+    <p class="txt5"><span>코리아</span>아이티 아카데미</p>
+</body>
+</html>
