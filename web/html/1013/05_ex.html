@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul li로 메뉴 만들기</title>
+</head>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+
+    nav {
+        background-color: #eee;
+        width: 1400px;
+        height: 300px;
+
+        /* flex 세로 정렬은 height값이 필요 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    nav ul {
+        /* display: flex; */
+
+        /* left, center, right -> 묶음으로 이동 */
+        /* 
+        li를 분해해서 정렬
+        space-between : 좌우 여백 없이 개체 사이 여백 일정하게
+        space-around : 좌우 여백도 줌
+        */
+        /* justify-content: space-between; */
+    }
+
+    nav ul li {
+        float: left;
+        margin-left: 30px;
+    }
+
+    nav ul li:first-child {
+        margin-left: 0;
+    }
+</style>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Shop</a></li>
+                <li><a href="">Donate</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>

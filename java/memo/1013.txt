@@ -1,0 +1,68 @@
+9:00 ~ 10:50
+
+예외 : 문제가 생기면 적절하게 개발자 조정 가능 Exception
+
+에러 : 개발자가 조정할 수 없다 => JVM
+
+자바(로컬) : 컴파일언어(타입 강형), 하이브리드 언어
+javac 클래스이름.java -> 컴파일됨(JVM 인식) -> 클래스이름.class -> java 클래스이름(실행)
+			Compile				    Runtime
+
+
+웹 언어 : 인터프리터 언어
+
+
+Throwable(최상위)
+ - Exception : 컴파일
+   1. classNotFoundException : Class.forName(디비 또는 서버);
+   2. IOException : 입출력
+   3. FileNotFoundException : 파일이 없는 경우
+   4. InterruptException : 쓰레드
+   5. CloneNotSupportException : clone 객체 사용시
+
+ - Runtime Exception : 실행 단위
+   ArimetricException : 나누기 예외
+   ArrayIndexOutBoundE~ : 배열 범위 예외
+   NullPointEx~ : 
+
+-------------------------------------------------------------------
+
+11:00 ~ 11;50
+
+사용자 아이디, 체크(exception)
+Exception 상속(extends or interface) 받아서 생성자를 이용해서 예외 클래스 작성
+
+UseridCheck.java
+
+-------------------------------------------------------------------
+
+12:00 ~ 12:50
+
+LoginEx
+
+------------------------------------------------------------------
+
+2:00 ~ 3:50
+
+01_ex.html
+02
+03
+
+배경색 설정 후
+ - 인라인 : a, form, table, img, span
+
+
+
+------------------------------------------------------------------
+
+4:00 ~ 4:50
+
+04_ex.html
+
+ul, li
+
+ol
+
+
+
+
