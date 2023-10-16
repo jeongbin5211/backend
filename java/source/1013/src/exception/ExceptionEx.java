@@ -9,7 +9,7 @@ public class ExceptionEx {
 	public static void main(String[] args) {
 		/* 
 		  - Exception : 컴파일
-		   1. classNotFoundException : Class.forName(디비 또는 서버);
+		   1. ClassNotFoundException : Class.forName(디비 또는 서버);
 		   2. IOException : 입출력
 		   3. FileNotFoundException : 파일이 없는 경우
 		   4. InterruptException : 쓰레드

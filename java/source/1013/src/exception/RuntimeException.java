@@ -11,7 +11,7 @@ public class RuntimeException {
 		NullPointEx~
 		*/
 		
-		// ArumetricException
+		// ArimetricException
 		
 //		try {
 //		
