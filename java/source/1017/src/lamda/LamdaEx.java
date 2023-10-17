@@ -1,18 +1,18 @@
 package lamda;
 
 // disp()
-interface MyLamda {
+interface MyLambda {
 	void disp();
 }
 
 // 람다식으로 화면 출력(sysout)
-public class LamdaEx {
+public class LambdaEx {
 
 	public static void main(String[] args) {
 		
-//		MyLamda m = new MyLamda(); // 생성자 사용 안됨
+//		MyLambda m = new MyLamda(); // 생성자 사용 안됨
 		
-		// 화살표 함수 뒤에 중관호는 출력 내용이 한줄일 때는 생략 가능합니다.
+		// 화살표 함수 뒤에 중괄호는 출력 내용이 한줄일 때는 생략 가능합니다.
 		
 //		MyLamda m = disp() -> {}; // 익명함수 처리하기
 		MyLamda m = () -> {
