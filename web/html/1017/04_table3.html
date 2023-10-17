@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 3줄 2칸으로 주소 입력 받는 테이블 구성하기 -->
+    <table border="1" style="width: 800px; height: 200px;">
+        <tr>
+            <td rowspan="3">주소</td>
+            <td>우편번호</td>
+        </tr>
+        <tr>
+            <!-- <td>3</td> -->
+            <td>주소1</td>
+        </tr>
+        <tr>
+            <!-- <td>5</td> -->
+            <td>상세주소</td>
+        </tr>
+    </table>
+    
+    <br><br>
+
+    <!-- 등록된 게시물이 있으면 -->
+
+    <table border="1" style="width: 800px;">
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>작성일</td>
+            <td>조회수</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>공지사항입니다.</td>
+            <td>2023.10.23</td>
+            <td>10</td>
+        </tr>
+    </table>
+
+    <br><br>
+    
+    <!-- 등록된 게시물이 없으면 -->
+
+    <table border="1" style="width: 800px;">
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>작성일</td>
+            <td>조회수</td>
+        </tr>
+        <tr>
+            <td colspan="4">등록된 게시물이 없습니다.</td>
+            <!-- <td>공지사항입니다.</td>
+            <td>2023.10.23</td>
+            <td >10</td> -->
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -42,4 +42,5 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
     <fullyQualifiedTypeName name="exception.UseridCheckException"/>
+    <fullyQualifiedTypeName name="lamda.ConcatStrImpl"/>
 </qualifiedTypeNameHistroy>

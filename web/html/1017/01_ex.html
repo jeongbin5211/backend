@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 100px 100px;
+        }
+
+        a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        ul li,
+        ol li,
+        dl dt {
+            list-style: none;
+        }
+
+        /* 
+        ol li {
+            list-style: none;
+        } */
+
+        /* 
+            flex : 반응형 사이트 : 1개의 도메인(주소)로 여러 디바이스에서 
+            도메인이 다르면 반응형 사이트가 아님
+
+            메뉴 만드는 방법 : 3가지
+            1. display: flex; => 부모에 flex 설정
+            2. float : left; => 자식에 float
+            3. display: inline-block; => 자식에 inline-block
+            4. 인라인 타입 : a, span : 넓이 높이, 여백 지정에 문제가 생길수 있음
+        */
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        ol li {
+            float: left;
+            /* clear: both; */
+        }
+
+        dl dt {
+            display: inline-block;
+        }
+
+        a:hover {
+            color: white;
+            transition: 0.5s;
+        }
+
+        ul li {
+            background-color: pink;
+            padding: 4px 8px;
+            border-radius: 10px;
+        }
+
+        ul li:hover {
+            background-color: blue;
+            transition: 0.5s;
+        }
+
+        ul li a {
+            /*
+            메뉴 글자 크기는 보통 14px
+            단 유틸리티 메뉴는 12px
+            */
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="">menu1</a></li>
+        <li><a href="">menu2</a></li>
+        <li><a href="">menu3</a></li>
+    </ul>
+
+    <br><br>
+
+    <ol>
+        <li><a href="">menu1</a></li>
+        <li><a href="">menu2</a></li>
+        <li><a href="">menu3</a></li>
+    </ol>
+
+    <br><br>
+
+    <dl>
+        <dt><a href="">menu1</a></dt>
+        <dt><a href="">menu2</a></dt>
+        <dt><a href="">menu3</a></dt>
+    </dl>
+
+</body>
+</html>
