@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        nav {
+            display: flex;
+            width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .nav-left a {
+            font-weight: bold;
+            margin-right: 50px;
+            font-size: 18px;          
+        }
+
+        .nav-left a:hover {
+            text-decoration: underline;
+            color: skyblue;
+        }
+
+        .nav-right span {
+            font-weight: bold;
+        }
+
+        .nav-right .tel2 {
+            font-size: 20px;
+            color: blue;
+        }
+
+        .img-box {
+            width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            transition: 0.4s;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.2);
+            /* transform: rotate(180deg); */
+            transition: 1s;
+            
+        }
+
+        .notice {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .notice .notice-title {
+            text-align: center;
+        }
+
+        .notice .notice-title h1 {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .notice .notice-title p {
+            margin-bottom: 40px;
+        }
+
+        .notice-table table {
+            width: 1200px;
+            height: 100px;
+            border-top: 3px solid #000;
+            
+        }
+
+        .notice-table table tr, td {
+            border-bottom: 1px solid #ccc;
+            padding: 22px 0;
+        }
+
+        .notice-table table th {
+            background-color: #f3f7fb;
+            padding: 22px 0;
+        }
+
+        .notice-table table td:nth-child(1) {
+            width: 8%;
+            text-align: center;
+            
+        }
+
+        .notice-table table td:nth-child(2) {
+            width: 72%;
+            padding-left: 50px;
+        }
+
+        .notice-table table td:nth-child(3) {
+            width: 12%;
+            text-align: center;
+        }
+
+        .notice-table table td:nth-child(4) {
+            width: 8%;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <hr />
+    <nav>
+        <div class="nav-left">
+            <a href="">아카데미 소개</a>
+            <a href="">IT 교육과정</a>
+            <a href="">자격증 취득과정</a>
+            <a href="">국비지원 과정</a>
+            <a href="">커뮤니티</a>
+        </div>
+        <div class="nav-right">
+            <span class="tel1">대표전화</span>
+            <span class="tel2">1588-5890</span>
+        </div>
+    </nav>
+    <hr />
+
+    <main>
+        <section class="bg-img">
+            <div class="img-box">
+                <img src="./images/notice.jpg" alt="notice">
+            </div>
+        </section>
+        <section class="notice">
+            <div class="notice-title">
+                <h1>공지사항</h1>
+                <p>코리아아이티 아카데미 공지사항</p>
+            </div>
+            <div class="notice-table">
+                <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            공지사항 테스트입니다.
+                        </td>
+                        <td>2023-10-18</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="">국비지원 공지사항</a></td>
+                        <td>2023-10-19</td>
+                        <td>12</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+9:00 ~ 9:50
+
+1. 오늘 : thread
+2. 내일 : 필기 + 실기
+3. db + html,css,js
+4. 11월 말 : db + web + spring
+
+
+thread
+
+ThreadEx.java
+
+-------------------------------------------
+
+10:00 ~ 10:50
+
+1. extends Thread 상속
+2. implements Runnable > Thread 객체에 주입해서 사용
+ -> 오버라이드 run(); - 작업
+ -> start(); 스레드가 동작
+
+----------------------------------------------------
+
+11:00 ~ 11:50
+
+ThreadEx4.java
+
+----------------------------------------------------
+
+12:00 ~ 12:50
+
+Thread를 이용해서 익명함수로 처리 : 필요에 의해서 한번
+- run() 메소드를 익명함수로 처리
+- start();
+
+Thread t1 = new Thread(익명함수);
+
+Thread t1 = new Thread(new Runnable());
+
+ThreadEx5.java
+
+----------------------------------------------------
+
+2:00 ~ 2:50
+
+폰트, 폰트어썸 (a1, fontawesome cdn)
+기본스타일 제거
+unsplash.com -> raw(5000px)
+notice
+
+main > section > article
+
+
+
+
+
+
+
+
+
