@@ -1,0 +1,41 @@
+section {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: red;
+}
+
+.sec-content {
+
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap : 넘치는건 줄바꿈 */
+    flex-wrap: wrap;
+}
+
+.img-box {
+    /* width: 400px; */
+    /* flex-basis: 290px;
+    border-radius: 30px;
+    overflow: hidden; */
+}
+
+.img-box {
+    width: 290px;
+
+    /* flex에서 사용하는 여백을 주는 태그 */
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.img-box img {
+    transition: 0.5s;
+}
+
+.img-box img:hover {
+    transform: scale(1.2);
+    transition: 0.8s;
+    cursor: pointer;
+}

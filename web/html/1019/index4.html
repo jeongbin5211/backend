@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인/회원가입</title>
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        /* position 페이지 위를 떠서 이동 */
+        /* 상자를 정가운데 배치하기 */
+        main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 만드는 상자의 반만큼 왼쪽으로, 상자의 반만큼 위로 이동 */
+            transform: translate(-50%, -50%);
+        }
+
+        .login_box {
+            width: 350px;
+            height: 200px;
+            background-color: #fff;
+            box-shadow: 0 0 5px #000;
+
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            
+        }
+
+        .login_box a {
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <div class="login_box">
+            <p><a href="login.html">로그인</a></p>
+            <p><a href="register.html">회원가입</a></p>
+        </div>
+    </main>
+    
+</body>
+</html>
