@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 예제</title>
+    <link rel="stylesheet" href="../1019/css/reset.css">
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        form {
+            width: 300px;
+            /* background-color: red; */
+            background-color: #fff;
+            padding: 10px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            box-shadow: 0 0 10px 2px  #9c9b9b;
+            /*          앞 두개는 그림자 방향 번지는정도 진하게 */
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input {
+            border: 0;
+            border: 1px solid #e7e7e7;
+            padding: 6px 8px;
+            outline: 0;
+            font-size: 14px;
+        }
+
+        input:focus {
+            background-color: red;
+            font-size: 14px;
+        }
+
+        ul li * {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <!-- 
+        1. method => 전송 방식(post, get)
+        (1) get : 속도 우선, 보안 x, 길이 제한 x -> 검색할 때 주로 이용
+        (2) post : 안전하게 데이터 처리, 길이 제한 
+
+        2. 정보 입력 => 어디 페이지로 이동해서 처리를 할 것인가
+        3. enctype : 첨부파일
+        4. id : 일반적으로 자바스크립트 작업
+        5. class : 자바스크립트 또는 디자인
+
+        button
+        1. type = submit -> ( Enter, Click 둘다 동작됨)
+        2. type = button -> ( Click 만 동작됨 )
+
+        input radio -> name이 서로 다르면 중복체크됨
+    -->
+    <form method="post" action="login_save" enctype="multipart/form-data" id="" class="">
+
+    </form>
+
+    <form name="frm" method="post">
+        <h3>로그인</h3>
+        <ul>
+            <li>
+                <label>아이디</label>
+                <input type="text" name="userid" class="userid" placeholder="아이디를 입력하세요.">
+            </li>
+            <li>
+                <label>비밀번호</label>
+                <input type="password" name="userpw" class="userpw" placeholder="비밀번호를 입력하세요." >
+
+                
+                <!-- require -->
+            </li>
+            <li>
+                <label>비밀번호 체크</label>
+                <input type="password" name="userpw2" class="userpw2" placeholder="비밀번호를 확인하세요." >
+            </li>
+            <!-- <li>
+                <label>성별</label>
+                <input type="radio" name="gender" class="gender" checked>남자
+                <input type="radio" name="gender" class="gender">여자
+            </li>
+            <li>
+                <label>취미</label>
+                <input type="checkbox" name="hobby" class="hobby">등산
+                <input type="checkbox" name="hobby" class="hobby" checked>낚시
+                <input type="checkbox" name="hobby" class="hobby" checked>독서
+            </li> -->
+
+            <li>
+                <input type="submit" value="로그인" class="btn">
+            </li>
+        </ul>
+
+        
+
+        
+    </form>
+<script>
+
+    function frmCheck(e) {
+        // alert("버튼이 눌러졌습니다.");
+        // userid input의 값을 가져옴
+        // document.querySelector(".userid").value;
+        
+        // 버튼 또는 a태그가 가지고 있는 이동하려는 기본 속성을 없애는 태그
+        e.preventDefault();
+
+        let userid = document.querySelector(".userid");
+        let userpw = document.querySelector(".userpw");
+        let userpw2 = document.querySelector(".userpw2");
+
+        if ( document.querySelector(".userid").value == "" ) {
+            
+            alert("아이디를 입력하세요.");
+            document.querySelector(".userid").focus();
+            return false;
+        }
+
+        
+
+        if ( !userpw.value) {
+            alert("비밀번호를 입력하세요.");
+            userpw.focus();
+            return false;
+        }
+
+        if ( userpw.value != userpw2.value) {
+            alert("비밀번호가 일치하지 않습니다. 확인하세요.");
+            userpw.value = "";
+            userpw2.value = "";
+            userpw.focus();
+            return false;
+        }
+
+    }
+
+    document.querySelector(".btn").onclick = frmCheck
+</script>
+</body>
+</html>

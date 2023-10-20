@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usemap을 이용하여 이미지 분할 링크하기</title>
+</head>
+<body>
+        <img src="./images/m.png" alt="잡지 이미지" usemap="#magazine">
+
+        <map name="magazine">
+            <area shape="rect" coords="22, 38, 200, 277" href="https://www.naver.com" target="_blank" alt="네이버">
+            <area shape="rect" coords="205,38, 380, 278" href="https://www.daum.net" target="_blank" alt="다음">
+        </map>
+
+        <img src="./images/m2.png" alt="지도" usemap="#map">
+
+        <map name="map">
+            <area shape="rect" coords="120, 110, 340, 360" href="http://www.koreaitjob.co.kr" alt="코리아아이티 아카데미" target="_blank">
+        </map>
+</body>
+</html>
