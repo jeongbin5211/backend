@@ -58,7 +58,7 @@
         (2) post : 안전하게 데이터 처리, 길이 제한 
 
         2. 정보 입력 => 어디 페이지로 이동해서 처리를 할 것인가
-        3. enctype : 첨부파일
+        3. enctype : 첨부파일 (post 일 경우에만 사용가능)
         4. id : 일반적으로 자바스크립트 작업
         5. class : 자바스크립트 또는 디자인
 
@@ -106,10 +106,6 @@
                 <input type="submit" value="로그인" class="btn">
             </li>
         </ul>
-
-        
-
-        
     </form>
 <script>
 
@@ -118,7 +114,7 @@
         // userid input의 값을 가져옴
         // document.querySelector(".userid").value;
         
-        // 버튼 또는 a태그가 가지고 있는 이동하려는 기본 속성을 없애는 태그
+        // 버튼 또는 a태그가 가지고 있는 이동하려는 기본 속성을 없앰
         e.preventDefault();
 
         let userid = document.querySelector(".userid");
