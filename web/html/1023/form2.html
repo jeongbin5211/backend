@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form input</title>
+    <style>
+        input::placeholder {
+            color: red;
+            font-style: italic;
+        }
+
+        input[type='submit'] {
+            background-color: red;
+            color: white;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <form>
+        <!-- required = 필수 -->
+        <!-- <label>검색어 입력</label>
+        <input type="text" required><br>
+        <input type="number" min="0" max="10"><br>
+        <input type="search"><br>
+        <input type="password"><br>
+        <input type="date"><br>
+        <input type="email" required><br>
+        <input type="submit" value="확인"> -->
+
+        <ul>
+            <li>
+                <label>검색어</label>
+                <input 
+                placeholder="검색어를 입력하세요"
+                maxlength="10" 
+                type="text" 
+                name="search" 
+                class="search" 
+                id="search"
+                required
+                value="koreait" >
+            </li>
+            <input class="btn" type="submit" value="검색"><br>
+            <!-- <button type="submit">search</button> -->
+        </ul>
+    </form>
+    <script>
+        let search = document.querySelector(".search");
+        let btn = document.querySelector(".btn");
+
+        function check() {
+            // alert(document.querySelector("input[type = text]").value);
+            // alert(document.querySelector("input[name = search]").value);
+            // alert(document.querySelector(".search").value);
+            // alert(document.querySelector("#search").value);
+
+            
+            alert(search.value);
+            
+        }
+
+        // document.querySelector(".btn").onclick = check;
+
+        // btn.onclick = function () {
+        //     alert(search.value);
+        // }
+
+        btn.onclick = () => {
+            alert(search.value);
+        }
+        
+
+        document.querySelector("input[type = text]").value;
+    </script>
+</body>
+</html>

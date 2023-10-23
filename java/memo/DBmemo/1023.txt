@@ -1,0 +1,221 @@
+시험은 실기형만 침
+
+형상관리시스템 : 버전 관리
+git: 지옥에서 온 git
+
+1. 시험 : 4문제 3문제 3문제 1문제
+
+2. 마지막 문제는 백업하기
+
+-----------------------------------------------------------
+
+9:00 ~ 9:50
+
+1. 데이터베이스 백업
+백업(mysqldump) <-> 복원(mysql)
+저장할 때 확장자명 : 20231023_koreait.dump 또는 20231023_koreait.sql
+
+백업할 때 exit로 mysql 나가서 해야함
+
+20231023_koreait.tar.gz
+
+mysqldump -u아이디 -p 디비전체 > 20231023_grp.dump
+mysqldump -u아이디 -p 디비 테이블 > 20231023_grp.dump
+
+백업파일을 컴퓨터로 복원하기
+mysql -uroot -p 디비 < 20231023_grp.dump
+mysql -uroot -p 디비 테이블 < 20231023_grp.dump
+
+액세스 에러 : 권한없을때 발생
+
+---------------------------------------------------------------
+
+10:00 ~ 10:50
+
+워크벤치로 백업하기
+
+Data Export
+Data import
+C:\temp\20231023_shopdb.dump
+
+DDL
+create, drop, alter
+
+alter는 workbench 편리
+
+테이블 우클릭 -> alter table
+
+shopdb table 삭제후 다시만들기
+
+drop table if exists employees;
+
+create table employees(
+emp_id int not null auto_increment,
+emp_name varchar(20),
+emp_salary int,
+primary key(emp_id)
+); 
+
+insert into employees values(null, '홍길동', 1000000);
+insert into employees(emp_id, emp_name, emp_salary) values(null, '이영희', 2000000);
+
+not null은 필수
+insert into employees(emp_id) values(null);
+
+insert into employees values(null, '부산', 300), (null, '서울', 400), (null, '광주', 500);
+
+select * from employees where emp_name is null;
+
+select * from employees where emp_name is not null;
+
+select * from employees where emp_salary >= 300;
+
+select count(*) from employees where emp_salary >= 300;
+
+select count(*) as 사원수 from employees where emp_salary >= 300;
+
+select count(*) as '사원 수' from employees where emp_salary >= 300;
+
+집계함수 : 결과가 하나 => count(), max(), min(), sum(), avg(), distinct()
+distinct(컬럼명), distinct 컬럼명 : 중복 제거
+
+  + group by + having 조건 
+
+select sum(emp_salary) as '급여합계' from employees where emp_salary >= 300;
+
+select max(emp_salary) as '급여 1등' from employees where emp_salary >= 300;
+
+select min(emp_salary) as '급여 꼴등' from employees where emp_salary >= 300;
+
+----------------------------------------------------------
+
+11:00 ~ 11:50
+
+번호, 아이디, 이름, 비번, 성별, 자기소개(text), 가입일
+
+성별 :     남자, 여자
+	M, F
+	Man, Woman
+
+create table member(
+mem_id int not null auto_increment,
+mem_name varchar(10) not null,
+mem_pwd varchar(20) not null,
+mem_gender char(1) not null,
+mem_intro text,
+mem_regdate date,
+primary key(mem_id)
+);
+
+insert into member values(null, '홍길동', '1234', 'M', '자기소개1', now());
+insert into member values(null, '홍길동', '5678', 'M', '자기소개2', now());
+insert into member values(null, '이영희', '0000', 'F', '자기소개3', curdate());
+
+insert into member values(null, '김이박', '8888', 'M', '자기소개4', '2023-01-01');
+
+update member set mem_name = '홍길동' where mem_name = '김철수';
+
+select * from member;
+
+중복제거
+select distinct(mem_name) from member;
+
+insert into member values(null, '김이박', '8888', 'M', '자기소개4', now() + 1);
+
+2023년 01월 01 ~ 2023년 12월 31일에 입사한 사원의 이름과 날짜를 출력하세요.
+
+select mem_name, mem_regdate from member where mem_regdate >= '2023-01-01' and mem_regdate <= '2023-12-31';
+
+2023년 01월 01 ~ 2023년 12월 31일에 입사한 사원의 수를 출력하세요.
+
+select count(*) as '사원수' from member where mem_regdate >= '2023-01-01' and mem_regdate <= '2023-12-31';
+
+성별이 남자인 사람의 아이디와 성별을 출력하세요.
+
+select mem_id, mem_gender from member where mem_gender = 'M';
+
+성별이 남자인 사람의 수를 출력하되 컬럼명은 회원(남자)로 출력하세요.
+
+select count(*) as '회원(남자)' from member where mem_gender = 'M';
+
+
+ = 홍길동        %코리아아이티%
+일치 조건 <-> 유사 검색
+
+입사일이 2023년 01월 01 ~ 2023년 12월 31일인 사람의 수를 출력하세요.
+
+select count(*) from member where mem_regdate >= '2023-01-01' and mem_regdate <= '2023-12-31';
+
+// 컬럼명 between A and B
+입사일이 2023년 01월 01 ~ 2023년 12월 31일인 사람의 수를 출력하세요.(속도O)
+
+select count(*) from member where mem_regdate between '2023-01-01' and '2023-12-31';
+
+-----------------------------------------------------------
+
+12:00 ~ 12:50
+
+AND 연산 : 이고, 이면서 - 조건을 모두 만족
+OR 연산 : 이거나, 또는 - 조건 중 하나만 만족
+
+
+성별이 여자인 사람의 이름과 성별을 출력하세요.
+select mem_name, mem_gender from member where mem_gender = 'F';
+
+OR 연산
+성별이 남자이거나 여자인 사람의 이름과 성별을 출력하세요.
+select mem_name, mem_gender from member where mem_gender = 'M' or mem_gender = 'F';
+
+OR연산 : 컬럼명 IN(값1, 값2, 값3)
+성별이 남자이거나 여자인 사람의 이름과 성별을 출력하세요.
+select mem_name, mem_gender from member where mem_gender IN ('M', 'F');
+
+
+유사어 검색 : _, %
+_ : 글자 한 글자
+% : 글자 수 제한 없음
+
+컬럼명 LIKE '%검색어%'
+
+컬럼명 LIKE '%검색어'
+컬럼명 LIKE '검색어%'
+
+mem_name, mem_intro
+이름이 홍으로 시작하는 사람을 출력하세요.
+
+select * from member where mem_name LIKE '홍%'; // 홍 다음에는 뭐가오든 출력해주세요.
+
+
+이름이 홍으로 시작하는 사람의 수를 출력하세요
+
+select count(*) as '홍으로 검색된 회원수' from member where mem_name LIKE '%홍%';
+
+mem_intro 컬럼에 자기소개가 포함되어 있는 회원의 회원번호와 이름 성별을 출력하세요.
+select mem_id, mem_name, mem_gender from member where mem_intro like '%자기소개%'
+
+mem_intro 컬럼에 자기소개가 포함되어 있는 회원의 회원번호와 이름 성별을 출력하세요.
+(단, 이름의 오름차순으로 정렬하세요.)
+
+조건 + 정렬 + LIMIT
+
+select mem_id, mem_name, mem_gender from member where mem_intro like '%자기소개%' order by mem_name asc;
+
+내림차순 desc
+
+select mem_id, mem_name, mem_gender from member where mem_intro like '%자기소개%' order by mem_name desc;
+
+
+mem_intro 컬럼에 자기소개가 포함되어있는 회원 정보 전부를 출력하세요.
+(단, 이름의 내림차순으로 출력하되 최근 2개만 출력하세요.)
+
+select * from member where mem_intro like '%자기소개%' order by mem_name desc limit 0, 2;
+select * from member where mem_intro like '%자기소개%' order by mem_name desc limit 2;
+
+
+검색어 : <input type="text" name="search">에서 search 검색
+
+select * from member where mem_intro like '%search%' order by mem_name desc limit 2;
+
+
+
+

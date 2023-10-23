@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form input</title>
+</head>
+<body>
+    <form action="" name="frm">
+        <fieldset>
+            <legend>회원가입</legend>
+            <ul>
+                <li>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email">
+                </li>
+                <li>
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password">
+                </li>
+                <li>
+                    <label for="grade">접속등급</label>
+                    <input type="radio" name="grade" id="grade" value="Member" checked>회원
+                    <input type="radio" name="grade" id="grade" value="Guest">비회원
+                </li>
+                <li>
+                    <button type="submit" class="btn">회원가입</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+
+    <script>
+        let email = document.querySelector("#email");
+        let btn = document.querySelector(".btn");
+
+        btn.onclick = (e) => {
+            // 버튼 속성이 가지고 있는 다음으로 넘어가려는 속성을 멈춤
+            e.preventDefault();
+
+            // if(email.value == "") {
+            //     alert("이메일을 입력해주세요.");
+            //     email.focus();
+            //     return false;
+            // }
+
+            // if (email.value.length < 5) {
+            //     alert("이메일 형식이 너무 짧습니다.");
+            //     email.value = "";
+            //     email.focus();
+            //     return false;
+            // }
+
+            // let grade = document.frm.grade[1].value;
+            // console.log(grade);
+
+            // console.log(document.frm.grade.length);
+
+            let frm = document.frm;
+
+            for (let i = 0; i < grade.length; i++) {
+                // console.log(frm.grade[i].value);
+                // console.log(frm.grade[i].checked);
+                if (frm.grade[i].checked) {
+                    // console.log(frm.grade[i].value + "가 선택되었습니다.");
+                    console.log(`${frm.grade[i].value}가 선택되었습니다.`);
+                }
+                
+            }
+        };
+    </script>
+</body>
+</html>
