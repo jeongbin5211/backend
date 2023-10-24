@@ -29,13 +29,7 @@
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Result"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -45,4 +39,10 @@
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
