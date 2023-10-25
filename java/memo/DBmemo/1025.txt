@@ -1,0 +1,231 @@
+
+9:00 ~ 9:50
+
+1. 자격증
+ - 정보처리기능사 과정형 자격증 취득(실기)
+    JAVA, TOMCAT, JSP, Eclipse, Oracle
+
+ - 검정형(실기)
+    필기, 실기
+
+2. 취업
+ - Java, Spring Boot(내장형 톰캣 서버), Thymeleaf, Mysql
+
+리눅스 마스터
+
+
+
+heidisql.com
+GUI 환경에서 데이터베이스를 관리하는 툴
+
+1. 개발 프로그램(groupware -> grpdb -> 테이블)
+ (1) View 구성(html, css, js)
+ (2) form 으로 구성되어있는 view -> db 생성 -> 테이블 생성
+ (3) 테이블 확인 후 객체 생성
+ (4) Spring에서 환경 설정 후 작업
+
+2. employees 테이블 생성
+
+use grpdb;
+
+create table employees(
+emp_id int not null auto_increment,
+emp_name varchar(5) not null,
+emp_salary int(4) not null,
+emp_hire date,
+primary key(emp_id)
+)auto_increment = 100;
+
+테이블 구조 확인 : describe(desc) employees;
+
+insert into employees values(null, '홍길동', 5, now()), (null, '허정빈', 6, now()), (null, '김철수', 10, now());
+
+select ~ where ~ order by ~ limit
+asc 오름
+desc 내림
+
+select * from employees order by emp_id desc;
+
+집계함수는 결과가 하나만 출력됨 - order by, limit 사용x
+count, distinct, sum, avg, max, min
+
+select count(*) as '사원수' from employees;
+select count(*) as total from employees;
+
+select sum(emp_salary) as '급여의총합' from employees;
+
+---------------------------------------------------------------
+
+10:00 ~ 10:50
+
+이름과 급여만을 출력하세요.(단, 이름의 오름차순으로 정렬하세요.)
+
+select emp_name, emp_salary from employees order by emp_name asc;
+
+회원번호, 이름, 입사일을 출력하세요.
+단, 입사일이 2023년 01월 01일 이후에 입사한 사원만 출력하세요>
+
+select emp_id, emp_name, emp_hire from employees where emp_hire >= '2023-01-01';
+
+
+select count(*) as '검색된 회원수' from employees where emp_hire >= '2023-01-01';
+
+2022 ~ 2023년에 입사한 직원의 수를 구하세요.
+
+AND(컬럼 여러개)
+select count(*) from employees where emp_hire >= '2022-01-01' and emp_hire <= '2023-12-31';
+select count(*) as '2023년에 입사한 직원의 수' from employees where emp_hire >= '2023-01-01' and emp_hire <= '2023-12-31';
+
+2023년에 입사한 직원의 이름을 출력하세요.
+컬럼명 Between 조건1 AND 조건2;
+select emp_name from employees where emp_hire between '2023-01-01' and '2023-12-31';
+
+
+2023년에 입사한 직원의 이름을 출력하세요. 
+단, 이름을 기준으로 내림차순으로 정렬하세요.
+
+select emp_name from employees where emp_hire between '2023-01-01' and '2023-12-31' order by emp_name desc;
+
+
+2023년에 입사한 직원의 이름을 출력하세요. 
+단, 이름을 기준으로 오름차순으로 정렬하세요.
+
+select emp_name from employees where emp_hire between '2023-01-01' and '2023-12-31' order by emp_name asc;
+
+-------------------------------------------------------------
+
+11:00 ~ 11:50
+
+데이터와 데이터를 연결
+
+
+concat(데이터1, 데이터2)
+
+연습 출력
+select concat('010', '1234', '5678);
+
+select concat('010', '-', '1234', '-', '5678') as 'tel';
+
+create table member(
+tel1 010,
+tel2 1234,
+tel3 5678
+);
+
+select concat(tel1, '-', tel2, '-', tel3) as 'tel'
+
+
+100 홍길동 출력하기
+
+select concat(emp_id, emp_name) from employees;
+
+select concat(emp_id, ' ', emp_name) from employees;
+
+select concat(emp_id, ' ', emp_name) as info from employees;
+sout(info)
+
+select concat(emp_id, '=>', emp_name) from employees;
+
+select concat(emp_id, '=>', emp_name) as '사원정보 출력' from employees;
+
+select * from employees;
+result = emp_id + " " + emp_name
+sysout(result)
+
+*단위(백만원)
+급여가 천만원 이상인 직원의 사번과 이름을 출력하세요.
+
+select emp_id, emp_name from employees where emp_salary >= 10;
+
+일치
+사번이 101이고 이름이 홍길동인 사람의 사원정보를 출력하세요.
+
+select * from employees where emp_id = 101 and emp_name = '홍길동'; 
+
+유사 : where 컬럼명 like '%검색어%'
+이름에 '철'이 포함되어 있는 사람의 이름을 출력하세요.
+select emp_name from employees where emp_name like '%철%';
+
+성이 '김'인 사람을 출력하세요.
+select emp_name from employees where emp_name like '김%';
+
+성이 '김'인 사람은 몇명입니까.
+select count(*) as '김씨 직원수' from employees where emp_name like '김%';
+
+concat(count(*), '명')
+
+select concat(count(*), '명') as '김씨 직원수' from employees where emp_name like '김%';
+
+concat('검색된 회원은 ', count(*), '명')
+select concat('검색된 회원은 ', count(*), '명') from employees where emp_name like '김%';
+
+---------------------------------------------------------
+
+12:00 ~ 12:50
+
+사원을 아이디의 내림차순으로 정렬하고 최근에 입사한 2명만 출력하세요.
+
+select * from employees order by emp_id desc limit 2;
+=
+select * from employees order by emp id desc limit 0, 2;
+
+LIMIT 배열시작번호, 개수
+
+사원을 아이디의 내림차순으로 정렬하고 입사일이 제일 오래된 회원 2명을 출력하세요.
+select * from employees order by emp_id desc limit 1, 2;
+
+현대차(3), 기아(2), 쌍용차(1)
+SELECT 회사명, 집계함수 FROM car
+Group BY 회사명;
+
+create table car(
+company varchar(20) not null,
+car_name varchar(20) not null
+);
+
+insert into car values('현대차', '아반떼'), ('현대차', '소나타'), ('현대차', '제네시스');
+
+insert into car values('기아', '모닝'), ('기아', 'K3'), ('기아', 'K5'), ('기아', 'K7'), ('기아', 'K9');
+
+insert into car values('쌍용차', '렉스턴'), ('쌍용차', '티블리');
+
+select count(*) as '등록된 전체 차종의 수' from car;
+
+현대차(3), 기아(2), 쌍용차(1)
+
+select company, count(*) from car; -> 오류발생 (group by 요구)
+
+select company, count(*) as cnt from car group by company; -> 집계함수는 자바스크립트에서 사용할 수 없음
+						     -> 따라서 as 를 사용해서 이름을 바꿔줘야함
+
+group by 에서 조건은 where 대신 having 사용
+
+요약된 회사의 차량 개수가 5보다 큰 것만 표시하세요.
+group by 일반컬럼 having 집계함수;
+
+select company, count(*) as 'cnt' from car group by company having count(*) >= 5;
+
+select company, count(*) as 'cnt' from car group by company having count(*) >= 5 order by company limit 1;
+
+select company, count(*) as 'cnt' from car group by company having count(*) >= 5 order by company limit 0, 1;
+
+itemName, 집계함수 => group by
+
+여성의류(112,952)
+남성의류(17,516)
+가방/잡화(13,951)
+
+select itemName, count(*) as itemCount from items group by itemName order by company asc;
+
+-------------------------------------------------------------
+
+2:00 ~ 2:50
+
+05_ex_form.html
+
+onclick(); 
+
+addEventListener();
+
+
+
