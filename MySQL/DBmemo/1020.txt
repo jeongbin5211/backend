@@ -1,0 +1,147 @@
+
+9:00 ~ 9:50
+
+Mysql 데이터베이스
+
+(1) CUI : cmd
+
+(2) GUI : Workbench
+
+mysql Workbench 다운로드
+
+koreait/1234 만들기
+
+DCL : grant(권한 부여), revoke(권한 제거)
+
+서버(관리자 1명 : root) 
+-> 사용할 수 있는 아이디인지 확인
+	show databases;
+	use mysql;
+	show tables;
+	desc user;
+	select host, user from user;
+	
+-> 관리자가 데이터베이스 생성(아이디)	
+	create database koreait;
+
+-> 사용자 계정(root가 만들어줌) : 아이디, 비밀번호
+	create user 아이디@'localhost identified by '비밀번호';
+	create user 아이디@'%'
+
+-> 명령어를 이용해서 생성, 권한설정, 새로고침
+	grant all privileges on 사용할DB이름 to 아이디@'%' with grant option;
+	flush privileges;
+
+	alter user koreait2@'%' identified with mysql_native_password by '1234';
+
+	flush privilege;
+
+---------------------------------------------------------
+
+10:00 ~ 10:50
+
+mysql workbench로 계정만들기
+
+mydb
+
+use test_db;
+
+show tables;
+
+create table member(
+userid varchar(20),
+passwd varchar(20)
+);
+
+insert into member values('koreait', '1234');
+
+select * from member;
+
+
+-------------------------------------------------
+
+11:00 ~ 11:50
+
+root 로 접속
+use mysql;
+select host, user from user;
+
+shopdb/1234
+
+create database shopdb;
+
+create user shopdb@'%' identified by '1234';
+grant all on shopdb.* to shopdb@'%' with grant option;
+flush privileges;
+
+
+
+사용자계정 접속 : 만든 데이터베이스 접근
+
+mysql -ushopdb -p
+
+use shopdb;
+
+create table items(
+item_id int,
+item_name varchar(100)
+);
+
+show tables;
+
+workbench로 gui 설정하기
+
+계정생성
+
+테이블 추가
+
+테이블 우클릭 new table 
+create table cart(
+);
+
+-- ERD --
+database - reverse engineer
+
+-----------------------------------------
+
+12:00 ~ 12:50
+
+DDL : Definition : 정의어 => CREATE, DROP, ALTER(변경)
+
+Rename
+테이블 이름 바꾸기
+
+tbl_board => tbl_article
+tbl_config => tbl_env
+
+RENAME TABLE tbl_board TO tbl_article; 
+
+workbench에서 바꾸기
+tbl_config 우클릭 -> alter
+
+컬럼 추가
+ALTER table tbl_article ADD tbl_article_datetime;
+
+컬럼 타입 변경
+ALTER TABLE tbl_article MODIFY COLUMN tbl_board_name varchar(50)
+
+컬럼명 변경
+ALTER TABLE tbl_article RENAME COLUMN tbl_board_name TO tbl_article_name;
+
+컬럼추가 끼워넣기
+ALTER TABLE tbl_article ADD tbl_article_content varchar(100) AFTER tbl_article_name;
+
+컬럼제거
+ALTER TABLE tbl_article DROP COLUMN tbl_article_content;
+
+cart에 내용넣기
+insert into cart(cart_id, cart_item_name) values(5, '책');
+insert into cart values (6, '정장'), (7, '코트'), (8, "유아용품");
+
+items에 내용넣기
+insert into items values(1, "아이템1");
+insert into items(item_name) values("아이템2");
+insert into items(item_id) values(3);
+
+
+

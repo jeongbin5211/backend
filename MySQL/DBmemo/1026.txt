@@ -1,0 +1,275 @@
+
+9:00 ~ 9:50
+
+group by
+
+부서별 직원 수를 출력하세요. - '별' 키워드 붙으면 group by
+
+use grpdb;
+
+create table company(
+com_id int not null auto_increment,
+com_buseo varchar(10) not null,
+com_name varchar(10),
+primary key(com_id)
+);
+
+insert into company values(null, '인사과', '홍길동');
+
+insert into company values(null, '인사과', '김영희');
+
+insert into company values(null, '자재과', '이영희');
+
+insert into company values(null, '임원실', '김대표');
+
+insert into company values(null, '임원실', '박상무');
+
+insert into company values(null, '비서실', '나비서');
+
+
+select count(*) as '전체 사원 수' from company;
+
+select count(*) as '전체 부서 수' from company;
+
+select count(com_buseo) from company;
+
+
+// 중복 제거
+
+select distinct(com_buseo) from company;
+
+select count(distinct(com_buseo)) from company;
+
+select count(distinct(com_buseo)) as '전체 부서 수' from company;
+
+부서별 직원 수를 출력하세요. 단 직원수가 2명 이상인 부서만 출력하세요.
+예시 - 인사과(3), 자재과(10), 임원수(2) 형태로 출력하세요.
+
+select com_buseo, count(com_name) from company group by com_buseo order by com_buseo asc;
+
+select com_buseo, count(com_name) from company group by com_buseo having count(com_name) >= 2 order by com_buseo asc;
+
+select com_buseo, count(com_name) as cnt from company 
+group by com_buseo having count(com_name) >= 2 
+order by com_buseo asc
+limit 0, 1;
+
+----------------------------------------------------------------
+
+10:00 ~ 10:50
+
+Mysql 내장함수
+
+create table scores(
+family char(1),
+name varchar(10),
+passwd varchar(10),
+score int,
+birth date
+);
+
+insert into scores values('h', '홍길동', '1234', 82.33333, '1990-01-01');
+
+insert into scores values('k', '김철수', '0000', 95.77777, '2000-01-01');
+
+insert into scores values('', 'null', 'null', 0, '2010-01-01');
+
+점수가 0보다 크면 응시 아니면 미응시로 출력하세요.
+
+select name, if(score > 0, '응시', '미응시') as '응시/미응시', score from scores;
+
+1990년대 생은 90s, 2000년대 생은 00s로 표시하세요.
+
+select if(birth >= '2000-01-01', '00s', '90s') from scores;
+
+family 컬럼의 값을 대문자로 변경 : upper(), lower()
+select upper(family) from scores;
+
+trim() : 좌우공백제거
+insert into scores values('c', '코리아', ' 1234&', 99, '2023-01-01');
+
+select passwd from scores;
+select trim(passwd) from scores;
+
+컨트롤 + h 기능 구현
+replace(컬럼명, '원본', '바꿀내용')
+
+select replace(passwd, '&', '') from scores;
+
+trim, replace 같이 사용하기
+
+select replace(trim(passwd), '&', '') from scores;
+
+
+create table tel(
+tel1 char(3),
+tel2 char(4),
+tel3 char(4)
+);
+
+insert into tel values('010', '1234', '6789');
+
+insert into tel values('010', '5555', '5432');
+
+이어붙이기(concat), 잘라내기(left, right), 바꾸기(6789 -> ****)
+
+010-1234-5678
+
+select concat(tel1, '-', tel2, '-', tel3) from tel;
+
+통신사 번호만 출력
+select left(tel1, 1) from tel;
+select left(tel1, 2) from tel;
+select left(tel1, 3) from tel;
+
+select left(concat(tel1, '-', tel2, '-', tel3), 3) from tel;
+
+select trim(left(concat(tel1, '-', tel2, '-', tel3), 3)) from tel;
+
+휴대폰번호 끝자리만 ****로 출력
+
+select concat(tel1, '-', tel2, '-', tel3) from tel;
+
+select right(concat(tel1, '-', tel2, '-', tel3), 4) from tel;
+
+select trim(right(concat(tel1, '-', tel2, '-', tel3), 4)) from tel;
+
+select insert('5678', 1, 4, '****');
+
+select insert(trim(right(concat(tel1, '-', tel2, '-', tel3), 4)), 1, 4, '****') from tel;
+
+------------------------------------------------------------
+
+11:00 ~ 11:50
+
+create table timer(
+time1 datetime,
+time2 datetime,
+time3 datetime,
+time4 datetime
+);
+
+insert into timer values(now(), sysdate(), curdate(), current_timestamp());
+
+insert into timer values(now() + 1, sysdate() + 2, curdate() + 3, current_timestamp() + 4);
+
+년도  YEAR()
+월 MONTH()
+일 DAY()
+시간 hour
+분 minites
+
+
+년도만 출력
+
+select year(time1), month(time1), day(time1) from timer;
+
+날짜 포맷 변경 - DATE_FORMAT(값, 형식)
+날짜 포맷 변경 - DATE_FORMAT(값, '%Y-%m-%d');
+날짜 포맷 변경 - DATE_FORMAT(값, '%Y.%m.%d');
+날짜 포맷 변경 - DATE_FORMAT(값, '%Y-%m-%d %H:%i:%s');
+
+select time1 from timer;
+
+select date_format(time1, '%Y-%m-%d') from timer;
+
+select date_format(time1, '%Y.%m.%d') from timer;
+
+select date_format(time1, '%Y.%m.%d %H:%i:%s') from timer;
+
+테이블 조인(primary key객체 무결성, foreign key참조 무결성)
+ - 테이블에 null 값이 들어가면안됨
+
+shop -> member, items, cart, seller, buyer
+
+create table member(
+userid varchar(10),
+passwd varchar(10),
+cart_item varchar(20),
+sell_item varchar(20),
+buy_item varchar(20)
+);
+
+무결성 -> 중복값x, null x
+
+insert into member values('koreait', '1234', '', '', '');
+insert into member values('koreait2', '0000', '', '', '');
+
+drop table member;
+
+shop -> member, buyer  둘 중 중요도가 높은것이 pk
+
+create table member(
+userid varchar(20) not null,
+passwd varchar(10) not null,
+name varchar(20) not null,
+regdate date,
+primary key(userid)
+);
+
+userid varchar(20) not null -> 연결자(중복값x => pk값을 연결자로)
+
+foreign key(userid) references 참조하는 테이블명(참조하는 테이블의 컬럼이름)
+
+create table buyer(
+item_name varchar(20),
+item_price int,
+item_amount int,
+item_regdate date,
+userid varchar(20) not null,
+foreign key(userid) references member(userid)
+);
+
+workbench 에서 확인
+root 로그인 -> database -> reverse engineer
+|| 아이디 하나당 닭발(여러개 의미) 설정 가능
+
+erd(다이어그램) 저장
+File -> Export  
+
+------------------------------------------------------------------
+
+12:00 ~ 12:50
+
+- 조인(연결해서 하나처럼 사용할 때)
+정규화
+1. pk(기본키 : 중요도 가장) : null 값x, 중복 데이터 x
+2. fk(외래키 : 자식 테이블) 
+    - 외래키는 부모테이블의 기본키와 동일해야 한다. (참조 무결성)
+      (외래키로 지정하는 컬럼은 기본키의 데이터 타입, 사이즈와 동일해야 한다.)
+
+member, buyer
+삭제는 자식부터 해야한다.
+
+drop table member; -> error
+
+drop table buyer;
+
+drop table member;
+
+-------------------------------------------------------
+
+2:00 ~ 2:50
+
+01_ex_colors.html
+
+색상 #16진수(0 ~ 9, A B C D E F)
+r g b 빛의 3원색 모두를 섞으면 흰색
+0 0 0
+
+rgba a는 색을 투명도 처리(0 ~ 1)
+
+red, green, blue, skyblue...
+
+unsplash.com - 사진
+
+
+
+
+
+
+
+
+
+
+
