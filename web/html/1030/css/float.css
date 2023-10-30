@@ -1,0 +1,28 @@
+.wrap {
+    /* width: 100%;
+    height: 100%;
+    position: absolute; */
+
+    background-color: #ccc;
+}
+
+/* :after 사각형 뒤, :before 사각형 설정 */
+.wrap:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: #254de4;
+    color: #fff;
+    margin: 10px;
+
+    /* float 설정 해제 clear */
+    float: left;
+
+}
+
+

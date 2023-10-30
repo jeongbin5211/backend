@@ -1,0 +1,16 @@
+.wrap {
+    /* width: 100%;
+    height: 100%;
+    position: absolute; */
+
+    display: flex;
+    background-color: #ccc;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: #254de4;
+    color: #fff;
+    margin: 10px;
+}

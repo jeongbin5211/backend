@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수선언/console.log 예제</title>
+</head>
+<body>
+    <button>삭제</button>
+    <script>
+        // let : 변수 저장 -> 값 변경이 가능
+        // const : 함수 저장 또는 반복문 -> 선언 후 값 변경 불가능(자바 final과 비슷)
+        // var : 호이스팅
+
+        // 코리아아이티 아카데미입니다.
+        // 일반출력 " + "
+        // ECMA 0215 출력 : 백틱 사용
+        
+        let str = "코리아아이티 아카데미";
+
+        console.log(str + "입니다.");
+        console.log(`${str}입니다.`);
+
+        document.write(str);
+
+        let msg = "삭제 후 복구할 수 없습니다.\n삭제하시겠습니까?";
+
+        // console.log(msg);
+        // document.write(msg);
+
+        // document.querySelector('button').onclick = () => {
+        //     // alert(msg);
+
+        //     if (confirm(msg)) {
+        //         alert("삭제되었습니다.");
+
+        //         // 페이지 이동
+        //         location.href = "https://www.naver.com";
+        //     }
+        // };
+
+        // document.querySelector('button').addEventListener('이벤트 방법', function () {
+        //
+        // });
+
+        // document.querySelector('button').addEventListener('click', function (e) {
+
+        //     e.preventDefault();
+
+        //     if (confirm(msg)) {
+        //         alert("삭제되었습니다.");
+
+        //         location.href = "https://www.naver.com";
+
+        //     }
+        // });
+
+        function sum() {
+            return 10 + 10;
+        };
+
+        // console.log(sum());
+
+        const result = function () {
+            return 20 + 20;
+        }
+
+        console.log(result);
+
+        // let 변수를 선언
+        // const 함수, 상수
+
+        for(let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+    </script>
+    
+</body>
+</html>

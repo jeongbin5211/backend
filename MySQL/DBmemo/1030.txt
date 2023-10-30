@@ -1,0 +1,257 @@
+프로젝트
+mini 쇼핑몰(대분류1개만)
+와디즈(클라우딩)
+그룹웨어
+ - erp(급여관리, 인사관리)
+다중게시판
+전자투표
+
+관리자 페이지 만들고 유저페이지 만들기
+Ajax 필수
+
+9:00 ~ 9:50
+
+pk,fk -> inner join
+t1, t2, t3
+
+부서    직책    사원
+dept    pos     emp
+
+
+use grpdb;
+
+create table dept(
+dept_name varchar(20) not null,
+primary key(dept_name)
+);
+
+create table pos(
+pos_name varchar(20) not null,
+dept_name varchar(20) not null,
+primary key(pos_name),
+foreign key(dept_name) references dept(dept_name) on update cascade on delete restrict
+);
+
+create table emp(
+emp_id int not null auto_increment,
+emp_email varchar(50) not null,
+emp_passwd varchar(20) not null,
+emp_name varchar(20) not null,
+pos_name varchar(20) not null,
+primary key(emp_id),
+foreign key(pos_name) references pos(pos_name) on update cascade on delete restrict 
+);
+
+workbench 로 erd 확인
+
+insert into dept values('인사과');
+insert into dept values('비서과');
+insert into dept values('임원실');
+
+---------------------------------------------
+
+10:00 ~ 10:50
+
+insert into pos values('대표이사', '임원실');
+insert into pos values('기술이사', '임원실');
+
+insert into pos values('비서실장', '비서과');
+
+insert into pos values('인사과장', '인사과');
+insert into pos values('대리', '인사과');
+insert into pos values('사원', '인사과');
+
+인사과(2), 인사과(3), 비서과(1)
+
+부서별 직책의 수를 출력하세요.
+select dept_name, count(pos_name) from pos group by dept_name;
+
+부서별 직책의 수를 출력하세요. 단, 직책수가 2명 이상인 부서명만 출력
+select dept_name, count(pos_name) from pos group by dept_name having count(pos_name) >= 2;
+
+insert into emp values(null, 'mail@mail.com', '1111', '홍길동', '인사과장');
+insert into emp values(null, 'mail2@mail.com', '2222', '이철수', '인사과장');
+
+insert into emp values(null, 'mail3@mail.com', '3333', '나대표', '대표이사');
+
+insert into emp values(null, 'mail4@mail.com', '0000', '김비서', '비서실장');
+
+인사과장(2), 대표이사(1)
+직책별 사원 수를 구하세요.(직책의 내림차순 출력)
+
+select pos_name, count(emp_name) from emp group by pos_name order by pos_name desc;
+
+
+t1(dept) t2(pos) t3(emp)
+
+부서(dept), 직책(pos)순으로 출력하세요(t1, t2)
+t1 inner join t2 on t1.컬럼 = t2.컬럼
+
+select D.dept_name, P.pos_name from dept D 
+inner join pos P 
+on D.dept_name = P.dept_name;
+
+부서(dept), 직책(pos), 사원명순으로 출력하세요(t1, t2), 부서명으로 오름차순 정렬
+t1 inner join t2 on t1.컬럼 = t2.컬럼 inner join t3 on t2.컬럼 = t3.컬럼;
+
+select D.dept_name, P.pos_name, E.emp_name from dept D 
+inner join pos P 
+on D.dept_name = P.dept_name
+inner join emp E
+on P.pos_name = E.pos_name
+order by D.dept_name asc
+limit 0, 1
+;
+
+------------------------------------------------------
+
+11:00 ~ 11:50
+
+create, drop, alter
+
+insert, select, update, delete
+
+// 답변형
+번호, 제목, 작성자, 작성일, 조회수
+create table board(
+b_id int not null auto_increment,
+b_title varchar(255),
+b_writer varchar(10),
+b_date datetime,
+b_visit int,
+b_grp int,
+b_depth int,
+b_level int,
+primary key(b_id)
+);
+
+insert into board(b_title, b_writer, b_date) values('공지사항', '관리자', now());
+
+insert into board(b_title, b_writer, b_date) values('답변형 게시판', '관리자2', now());
+
+insert into board(b_title, b_writer, b_date) values('이미지 게시판', '관리자3', now());
+
+
+1. 전체 게시물 수를 출력하세요.
+
+select count(b_title) as '게시물 수' from board;
+
+2. 전체 게시물을 pk로 내림차순 정렬하세요.
+
+select * from board order by b_id desc;
+
+3. 게시물 중 오래된 2개를 출력하세요.
+
+select * from board order by b_id asc limit 0, 2;
+select * from board order by b_date asc limit 0, 2;
+
+4. 게시물 제목이 '공지사항'인 것만 출력하세요.
+
+select * from board where b_title = '공지사항';
+
+5. 게시물 제목이 '게시판'이란 글자를 포함하고 있는 값을 출력하세요.
+
+select * from board where b_title like '%게시판%';
+
+6. 게시물이 2023년에 등록된 자료만 내림차순으로 출력하세요.
+
+select * from board where b_date >= '2023-01-01' and b_date <= '2023-12-31' order by b_id desc;
+
+- update
+
+update table명 set 변경할 컬럼명1 = '변경할 값1', 변경할 컬럼명2 = '변경할 값2'
+
+1. pk가 1번인 게시물의  작성자를 '홍길동'으로 수정하세요.
+
+update board set b_writer = '홍길동' where b_id = 1;
+
+2. pk가 1번인 게시물의 작성자를 '김철수', 등록일을 현재날짜로 수정하세요.
+
+update board set b_writer = '김철수', b_date = now() where b_id = '1';
+
+3. pk가 1번인 게시물의 작성자를 '김철수', 등록일을 현재날짜, 제목을 'QnA 게시판'로 수정하세요.
+
+update board set b_writer = '김철수', b_date = now(), b_title = 'QnA 게시판' where b_id = '1';
+
+4. board 테이블의 작성자 이름을 모두 '코리아'로 수정하세요.
+
+update board set b_writer = '코리아';
+
+update board set b_writer = '';
+
+--------------------------------------
+
+12:00 ~ 12:50
+
+delete 데이터 삭제
+
+1. 게시판 제목이 '답변형 게시판'인 레코드(줄)를 삭제하세요.
+
+delete from board where b_title = '답변형 게시판';
+
+2. 게시판 제목이 '이미지 게시판'이면서 pk가 3인 레코드(줄)를 삭제하세요.
+
+delete from board where b_title = '이미지 게시판' and b_id = '3';
+
+3. 게시판 제목이 'QnA 게시판'이면서 pk가 1인 레코드(줄)를 검색하세요.
+
+select * from board where b_title = 'QnA 게시판' and b_id = '1';
+
+4. 게시판 내용 전체를 삭제하세요.
+
+truncate table board;
+
+insert into 테이블명 values();
+select * from 테이블명;
+update 테이블명 set 바꿀컬럼 = '바꿀 값' where 조건;
+delete from 테이블명 where 삭제할 조건;
+
+DDL
+DML
+DCL : GRANT, REVOKE, VIEW
+
+View 보안 -> 필요한 컬럼만 보여줄 때 사용, 뷰 명 = 테이블명_v 
+
+create View
+물리테이블이 아니고 논리적인 테이블(테이블 복사가 아님)
+
+번호, 아이디, 이름, 비밀번호, 주소
+-> 번호, 주소만 보여주기
+
+create table member;
+
+member 테이블에서 뷰 만들기
+create view member_v -> drop view member_v;
+
+테이블이 존재해야 뷰 만들 수 있음
+
+번호, 이름, 주소, 주민번호 -> view 
+
+create table member(
+id int not null auto_increment,
+name varchar(20),
+addr varchar(20),
+jumin char(14),
+primary key(id)
+);
+
+insert into member values(null, '홍길동', '부산광역시', '001234-567890');
+
+create view member_v as select id, addr from member; (논리적 테이블(가상))
+
+select * from member_v;
+
+테이블 복사
+
+create table member2 as select * from member; (물리적 테이블)
+
+drop view member_v;
+show tables;
+
+
+
+
+
+
+
+
