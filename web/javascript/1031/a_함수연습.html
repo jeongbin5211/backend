@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 연습</title>
+</head>
+<body>
+    <!-- DOM : Document Object Model : javascript html 제어 -->
+    <script>
+        // 함수(동작)
+        // 실행
+
+        function print1() { // 매개변수 = parameter = argument
+            console.log("코리아아이티 아카데미");
+        }
+
+        function print2(title) {
+            return title;
+        }
+
+        print1();
+
+        console.log(print2("Hello Javascript"));
+
+        function sum(num1, num2) {
+            console.log(num1 + num2);
+            console.log(`${num1 + num2}`);
+        }
+
+        function add(num3, num4) {
+            return num3 + num4;
+        }
+
+        // 이벤트가 아니므로 () 입력
+        sum(10, 20);
+
+        console.log(add(50, 50));
+
+    </script>
+</body>
+</html>

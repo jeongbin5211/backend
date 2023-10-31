@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 예제</title>
+    <style>
+        header {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Korea
+    </header>
+    <button class="btn1">OnClick</button>
+    <button class="btn2">AddEvent</button>
+
+    <script>
+        let btn = document.querySelector('.btn1');
+        
+        let header = document.querySelector('header');
+
+        // 자바스크립트에서는 _ 빼고 카멜표기법 사용
+
+        function clrChange() {
+            // console.log('connect');
+            // alert("ok");
+            header.style.backgroundColor = 'red';
+        }
+
+        // 이벤트는 함수뒤에 소괄호 제외하고 입력
+        
+        btn.onclick = clrChange;
+
+        // addEventListener
+
+        let btn2 = document.querySelector('.btn2');
+        
+
+        function boldChange() {
+            // alert("ok");
+            header.style.fontWeight = 'bold';
+            header.style.fontSize = '30px';
+            header.style.color = 'blue';
+        }
+
+        // 이벤트는 함수뒤에 소괄호 제외하고 입력
+        
+        btn2.addEventListener('click', boldChange);
+
+
+    </script>
+</body>
+</html>

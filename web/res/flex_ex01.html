@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex css example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* flex는 1차원 처리입니다. */
+        .flex_container {
+            display: flex;
+            background-color: #ccc;
+            padding: 5px 0;
+
+            /* 배치 : 왼쪽 가운데 오른쪽 */
+            /* 왼쪽 배치 : start */
+            justify-content: start;
+
+            /* 가운데 배치 : center */
+            justify-content: center;
+
+            /* 오른쪽 배치 : end */
+            justify-content: end;
+
+            /* 왼쪽 끝, 오른쪽 끝, 가운데 */
+            justify-content: space-between;
+
+            height: 500px;
+
+            align-items: start;
+
+            align-items: center;
+
+            align-items: end;
+
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #254de4;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .item:nth-child(1) {
+            align-self: start;
+        }
+
+        .item:nth-child(2) {
+            align-self: center;
+        }
+
+        .item:nth-child(3) {
+            align-self: end;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="item">Item1</div>
+        <div class="item">Item2</div>
+        <div class="item">Item3</div>
+    </div>
+</body>
+</html>

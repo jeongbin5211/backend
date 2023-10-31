@@ -248,10 +248,42 @@ create table member2 as select * from member; (물리적 테이블)
 drop view member_v;
 show tables;
 
+----------------------------------------------
+
+2:00 ~ 2:50
+
+selector(선택자) 
+div > a {}
+
+div + a {}
+
+div ~ a {}
+
+1. 속성 선택 : <input type = "text" > => []
+^ : 시작
+$ : 끝
+* : 포함하는 것
+
+2. class : . 
+3. id : #
 
 
+1. 반응형 사이트 : 방법론
 
+2. 해상도 : 미디어 쿼리를 이용해서 해상도 설정 후 작업
+I3 : 320px
+tab : 768px
+lap : 1280px
+-> desktop
 
+3. 화면 크기 : max-width, min-width
+(1) 내가 처음 작업을 lap에 맞춰서 작업을 한다면(max-width) 1280 -> 768 -> 320 순으로 작업
+	처음 해상도는 미디어 쿼리 생략 가능
+(2) Mobile 부터 작업한다면(min-width) mobile -> tap -> lap
 
+max-width(화면 크기 설정) : 기본은 내용크기 최대 max-width
+max-width : 100px -> 최대 크기가 100px을 못넘어감
 
+min-width : 최소 100px 최대 모니터 크기
+min-width : 100px;
 

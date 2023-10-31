@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 예제</title>
+    <style>
+        /* 큰(max-width) -> 작 */
+
+        @media (max-width: 1280px) {
+            .wrap {
+                background-color: blue;
+                width: 100%;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .wrap {
+                background-color: green;
+                width: 50%;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .wrap {
+                background-color: red;
+                width: 100%;
+                height: 800px;
+                font-size: 50px;
+                font-style: italic;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        koreait
+    </div>
+</body>
+</html>

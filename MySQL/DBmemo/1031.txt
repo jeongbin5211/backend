@@ -1,0 +1,120 @@
+html 반응형 -> 전체 사이트 작업
+
+9:00 ~ 9:50
+
+1. 계정 생성 - root로 만들기
+(1) 계정 정보 확인 -> mysql 디비 -> user(host, user)
+(2) 계정 - 데이터베이스 이름은 계정과 동일하게 관리자 생성
+create database grp;
+(3) 계정 생성 후 생성된 디비에 권한 부여
+create user grp@'%' identified by '1234';
+
+grant all privileges grp@'%' with grant option;
+
+grant all on grp.* to grp@'%' with grant option;
+flush privileges;
+
+<코리아아이티 아카데미 그룹웨어>
+1. html, css, js - Ajax(Spring과 같이 사용)
+
+2. Database
+부서명, 직책명, 사원가입
+
+create table dept(
+dept_code char(3) not null,
+dept_name varchar(20) not null,
+primary key(dept_code)
+);
+
+insert into dept values('100', '인사과');
+insert into dept values('200', '자재과');
+insert into dept values('300', '비서실');
+insert into dept values('900', '임원실');
+
+001 001 019
+select count(dept_code) as '부서 개수' from dept;
+select * from dept order by dept_code asc;
+
+부장 100 대리 200 사원 300
+
+create table pos(
+pos_code char(3) not null,
+pos_name varchar(10) not null,
+dept_code char(3) not null,
+primary key(pos_code),
+foreign key(dept_code) references dept(dept_code)
+on update cascade
+on delete restrict
+);
+직책코드 직책명 부서코드
+insert into pos values('101', '인사과장', '100');
+insert into pos values('103', '사원', '100');
+insert into pos values('301', '비서실장', '300');
+insert into pos values('901', '대표이사', '900');
+insert into pos values('902', '기술이사', '900');
+
+2단 정렬 - 정렬했을 때 같은값이 있다면 그부분은 두번째 조건으로 정렬
+select * from pos order by dept_code desc, pos_name desc;
+
+임원실 검색
+select * from pos where dept_code = '900';
+
+create table emp(
+emp_id int not null auto_increment,
+emp_email varchar(50) not null,
+emp_passwd varchar(20) not null,
+emp_name varchar(10) not null,
+
+pos_code char(3) not null,
+primary key(emp_id),
+foreign key(pos_code) references pos(pos_code)
+on update cascade
+on delete restrict
+);
+
+insert into emp values(null, 'mail@mail.com', '111', '홍길동', '101');
+
+인사과(2) 비서실(1) 임원실(2)
+
+select dept.dept_name, count(pos.pos_code) from dept inner join pos on dept.dept_code = pos.dept_code
+group by dept.dept_name;
+;
+
+인사과 인사부장 홍길동 순으로 출력하세요.
+t1 inner join t2 on t1.pk = t2.fk inner join t3 on t2.pk = t3.fk
+
+select * from dept inner join pos on dept.dept_code = pos.dept_code
+inner join emp on pos.pos_code = emp.pos_code;
+
+select dept.dept_name, pos.pos_name, emp.emp_name from dept inner join pos on dept.dept_code = pos.dept_code
+inner join emp on pos.pos_code = emp.pos_code; 
+
+사원테이블에서 직책이 '101' 사원번호 1번인 사원의 사원명을 '김철수'로 변경하세요.
+
+update emp set emp_name = '김철수' where emp_id = '1' and pos_code = '101';
+
+이름이 김철수인 사원의 이메일을 'busan@busan.co.kr', 이름을 '홍길동'으로 변경하세요.
+
+update emp set emp_email = 'busan@busan.co.kr', emp_name = '홍길동' where emp_name = '김철수';
+
+이메일이 'busan@busan.co.kr' 이거나 비밀번호가 '1111' 인 사원의 정보를 삭제하세요.
+
+delete from emp where emp_email = 'busan@busan.co.kr' or emp_passwd = '1111';
+
+view : 논리적(가상) 테이블을 생성해서 보안 처리
+create view emp_v as select emp_email, emp_name from emp;
+
+view 제거
+drop view emp_v;
+
+계정 grp 삭제
+drop user grp;
+
+db 삭제
+drop database grp;
+
+게시판환경설정, 게시판, 댓글
+
+3.Spring Boot
+----------------------------------------
+
