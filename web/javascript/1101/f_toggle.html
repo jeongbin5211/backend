@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList.toggle('클래스명')</title>
+</head>
+<style>
+    .hide {
+        /* display: none; */
+        visibility: hidden;
+    }
+
+    .box {
+        width: 200px;
+    }
+
+    img {
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="box">
+        <img src="./images/car1.jpg" alt="car1">
+    </div>
+    <button>Toggle Button(show & hide 동시에 처리)</button>
+
+    <script>
+        function toggleImg() {
+            document.querySelector('.box > img').classList.toggle('hide');
+        }
+
+        document.querySelector('button').onclick = toggleImg;
+    </script>
+</body>
+</html>

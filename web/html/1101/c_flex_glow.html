@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-grow: 비율</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .flex_container {
+            background-color: #ccc;
+
+            /* 
+                아래 스크롤바 생성 방지 
+                pc에서는 1280 해상도 설정
+            */
+            width: 100%;   
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #254de4;
+            margin: 10px;
+            color: #fff;
+
+            /* 
+                모바일 -> px 해상도 확인
+                모바일 화면에서는 아이템에 지정한 넓이로 되어 있다가
+                해상도를 늘리면 똑같은 비율로 확대 
+                보통 동일 비율로 지정
+            */
+            /* flex-grow: 1; */
+        }
+
+        .item:nth-child(1) {
+            flex-grow: 1;
+        }
+
+        .item:nth-child(2) {
+            flex-grow: 2;
+        }
+
+        .item:nth-child(3) {
+            flex-grow: 3;
+        }   
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="item">Item1</div>
+        <div class="item">Item2</div>
+        <div class="item">Item3</div>
+    </div>
+</body>
+</html>

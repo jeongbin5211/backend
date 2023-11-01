@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>코리아아이티 아카데미</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, obcaecati.</p>
+    <button>hide클래스 붙이기(add)</button>
+
+    <script>
+
+        function add() {
+            document.querySelector('p').classList.add('hide');
+        }
+
+        document.querySelector('button').onclick = add;
+    </script>
+</body>
+</html>

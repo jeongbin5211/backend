@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex_shrink</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* 
+            pc -> 모바일로 테스트
+            해상도가 줄어들 때 아이템(상자)이 어떤 비율로 줄어들게 할 건지를 설정
+        */
+
+        /* 
+            grow, shrink, bases -> flex: grow shrink basis;으로 설정가능
+        */
+
+        .flex_container {
+            width: 100%;
+            max-width: 1280px;
+            background-color: #ccc;
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .item {
+            background-color: #254de4;
+            /* flex-basis: 300px; */
+            /* width: 300px; */
+            height: 300px;
+            color: #fff;
+            margin: 10px;
+
+            /* 
+                flex: 1 1 auto;
+                = flex: 1; 
+            */
+            flex: 1;
+
+            /* flex-shrink: 1; */
+        }
+
+        /* .item:nth-child(1) {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        .item:nth-child(2) {
+            flex-grow: 1;
+            flex-shrink: 2;
+        }
+
+        .item:nth-child(3) {
+            flex-grow: 1;
+            flex-shrink: 3;
+        } */
+
+        @media (max-width: 800px) {
+            .flex_container {
+                display: block;
+                /* flex-direction: row; */
+            }
+
+            .item {
+                margin: 0;
+            }
+
+            .item:nth-child(2) {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="item">Item1</div>
+        <div class="item">Item2</div>
+        <div class="item">Item3</div>
+    </div>
+</body>
+</html>

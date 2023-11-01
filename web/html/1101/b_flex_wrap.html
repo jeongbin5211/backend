@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex wrap : 너비 전체 아이템 크기보다 작으면 </title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .flex_container {
+            background-color: #ccc;
+            display: flex;
+
+            /* flex-wrap 의 기본값은 nowrap */
+            flex-wrap: nowrap;
+
+            /* 공간이 부족하면 하나씩 내려감 */
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background-color: #254de4;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex_container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+    </div>
+</body>
+</html>

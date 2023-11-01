@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList.add() / classList.remove()</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- css 작성 후 사용할 곳에 class를 추가할 때는 add() -->
+
+    <!-- css 작성 후 사용할 곳에 class를 제거할 때는 remove() -->
+
+    <h1>코리아아이티 아카데미</h1>
+    <p class="hide">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolor.</p>
+    <button>숨김상태에서 보임 : Remove</button>
+    
+
+    <script>
+        function remove() {
+            // console.log("ok");
+            document.querySelector('p').classList.remove('hide');
+        }
+
+        document.querySelector('button').onclick = remove;
+       
+    </script>
+</body>
+</html>
