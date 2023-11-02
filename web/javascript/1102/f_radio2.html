@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox</title>
+</head>
+<body>
+    <form action="">
+        <legend>회원가입 박스</legend>
+        <p>성별을 선택하세요.</p>
+        <label>
+            <!-- checked -->
+            <input type="radio" name="gender" value="M">남성
+        </label>
+        <label>
+            <input type="radio" name="gender" value="W">여성
+        </label>
+        <p>
+            <input type="submit" value="회원가입" class="btn">
+        </p>
+    </form>
+
+    <script>
+        // let length = document.querySelectorAll('input[name=gender]').length;
+        // console.log(length);
+
+        // let checkedLength = document.querySelectorAll('input[name=gender]:checked').length;
+        // console.log(checkedLength);
+
+        document.querySelector('.btn').addEventListener('click', () => {
+            let check = 0; // 체크여부 확인용 변수
+
+            for(let i = 0; i < document.querySelector('input[name=gender]').length; ++i) {
+                if(!document.querySelectorAll('input[name=gender]:checked')) {
+                    check++;
+                }
+            }
+
+            if (check == 0) {
+                alert('성별을 선택하세요.');
+                return false;
+            }
+        })
+    </script>
+</body>
+</html>

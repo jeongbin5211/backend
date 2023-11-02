@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form값 가져오기</title>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>Login Box
+            <ul>
+                <li>
+                    <label>아이디</label>
+                    <input type="text" name="userid" class="userid" placeholder="아이디를 입력하세요.">
+                    <!-- required : 이 입력란을 입력해주세요. -->
+                </li>
+                <li>
+                    <label>비밀번호</label>
+                    <input type="password" name="userpw" class="userpw" placeholder="비밀번호를 입력하세요.">
+                </li>
+                <li>
+                    <input type="submit" value="login">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <script>
+        
+        let id = document.querySelector('input[name=userid]');
+        let pw = document.querySelector('input[name=userpw]');
+
+        function frmCheck(e) {
+            e.preventDefault();
+            // alert('ok');
+            if (!id.value) {
+                alert('아이디를 입력해주세요.');
+                id.focus();
+            }
+
+            if (!pw.value) {
+                alert('비밀번호를 입력해주세요.');
+                pw.focus();
+            }
+
+        }
+
+        document.querySelector('input[type=submit]').addEventListener('click', frmCheck);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button</title>
+</head>
+<body>
+    <form action="" name="frm">
+        <legend>회원가입 박스</legend>
+        <p>성별을 선택하세요.</p>
+        <label>
+            <!-- checked -->
+            <input type="radio" name="gender" value="M">남성
+        </label>
+        <label>
+            <input type="radio" name="gender" value="W">여성
+        </label>
+        <p>
+            <input type="submit" value="회원가입">
+        </p>
+    </form>
+
+    <script>
+
+        // name 값으로 접근(querySelector x)
+        document.frm.gender[0].value;
+
+        console.log(document.frm.gender[0].value);
+        
+        console.log(document.frm.gender.length);
+
+        document.querySelector('input[type=submit]').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            for(let i = 0; i < document.frm.gender.length; i++) {
+                // if (!document.frm.gender[i].checked) {
+                //     alert("성별을 선택하세요.")
+                //     break;
+                // }
+
+                if (document.frm.gender[i].checked) {
+                    let result = document.frm.gender[i].value;
+                    let msg;
+
+                    if (result == "M") {
+                        msg = "남성";
+                        alert(`선택하신 성별은 ${msg} 입니다.`); 
+                    }else {
+                        msg = "여성";
+                        alert(`선택하신 성별은 ${msg} 입니다.`);
+                    }
+                    
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
