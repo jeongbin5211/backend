@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Responsive</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* pc */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /* border: 1px solid #ccc; */
+        }
+
+        tr {
+            /* height: 45px; */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        th {
+            background-color: #245de7;
+            color: #fff;
+            border-left: 1px solid #245de7;  
+        }
+
+        th:last-child {
+            border-right: 1px solid #245de7;
+        }
+
+        td {
+            font-size: 14px;
+        }
+        
+
+
+        /* mobile 600px */
+        @media (max-width: 600px) {
+
+            /* 
+                thead {
+                    display: none;
+                }
+
+                table,tbody, tr, td {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    
+                }
+
+                tr {
+                    height: auto;
+                    margin-bottom: 20px;
+                } 
+            */
+
+            thead {
+                display: none;
+            }
+
+            tbody, 
+            tr, 
+            td {
+                display: block;
+                
+            }
+
+            td {
+                text-align: right;
+                position: relative;
+                padding-right: 20px;
+            }
+
+            td::before {
+                /* content: 'a'; */
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                padding-left: 20px;
+            }
+
+            tr {
+                margin-bottom: 40px;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- table > thead, tbody > tr(줄) > th, td(칸) -->
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>.No</th>
+                    <th>Subject</th>
+                    <th>Writer</th>
+                    <th>Regdate</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="No">4</td>
+                    <td data-label="Subject">Notice Board</td>
+                    <td data-label="Writer">Admin</td>
+                    <td data-label="Regdate">2023.11.03</td>
+                    <td data-label="Marks">Update/Delete</td>
+                </tr>
+                <tr>
+                    <td data-label="No">3</td>
+                    <td data-label="Subject">Image Board</td>
+                    <td data-label="Writer">Admin</td>
+                    <td data-label="Regdate">2023.10.11</td>
+                    <td data-label="Marks">Update/Delete</td>
+                </tr>
+                <tr>
+                    <td data-label="No">2</td>
+                    <td data-label="Subject">QnA Board</td>
+                    <td data-label="Writer">Admin</td>
+                    <td data-label="Regdate">2023.09.07</td>
+                    <td data-label="Marks">Update/Delete</td>
+                </tr>
+                <tr>
+                    <td data-label="No">1</td>
+                    <td data-label="Subject">Notice Board</td>
+                    <td data-label="Writer">Admin</td>
+                    <td data-label="Regdate">2023.01.01</td>
+                    <td data-label="Marks">Update/Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
