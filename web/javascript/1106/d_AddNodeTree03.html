@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="items">
+        <li>HTML/CSS/JAVASCRIPT</li>
+        <li>Database</li>
+    </ul>
+
+    <form>
+        <input type="text" class="content" />
+        <button>원하는 위치에 추가</button>
+    </form>
+
+    <script>
+        // 노드 트리 만들기
+        // 1. createElement()로 태그 만들어 주기
+        // 2. createTextNode()로 텍스트 만들기
+        // 3. 1 + 2번 연결하기 : app
+        // 4. 배치하기
+
+        document.querySelector('button').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let addTag = document.createElement('li');
+
+            let content = document.querySelector('.content');
+
+            let addText = document.createTextNode(content.value);
+
+            addTag.appendChild(addText);
+
+            if (!content.value) {
+                alert('ok');
+                
+                content.focus();
+                return false;
+            }else {
+                content.value = '';
+                document.querySelector('#items').appendChild(addTag);
+            }
+
+            
+
+        })
+    </script>
+</body>
+</html>

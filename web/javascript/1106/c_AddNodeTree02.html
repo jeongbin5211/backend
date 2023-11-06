@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" class="content">
+        <button id="btn">Add Node Text</button>
+    </form>
+
+    <h1>Add NodeText List</h1>
+    <p>HTML/CSS/JAVASCRIPT</p>
+    <p>Database</p>
+
+    <script>
+        // 노드 트리 만들기
+        // 1. createElement()로 태그 만들어 주기
+        // 2. createTextNode()로 텍스트 만들기
+        // 3. 1 + 2번 연결하기 : app
+        // 4. 배치하기
+
+        // ex) <p>폼 입력 텍스트</p>
+
+        // document.getElementById('btn').addEventListener();
+
+        document.querySelector('#btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            let addTag = document.createElement('p');
+            let val = document.querySelector('.content').value;
+            let addText = document.createTextNode(val);
+            
+            let el = document.querySelector('.content');
+
+            if (val == '') {
+                alert("추가할 텍스트를 입력하세요.");
+                el.focus();
+                return false;
+            } else {
+                el.value = '';
+                addTag.appendChild(addText);
+                document.body.appendChild(addTag);
+            }
+
+            
+        });
+
+        // let AddTag = document.createElements('p');
+        // let AddText = document.createTextNode('');
+    </script>
+</body>
+</html>

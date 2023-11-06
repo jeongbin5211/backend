@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 카트에 담기 : 예제</title>
+</head>
+<body>
+    <!-- DB List -->
+    <div class="item">
+        <h2 class="title">코리아아이티 자바 #17 교재</h2>
+        <p class="content">코리아아이티 자바 #17은 최신 트렌드를 반영하고...</p>
+        <p class="price">가격 : 30,000</p>
+        <button id="order">장바구니 담기</button>
+    </div>
+
+    <div id="cart">
+
+    </div>
+    
+    <script>
+        let title = document.querySelector('.title').innerText;
+        let content = document.querySelector('.content').innerText;
+        let price = document.querySelector('.price').innerText;
+
+        // console.log(`
+        // 제목 : ${title} 
+        // 내용 : ${content}
+        // 가격 : ${price}`);
+
+        let btn = document.querySelector('#order');
+        let cart = document.querySelector('#cart');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let addTag = document.createElement('p');
+            let addText = document.createTextNode(`${title}, ${content}, ${price}`);
+
+            addTag.appendChild(addText);
+            addTag.style.fontSize = '25px';
+            addTag.style.color = 'tomato';
+
+            cart.appendChild(addTag);
+        })
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trigger(bar menu, hamburg menu)</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        #bars {
+            position: absolute;
+            top: 10px;
+            left: 1000px;
+
+            background-color: #663399;
+            padding: 15px 15px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            color: #fff;
+            font-size: 20px;
+
+            
+        }        
+
+        #menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #663399;
+
+            /* height: 100%; -> position 일때 100% 사용가능 */
+            height: 100vh;
+
+            padding: 10px 10px;
+
+            transform: translateX(-100%);
+        }
+
+        #menu ul li {
+            margin-bottom: 10px;
+        }
+
+        #menu a {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        #menu.active {
+            /* display: none; */
+            transform: translateX(0%);
+        }
+    </style>
+</head>
+<body>
+    <!-- unicode : &#9776; -->
+    <button id="bars">&#9776</button>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        let bars = document.querySelector('#bars');
+        let menu = document.querySelector('#menu');
+
+        bars.addEventListener('click', function () {
+            menu.classList.toggle('active');
+        })
+
+
+    </script>
+</body>
+</html>
