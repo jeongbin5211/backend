@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소록</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        th:first-child {
+            width: 30%;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th:last-child {
+            width: 70%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>코리아아이티 주소록</h1>
+        <form>
+            <ul>
+                <li>
+                    <label>이름</label>
+                    <input type="text" id="username" />
+                </li>
+                <li>
+                    <label>주소</label>
+                    <input type="text" id="address" />
+                </li>
+            </ul>
+            <button>주소 등록하기</button>
+        </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>홍길동</td>
+                    <td>부산광역시</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let name = document.querySelector('#username');
+        let addr = document.querySelector('#address');
+        let btn = document.querySelector('button');
+
+        // <tr>
+        //     <td>홍길동</td>
+        //     <td>부산광역시</td>
+        // </tr>
+
+        
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let addTr = document.createElement('tr');
+            let addTdName = document.createElement('td');
+            let addTdAddr = document.createElement('td');
+
+            // let valTdName = document.querySelector('#username').value;
+            // let valTdAddr = document.querySelector('#address').value;
+
+            let valTdName = document.createTextNode(name.value);
+            let valTdAddr = document.createTextNode(addr.value);
+
+            addTdName.appendChild(valTdName);
+            addTdAddr.appendChild(valTdAddr);
+
+            addTr.appendChild(addTdName);
+            addTr.appendChild(addTdAddr);
+
+            document.querySelector('tbody').appendChild(addTr);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            userid : "busan",
+            name : "홍길동",
+            passwd : "1234"
+        };
+
+        //[] 배열명.forEach
+        //{} for ~ in = 향상된 for와 비슷
+        console.log(user.userid);
+        console.log("----------");
+
+        // for(key in 객체) {
+
+        // }
+
+        for (key in user) {
+            // console.log(key);
+            console.log(user[key]); // value
+        }
+    </script>
+</body>
+</html>

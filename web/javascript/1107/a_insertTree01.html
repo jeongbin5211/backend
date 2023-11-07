@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert Tree</title>
+</head>
+<body>
+    <h1>BackEnd Programming</h1>
+    <p>HTML/CSS/JS</p>
+
+    <p>Spring Boot</p>
+
+    <button>제목 제거하기</button>
+
+    <!-- <p>Database</p> -->
+
+    <script>
+        let addTag = document.createElement('p');
+
+        let basicTag = document.querySelectorAll('p')[0];
+
+        let addText = document.createTextNode("Database");
+
+        addTag.appendChild(addText);
+
+        document.body.insertBefore(addTag, basicTag);
+
+        document.querySelector('button').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            document.querySelector('h1').remove();
+        })
+    </script>
+</body>
+</html>

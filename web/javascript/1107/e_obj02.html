@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1명 회원가입 : 이름, 비밀번호, 주소(우편번호,상세주소1, 2), 급여
+        let member = {
+            username: "koreait",
+            passwd: "1234",
+            addr : {
+                post: "12345",
+                addr1 : "부산광역시",
+                addr2 : "부산진구 빌딩..."
+            },
+            salary: 100,
+            total: 20,
+            avg: function () {
+                return this.salary / this.total;
+            },
+            disp: function () {
+                console.log("회원정보를 출력합니다.");
+            }
+        };
+
+        console.log(member);
+        console.log(member.username);
+        console.log(member.addr.post);
+        console.log(member.addr.addr1);
+        console.log(member.salary);
+        console.log(member.avg());
+
+        member.disp();
+    </script>
+</body>
+</html>

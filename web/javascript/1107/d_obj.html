@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // 디비 레코드(튜플) = row(행) 
+        // js 객체 = {key:value} = HashMap<> : key,value
+        let user = {
+            userid: "koreait",
+            passwd: "1234"
+        }
+
+        
+
+        console.log(user); // 객체 전체 출력
+        console.log(user.userid);
+        console.log(user.passwd);
+
+        // console.log(user["userid"]);
+        // console.log(user["passwd"]);
+
+        let user1 = {};
+        user1 = new Object();
+
+        user1.email = "mail@mail.com";
+        user1.addr = "부산광역시";
+
+        console.log(user1);
+        console.log(user1.email);
+        console.log(user1.addr);
+
+        // json 객체(데이터를 주고받을 때 사용)
+        // let user2 {"userid": "koreait","passwd": "1234"};
+
+        // 디비 : 테이블
+        let users = [
+            {
+                username: "허정빈",
+                addr: "부산광역시"
+            },
+            {
+                username: "이영희",
+                addr: "서울특별시"
+            }
+        ]
+    </script>
+</body>
+</html>
