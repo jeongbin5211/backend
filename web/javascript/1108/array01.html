@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let rgb = ["RED", "GREEN", "BLUE"];
+        rgb.forEach( (c) => {
+            console.log(c);
+        });
+
+        // 출력코드 한줄일 때 중괄호 생략 가능
+        rgb.forEach((c) => console.log(c));
+
+        console.log("---------------------");
+
+        // forEach() 사용 권장
+
+        for (let i = 0; i < rgb.length; i++) {
+            console.log(rgb[i]);
+        }
+
+        // 회원정보 : {아이디, 비밀번호}, {아이디2, 비밀번호2}
+
+        // 회원정보 : 이름 -> 중괄호 필요없음
+        // 회원정보 : [이름] = new Array(값...);
+
+        let colors = new Array("RED", "GREEN", "BLUE");
+
+        console.log("--Array--");
+        // colors.forEach((별명) => {출력코드})
+        colors.forEach((c) => console.log(c));
+
+        colors.forEach(function (c) {
+            console.log(c);
+        })
+        
+    </script>
+</body>
+</html>

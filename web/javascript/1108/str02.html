@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 업로드 확장자 체크 검색 -->
+
+    <script>
+        let filename = "20231108.txt";
+
+        // 이름.split("구분자") -> 배열로 리턴
+        console.log(filename.split(".")[1]); // == 'txt';
+
+        let ext = filename.split(".")[1];
+        if (ext == "txt") {
+            console.log("파일을 업로드 할 수 없습니다.");
+        }
+
+        console.log("------------------");
+
+        // jpg, png, gif, zip
+        let imgfile = "photo.jpg";
+        // imgfile.split(".")[0] = new Date();
+        let chk = imgfile.split(".")[1];
+
+        if (chk == "jpg" || chk == "png") {
+            console.log("사용 가능한 첨부파일입니다.");
+        } else {
+            console.log("사용할 수 없는 첨부파일입니다.");
+        }
+
+        let jumin = "001234-5678910";
+        let jumin1 = jumin.split("-")[0];
+
+        console.log(jumin1 + "-*******");
+    </script>
+    
+</body>
+</html>

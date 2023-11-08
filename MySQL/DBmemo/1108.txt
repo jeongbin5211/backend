@@ -1,0 +1,6 @@
+sqlplus
+
+system
+1234
+
+sqlplus system/1234
