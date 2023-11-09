@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 회원정보 3명 객체로 등록 후 화면에 출력
+        // = 데이터베이스 회원 3명을 화면에 출력
+        // 번호, 아이디, 이름, 성별, 급여, 날짜
+
+        let members = [
+            {
+                id: 1,
+                userid: "busan",
+                name: "부산광역시",
+                gender: "M",
+                salary: 100,
+                regdate: "2023-11-09"
+            },
+            {
+                id: 2,
+                userid: "seoul",
+                name: "서울특별시",
+                gender: "W",
+                salary: 300,
+                regdate: "2023-01-01"
+            },
+            {
+                id: 3,
+                userid: "daejeon",
+                name: "대전광역시",
+                gender: "W",
+                salary: 50,
+                regdate: "2022-12-31"
+            }
+        ];
+
+        console.log(members[1]);
+        console.log(members[1].name);
+
+        console.log("");
+        console.log("");
+        
+        /* 
+        members.forEach((m) => {
+            console.log(m.id);
+            console.log(`회원번호 ${m.id}, 이름 ${m.userid}, 가입일 : ${m.regdate}`)
+        })
+        */
+        
+        members.forEach((m, idx) => {
+            console.log(`배열번호 : ${idx} => 회원번호 : ${m.id} 아이디 : ${m.userid} 가입일 : ${m.regdate} `)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+1. mysql(mariadb)
+2. oracle : sqldeveloper(jdk 포함되는 버전 필요) -> todd
+
+sqlplus
+system
+1234
+
+오라클 -> 데이터베이스 하나로 공유 -> 테이블만 사용함
+
+sqldeveloper 다운로드
+
+
+1. 계정 생성
+- system 계정 접속
+- 계정생성/접속권한(db 생성 x)
+- sqlplus -> system -> 비밀번호
+- DDL, DML, DCL
+- create user testdb identified by 1234; -> 오류 발생
+- create user c##testdb identified by 1234; -> 정상
+- 보안 해제
+  alter session set "_oracle_script" = true; => c## 생략 가능
+
+- create user scott identified by tiger;
+- grant connect, resource, dba to scott;
+- alter user scott default tablespace users quota unlimited on users; -> 용량 해제
+- commit; -> 설정완료(flush privileges)
+
+  show user;
+- cmd 접속 확인
+  con scott
+  tiger
+  show user;
+
+  sqlplus scott/tiger
+
+- sqldeveloper 에서 확인
+
+
+Oracle SQL Developer
+도구 -> 환경설정 -> 환경 -> 인코딩 -> UTF-8
+
+코드 편집기 -> 글꼴 
+
+
+varchar -> varchar2
+int -> number
+
+now -> sysdate
+
+member
+아이디, 이름, 비밀번호, 성별(M, F), 급여
+문자열 : 숫자, 영문자(1byte), 한글 2byte
+create table member(
+userid varchar2(20),
+username varchar2(10),
+passwd varchar2(20),
+gender char(1),
+salary number(4),
+regdate date
+);
+
+insert into member values('hong', '홍길동', '1234', 'M', 100, sysdate);
+
+-----------------------------------------------
+
+
+seq(순서)
+sequence
+auto_increment = sequence
+
+ex) mysql
+create table test(
+id int auto_increment
+);
+insert into test values(null);
+
+------
+
+oracle
+테이블 생성
+create table ex_test(
+id number(10) not null
+);
+insert into ex_test values(시퀀스이름.nextval);
+
+
+시퀀스(자동 번호 부여) 쿼리 작업
+create sequence 시퀀스이름
+create sequence ex_seq
+increment by 1
+start with 1
+minvalue 1
+maxvalue 9999
+nocache
+nocycle
+noorder;
+
+insert into ex_test values(ex_seq.nextval);
+
+만들어진 시퀀스 정보 확인
+
+// dual : 오라클에서 사용하는 가상 테이블(단순 출력)
+
+// 최근(최대) 시퀀스 번호
+select ex_seq.currval from dual;
+
+// 시퀀스 정보
+select * from user_sequences;
+
+// 시퀀스 삭제
+drop sequence ex_seq;
+
+drop table ex_test;
+
+
+--------------------------------------
+
+회원정보 users(번호, 아이디, 이름, 급여, 날짜)
+시퀀스 -> 테이블 -> 입력
+user_seq
+
+create sequence user_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9999
+nocycle
+nocache
+noorder;
+
+select * from user_sequences;
+
+create table users(
+num number,
+userid varchar2(20),
+username varchar2(20),
+salary number,
+regdate date
+);
+
+desc users;
+
+insert into users values(user_seq.nextval, 'kim', '김부산', 100, sysdate);
+
+select * from users order by num desc;
+
+select count(*) from users;
+
+select count(*) as '회원수' from users; -> 오류발생
+select count(*) as "회원수" from users; -> 정상
+select count(*) as count from users; -> 정상
+
+drop sequence user_seq;
+drop table users;
