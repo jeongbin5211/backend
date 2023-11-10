@@ -9,7 +9,7 @@ create database grp;
 (3) 계정 생성 후 생성된 디비에 권한 부여
 create user grp@'%' identified by '1234';
 
-grant all privileges grp@'%' with grant option;
+grant all privileges on grp@'%' with grant option;
 
 grant all on grp.* to grp@'%' with grant option;
 flush privileges;
