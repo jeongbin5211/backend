@@ -1,0 +1,115 @@
+sqlplus
+
+시스템 계정 접속하고 scott 계정 접속
+conn scott
+tiger
+
+show user;
+show tables; -> 오류 발생
+select * from table; -> 오류
+select * from tab;
+
+sql developer
+
+join 하기
+
+on delete는 사용가능하지만 on update는 사용불가
+
+부서 : dept
+코드, 이름
+
+create table dept(
+dept_code varchar2(3),
+dept_name varchar2(10),
+primary key(dept_code)
+);
+
+insert into dept values('100', '인사과');
+insert into dept values('200', '자재과');
+insert into dept values('300', '비서실');
+insert into dept values('900', '임원실');
+
+select * from dept order by dept_code desc;
+
+시퀀스 emp_seq
+create sequence emp_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9999
+nocycle
+nocache;
+
+select * from user_sequences;
+
+사원등록 emp
+시퀀스번호, 이름, 비번, 키, 성별, 날짜
+키 : 190.12cm -> number(자리수, 소수점)
+
+create table emp(
+emp_num number not null,
+emp_name varchar2(10),
+emp_passwd varchar2(20),
+emp_height number(5,2),
+emp_gender char(1),
+emp_regdate date,
+dept_code varchar2(3),
+primary key(emp_num),
+foreign key(dept_code) references dept(dept_code)
+);
+
+insert into emp values(emp_seq.nextval, '홍길동', '1111', 190.12, 'M', sysdate, '100');
+
+insert into emp values(emp_seq.nextval, '이영희', '2222', 160.12, 'F', sysdate, '200');
+
+insert into emp values(emp_seq.nextval, '김철수', '3333', 180.12, 'M', sysdate, '300');
+
+select emp_num, emp_name, dept_code from emp;
+
+erd 보기
+파일 Data Modeler -> 임포트 -> 스키마 선택 -> 다이어그램 인쇄
+
+-----------------------
+
+1개만 출력 (limit 대신 rownum)
+select * from emp where rownum <= 1 order by emp_num desc;
+
+2개만 출력하고 정렬
+select * from emp where rownum <= 2 order by emp_num desc;
+
+내부쿼리 : 데이터를 정렬한 후 => rownum 개수를 맞춰서
+select * from (select * from emp order by emp_num desc) where rownum <= 2;
+
+inner join ~ on
+
+dept, emp
+
+내부join
+select * from dept D inner join emp E on D.dept_code = E.dept_code;
+
+select D.dept_name, E.emp_name, E.emp_regdate from dept D inner join emp E on D.dept_code = E.dept_code;
+
+조인 -> 그룹화
+인사과(1), 자재과(1), 비서실(1)
+group by 뒤에는 집계함수를 제외한 나머지 전부를 입력
+
+select D.dept_code, D.dept_name, count(E.emp_num) from dept D inner join emp E on D.dept_code = E.dept_code
+group by D.dept_code, D.dept_name;
+
+사원 수가 10명 이상인 부서(사원수) 표시하세요.
+
+select D.dept_name, count(E.emp_num) from dept D inner join emp E on D.dept_code = E.dept_code 
+group by D.dept_name having count(E.emp_num) >= 1;
+
+html 에서는 아래처럼 입력하니 pk값을 입력해야함
+<a href="detail.html?dept_code=100">인사과</a> 
+
+select D.dept_code, D.dept_name, count(E.emp_num) from dept D inner join emp E on D.dept_code = E.dept_code 
+group by D.dept_code, D.dept_name having count(E.emp_num) >= 1;
+
+=
+
+select D.*, count(E.emp_num) from dept D inner join emp E on D.dept_code = E.dept_code 
+group by D.dept_code, D.dept_name having count(E.emp_num) >= 1;
+
+ANSI SQL = 표준 SQL -> 오라클, mysql 에서 같이 사용 가능

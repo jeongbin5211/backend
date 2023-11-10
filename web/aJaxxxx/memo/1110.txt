@@ -1,0 +1,102 @@
+
+스프링 + 웹(서버 : tomcat 필요)
+1. tomcat 별도 설치 -> Spring frameworkd
+2. 내장형 tomcat -> Spring Boot
+
+- 과정형 자격증 웹 : jsp + oracle -> 안씀
+
+2. tools
+jetBrain
+-intellij(com, ulti) -> com버전 다운로드
+
+https://www.jetbrains.com/ko-kr/idea/download/?section=windows
+
+Community Edition
+
+ibm
+eclipse - sts
+
+-> android studio
+
+view
+ajax -> javascript -> jquery(추가 lib 필요)
+
+sever -> 
+스프링부트에서 사용할 내장형 tomcat 또는 추가 프로그램
+web(필수), lombok, thymeleaf(html + 프로그래밍), mysql, maven(데이터베이스 + 스프링 연결)
+ -> start.spring.io
+
+start.spring.io 접속
+
+maven
+- @ (어노테이션): 부트 version 3.0
+- xml
+
+Artifact : ajax
+
+jar - 개발용
+war - 배포용
+
+add dependencies
+
+web검색
+Spring Web
+
+generate
+
+intellj -> 파일 open -> ajax경로 잡기
+
+
+
+java -> java file
+resource
+ - static : css, js, images
+ - template : html
+
+application 서버 설정 -> resources -> application dblclick
+
+도메인: 8080(스프링 디폴트 포트번호)
+
+server.port = 7000 ~ 9999 사이 사용(9999 사용)
+server.port = 9999
+
+java -> com.example.ajax 우클릭 new package - controller : 실행주소관리 또는 파일 전달
+AjaxController.java
+
+localhost:9999/welcome
+
+localhost:9999/getjs
+
+localhost:9999/setjs
+
+a 태그로 만들어진 것 또는 브라우저 주소 뒤에 드러나도 문제없는것 : get
+<a href="/getjs">저장</a>
+
+<form method="get">
+
+보안이 필요할 때 : post
+<form method="post">
+
+서버(Spring) <- json을 통해서 통신 -> 클라이언트(html, js)
+
+--------------------------
+
+localhost:8080
+Whitelabel Error Page -> 코드오류
+
+resources -> application.pro~ server.port = 9999
+
+@GetMapping("/hello") = localhost:9999/hello
+
+jquery.com
+
+웹 특성 : 프로그램이 다르면 접근할 수 없다.
+Access-Control-Allow-Origin
+-> @CrossOrigin("*")
+
+보안레이어
+SSL : 서버에 설치
+
+https:// 
+
+설치 안하면 http://

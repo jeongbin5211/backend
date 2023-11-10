@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조분해할당</title>
+</head>
+<body>
+    <script>
+        // 배열
+        let rgb = ["RED", "GREEN", "BLUE"];
+        // let red = rgb[0];
+        // let green = rgb[1];
+        // let blue = rgb[2];
+
+        // console.log(red);
+
+        let [red, green, blue] = rgb;
+        console.log(red);
+        console.log(green);
+        console.log(blue);
+
+        console.log("");
+
+        // 객체 : 1명의 정보들
+        let user = {
+            id: 1,
+            userid: "busan",
+            passwd: "1234"
+        };
+
+        /*
+        for(key in user) {
+            console.log(user[key]);
+        }
+        */
+
+        let {id, userid, passwd, age, addr} = user;
+        console.log(id);
+        console.log(userid);
+        console.log(passwd);
+        console.log(age);
+        console.log(addr);
+
+    </script>
+</body>
+</html>
