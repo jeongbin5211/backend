@@ -1,0 +1,61 @@
+
+start.spring.io -> web 의존성관리(프로그램 설치) 필수
+- html 작업 : thymeleaf
+- 객체 작업 생략 : lombok
+
+
+패키지(프로그램 동작이 아니라 파일이 많아져서 구분하기 위해 만드는것)
+controller : 주소 또는 데이터 출력 또는 html로 전달
+ @Controller 주소관리
+ @ResponseBody 데이터관리(json)
+ = @RestController (주소관리, 데이터관리 같이)
+
+dto : 객체
+ @Data
+
+(service) : 추가 작업이 필요할 때(page)
+ @Service
+
+mapper : 데이터베이스 자료 처리(DML)
+ @Repository
+
+start.spring.io
+demo (web) 다운로드
+
+DemoApplication run
+localhost:8080 접속
+-> Whitelabel Error Page (빈페이지)
+
+application.properties(설정) -> server.port=9898
+
+reverse 도메인 내에 패키지 4가지 만들기(controller, dto, service, mapper)
+
+작명 ex) 로그인 주소관리 -> LoginController 
+
+controller - TestController
+
+메소드 만들고 @Getmapping(주소) -> @GetMapping("/hello/welcome")
+
+public String welcome() {
+  return "Welcome Busan It Academy";
+}
+
+@ResponseBody 가 없으면 return 내용의 html을 표시
+
+public Map<String, String> welcome() {
+  return Map<String, String> map = new HashMap<>{}
+};
+
+-> 약식으로 작성
+public Map<String, String> welcome() {
+  return Map.of("userid", "koreait");
+};
+-> json 출력
+
+@GetMapping("/hello/hi")
+public String hi() {
+return "hi";
+}
+
+@RequestMapping("/hello") -> /hello는 생략가능 (접속할때는 hello 입력)
+

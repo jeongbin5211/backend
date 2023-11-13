@@ -1,0 +1,141 @@
+system 접속 -> conn/scott -> show user;
+
+select * from tab;
+
+drop table emp, dept
+
+서버규칙
+
+일반계정으로 접속 -> 시스템 계정 접속(conn system) -> exit(quit)
+
+
+sql developer
+
+select * from user_sequences;
+
+drop sequence 이름;
+drop sequence emp_seq;
+
+부서 테이블
+create table buseo(
+buseo_code varchar2(3) not null,
+buseo_name varchar2(30) not null,
+primary key(buseo_code)
+);
+
+select * from tab;
+
+insert into buseo values('100', '인사과');
+insert into buseo values('200', '자재과');
+insert into buseo values('300', '비서실');
+
+select * from buseo;
+
+사원 테이블 -> 시퀀스
+create table emp(
+emp_num number not null,
+emp_kor_name varchar2(10),
+emp_eng_name varchar2(20),
+emp_jumin char(14),
+emp_gender char(1),
+emp_point number(3, 2),
+emp_regdate date,
+primary key(emp_num),
+);
+
+create sequence emp_seq
+start with 1 
+increment by 1
+minvalue 1
+maxvalue 9999
+nocycle
+nocache
+noorder
+
+select * from user_sequences;
+
+insert into emp values(emp_seq.nextval, '홍길동', 'Hong gil-dong', '001234-5678910', 'M', 1.24, sysdate);
+insert into emp values(emp_seq.nextval, '김부산', 'Kim busan', '231234-1111111', 'M', 2.24, sysdate);
+insert into emp values(emp_seq.nextval, '나서울', 'Na seoul', '112233-2222222', 'F', 3.14, sysdate);
+
+---------------------------------------------
+
+이름이 김부산, 나서울 출력
+
+select * from emp where emp_kor_name = '김부산' or emp_kor_name = '나서울';
+
+select * from emp where emp_kor_name != '김부산' and emp_kor_name != '나서울';
+
+select * from emp where emp_kor_name in('김부산', '나서울');
+
+select * from emp where emp_kor_name not in('김부산', '나서울');
+
+영문자 대/소문자 변환
+select upper(emp_eng_name) from emp;
+
+select lower(emp_eng_name) from emp;
+
+// 첫글자만 대문자
+select initcap(emp_eng_name) from emp;
+
+좌우공백 제거하고 영문자 대/소문자 변환, 첫글자만 대문자
+
+select upper(trim(emp_eng_name)) from emp;
+
+select lower(trim(emp_eng_name)) from emp;
+
+select initcap(trim(emp_eng_name)) from emp;
+
+// 왼쪽 1글자만 substr(값, 시작번호, 개수)
+select substr(upper(trim(emp_eng_name)), 0, 1) from emp;
+
+문자열 길이(byte) 체크 : 데이터베이스에서 처리하는 방식에 따라 값이 다를 수 있음
+select emp_eng_name, length(emp_eng_name) from emp;
+
+select emp_kor_name, length(emp_kor_name) from emp;
+
+select emp_kor_name, lengthb(emp_kor_name) from emp;
+
+개수 출력
+mysql
+정렬 limit 개수,
+정렬 limit 시작번호, 개수
+
+oracle
+정렬 fetch first 개수 rows only;
+정렬 offset 시작번호(index) row fetch first 개수 rows only;
+
+select * from emp order by emp_num desc;
+
+select * from emp order by emp_num desc fetch first 1 rows only;
+
+select * from emp order by emp_num desc offset 1 row fetch first 1 rows only;
+
+replace(ctrl + h)
+
+M을 '남' 으로 바꾸세요. replace(컬럼명, 값, 바꿀값)
+
+select replace(emp_gender, 'M', '남') from emp;
+
+1 / 10 => ceil(0.1) => 1page
+
+ceil -> +면 올림값, -면 내림값
+
+floor -> +면 내림값, - 올림값
+
+select emp_point, ceil(emp_point) from emp;
+
+select emp_point, floor(emp_point) from emp;
+
+select emp_point, ceil(emp_point), floor(emp_point) from emp;
+
+TO_CHAR(값, 포멧)
+날짜를 yyyy.mm.dd 로 표시하세요.
+
+select emp_regdate from emp;
+
+select TO_CHAR(emp_regdate, 'yyyy.mm.dd') from emp;
+
+select TO_CHAR(emp_regdate, 'yyyy.mm.dd hh:mi:ss') from emp;
+
+select TO_CHAR(emp_regdate, 'yyyy.mm.dd hh24:mi:ss') from emp;
