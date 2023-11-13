@@ -59,3 +59,21 @@ return "hi";
 
 @RequestMapping("/hello") -> /hello는 생략가능 (접속할때는 hello 입력)
 
+
+-----------------------------
+
+demo2
+
+Spring Web, Thymeleaf
+
+resources - templates -> home.html 작성
+
+thymeleaf 선언문 <html xmlns:th="http://www.thymeleaf.org"> -> 변수받아서 입력하려면 필요 [[]]
+선언문은 html 맨위에 입력하기
+
+Model : 데이터 전달
+model.addAttribute("title", "koreait")
+
+tree appearance -> compact middle package
+
+html 에 [[${title}]] 넣으면 koreait 출력됨
