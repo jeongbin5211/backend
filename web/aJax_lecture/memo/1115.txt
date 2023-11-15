@@ -1,0 +1,45 @@
+금요일 보충 1시간
+
+1. 게시판 -> 회원가입 -> 다중게시판 => 사이트관리
+
+2. 메뉴 -> 데이터 전달 -> ajax
+
+vscode -> intellij
+
+html > (db) > 객체, controller -> mappers -> (service) -> controller
+
+templates(html)
+
+admin
+주소		파일명
+/admin 		> /admin/index.html
+/admin/employees 	> /admin/employees.html
+/admin/article 	> /admin/article.html
+
+users
+/users/login	> /users/login.html
+/users/register	> /users/register.html
+
+/		> index.html
+
+
+
+----------------------------------
+
+tut03 - lombok
+
+회원가입
+/users/register   -> /users/register.html
+
+lombok -> 필드 제외한 나머지 생략가능
+
+--------------------------------
+
+tut04
+
+RegController
+
+users/register    
+
+// a, button, 브라우저 url에 직접 입력 처리 = Get
+@GetMapping("/")
