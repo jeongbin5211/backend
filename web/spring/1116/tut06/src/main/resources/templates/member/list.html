@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member List</title>
+    <style>
+        td {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<a href="/member/add">Add Member</a>
+<div class="container">
+    <form action="">
+        <table>
+            <thead>
+                <tr>
+                    <td>Member No.</td>
+                    <td>Member ID.</td>
+                    <td>Member Password</td>
+                    <td>Member marks</td>
+                </tr>
+            </thead>
+            <tbody>
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td>2</td>-->
+<!--                    <td>3</td>-->
+<!--                    <td>-->
+<!--                        <a href="">수정</a>-->
+<!--                        <a href="">삭제</a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    /* 시작하자마자 띄우기 */
+    $(function() {
+        /* alert("ok"); */
+
+        /*
+        let output = `<tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>
+                        <a href="">수정</a>
+                        <a href="">삭제</a>
+                    </td>
+                </tr>`;
+
+                document.querySelector('tbody').innerHTML = output;
+        */
+
+        $.ajax({
+            type: "get",
+            url: "/member/getMembers",
+            dataType: "json",
+            success: (result) => {
+                /* console.log(result.members) */
+
+                /*
+                result.members.forEach((m) => {
+                    console.log(m);
+                });
+                */
+
+                // 데이터(tr>td) 이어 붙이기
+                let output = "";
+                result.members.forEach((m) => {
+                    output += `
+                    <tr>
+                    <td>${m.num}</td>
+                    <td>${m.userid}</td>
+                    <td>${m.passwd}</td>
+                    <td>
+                        <a href="">수정</a>
+                        <a href="">삭제</a>
+                    </td>
+                    </tr>
+                    `;
+                });
+
+                document.querySelector("tbody").innerHTML = output;
+
+            }
+        })
+    });
+</script>
+</body>
+</html>

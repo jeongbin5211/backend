@@ -1,0 +1,70 @@
+html -> db -> 객체, Controller -> (service) -> mappers
+
+db 작명 : emp_name
+객체 작명 : empName
+-> 스프링에서 코드사용하면 같아짐
+
+
+lombok 사용x(보안취약..)
+
+tut05
+
+spring web, thymeleaf, mysql driver, mybatis
+
+Spring Query 사용하는 방법 : mybatis 사용(xml 방식)
+
+db 만들고 application properties
+
+server.port = 8888
+
+#mysql config
+
+
+사용자 이메일, 비번 저장
+/users/insert.html	-	/users/insert.html
+/users/list.html	-	/users/list.html
+
+=> vscode로 작업진행
+
+db query 저장
+/static/koreaitdb.sql
+
+패키지
+/dto/UsersDto
+
+인터페이스 : interface -> 중괄호 없음, 이름만 필요
+/mappers/UsersMapper.java
+
+select 제외한 나머지는 public 'void' 사용
+#{객체명}
+insert into users values(#{객체명});
+
+
+
+tut06
+-controller
+-dto
+-service
+-mappers
+
+
+/member/list	/member/list.html
+/member/add	/member/add.html
+
+
+pk, 아이디, 비밀번호  static/db.sql
+
+
+
+output 에 넣기
+
+<tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>
+                        <a href="">수정</a>
+                        <a href="">삭제</a>
+                    </td>
+                </tr>
+

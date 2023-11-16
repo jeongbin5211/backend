@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Add</title>
+</head>
+<body>
+<a href="/member">List Member</a>
+<div class="container">
+    <form action="">
+        <ul>
+            <li>
+                <label>아이디</label>
+                <input type="text" class="userid">
+            </li>
+            <li>
+                <label>비밀번호</label>
+                <input type="password" class="passwd">
+            </li>
+            <li>
+                <button class="btn">Member Add</button>
+            </li>
+        </ul>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    let userid = document.querySelector('.userid');
+    let passwd = document.querySelector('.passwd');
+    let btn = document.querySelector('.btn');
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (userid.value == "") {
+            alert("id check");
+            userid.focus();
+            return false;
+        }else if (passwd.value == "") {
+            alert("passwd check");
+            passwd.focus();
+            return false;
+        }
+
+        let user = {
+                userid: userid.value,
+                passwd: passwd.value
+        }
+        console.log(user)
+
+        $.ajax({
+            type: 'post',
+            url: "/member/add",
+            data: user,
+            datatype: 'json',
+            success: (result) => {
+
+                if(result.msg == "success") {
+                    alert("회원가입완료")
+                    location.href = "/member";
+                }
+            }
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <ul>
+        <li>
+            <label>이메일</label>
+            <input type="text" class="email">
+        </li>
+        <li>
+            <label>비밀번호</label>
+            <input type="text" class="passwd" />
+        </li>
+        <li>
+            <button class="btn">회원가입</button>
+        </li>
+    </ul>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    document.querySelector('.btn').addEventListener('click', (e) => {
+        e.preventDefault();
+<!--        alert("성공");-->
+
+        let emailValue = document.querySelector(".email").value;
+        let passwdValue = document.querySelector(".passwd").value;
+
+        let obj = {
+            email: emailValue,
+            passwd: passwdValue
+        }
+
+        $.ajax({
+            type: 'post',
+            url: "http://localhost:8080/users/register",
+            data: obj,
+            dataType: 'json',
+            success: (result) => {
+                
+
+                /* for(let 별명 in 객체명) {} */
+                for(let res in result) {
+                    console.log(`키값은 ${res}`);
+                    console.log(`출력되는 값은 ${result[res]}`);
+
+
+                }
+
+
+
+            }
+        })
+    });
+</script>
+</body>
+</html>
