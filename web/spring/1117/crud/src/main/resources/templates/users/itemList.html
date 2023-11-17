@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 목록 보기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    tr {
+        height: 45px;
+        text-align: center;
+    }
+
+    thead tr {
+        background-color: #254def;
+        color: #fff;
+    }
+
+    tbody tr {
+        background-color: #fff;
+    }
+
+    th:nth-child(1) {
+        width: 10%;
+    }
+
+    th:nth-child(3) {
+        width: 20%;
+    }
+
+    th:nth-child(4) {
+        width: 20%;
+    }
+
+    td:nth-child(2) {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid #ccc;
+    }
+
+    .count {
+        text-align: right;
+    }
+
+    p {
+        text-align: right;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+</style>
+<body>
+<div class="container">
+    <h2>코리아아이티 상품 리스트</h2>
+    <div class="count">
+        전체상품 수 : <span>0</span>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>상품번호</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>비고</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <!--<tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>
+                <a href="">보기</a>
+                <a href="">수정</a>
+                <a href="">삭제</a>
+            </td>
+        </tr>-->
+
+        </tbody>
+
+    </table>
+    <div>
+        <p>
+            <a href="/admin/addItem">상품등록</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    function deleteItem(id) {
+        /* alert("삭제"); */
+        if (confirm('삭제하면 복원할 수 없습니다. 삭제하시겠습니까?')) {
+            // alert(id);
+
+            $.ajax({
+                type: 'get',
+                url: "/admin/deleteItem",
+                dataType: 'json',
+                // data: {id: id}, // key(controller 사용 변수), value(값) -> key 와 value가 같으면 id 한번만 적기
+                data: {id},
+                success: function(result) {
+                    if (result.msg == "success") {
+                        alert("삭제 완료");
+                        location.href = "/users";
+                    }
+                }
+            })
+        }
+    }
+
+    function viewItem(id) {
+        location.href = "/users/viewItem?id="+id;
+    }
+
+    function updateItem(id) {
+        location.href = "/admin/updateItem?id="+id;
+    }
+
+    $(function() {
+        /* alert("들어가면 보이는 알람"); */
+        $.ajax({
+            type: 'post',
+            url: "/users",
+            dataType: 'json',
+            success: (result) => {
+                // console.log(result.total);
+                document.querySelector('.count span').innerHTML = result.total;
+                // console.log(result.items);
+
+                let output = "";
+                result.items.forEach((item) => {
+                    output += `
+                        <tr>
+                            <td>${item.itemId}</td>
+                            <td>${item.itemName}</td>
+                            <td>${item.itemPrice}</td>
+                            <td>
+                                <a onclick="viewItem(${item.itemId})">보기</a>
+                                <a onclick="updateItem(${item.itemId})">수정</a>
+                                <a onclick="deleteItem(${item.itemId})">삭제</a>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                document.querySelector('table tbody').innerHTML = output;
+
+            }
+        })
+    });
+</script>
+</body>
+</html>

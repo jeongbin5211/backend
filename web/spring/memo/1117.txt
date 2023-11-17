@@ -1,0 +1,56 @@
+
+react library : 느슨함
+
+Spring Framework : 규칙지키기
+
+@Autowired
+Article a
+
+---------------------------------------
+
+쇼핑몰 shop table
+Ajax - crud View(상세보기)
+
+list : 목록, 상품수
+
+QueryString -> "?" 사용
+delete?num=1
+update?num=1
+view?num=1
+
+start.spring.io
+crud 생성
+
+Ajax, Thymeleaf,mysql,mybatis
+타임리프 선언문
+
+쇼핑몰 shop
+
+관리자
+/admin/addItem	=> /admin/addItem.html *
+/admin/updateItem	=> /admin/updateItem.html ** addItem.html 복사 사용
+/admin/deleteItem	=> /admin/deleteItem.html ** addItem.html 복사 사용
+
+사용자
+/users		=> /users/listItem.html
+/users/viewItem	=> /users/viewItem.html
+
+
+controller @Controller
+dto 
+mappers 인터페이스 @Mapper
+service 인터페이스 구현 @Service 
+
+html -> db 생성 -> 객체, controller -> (service) -> mappers
+
+
+<tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>
+                <a href="">보기</a>
+                <a href="">수정</a>
+                <a href="">삭제</a>
+            </td>
+        </tr>
