@@ -1,0 +1,69 @@
+sel
+
+1. controller, dto, service, mappers
+
+2. templates
+dept/sel		-> /dept/sel.html
+
+3. static
+js/jquery
+
+
+ajax 사용 -> class사용 (name 필요없음)
+
+thymeleaf 경로 문법 th:href = "@{/js/jquery}"
+
+1. sel.html script function alert() 까지 작성
+2. controller 만들기(DeptController)
+3. sql/dept.sql
+4. html -> ajax작성(console.log까지)
+5. controller 
+6. DeptDto
+7.DeptMapper
+8.controller -> Autowired DeptMapper deptMapper
+9. setDept() 에 deptMapper를 map으로 받기
+10. console.log(result) 확인
+11. output 작성
+
+/* console.log(result.dept); */
+                    /* let output = `
+                    <option value="">---부서 선택---</option>
+                    <option value="100">인사과</option>
+                    */
+                    `;
+                    /* document.querySelector('#dept').innerHTML = output */
+
+12. output2 작성
+let output = "";
+                    result.dept.forEach((d) => {
+                        output += `<option value="${d.deptCode}">${d.deptName}</option>`;
+                    });
+
+                    document.querySelector('#dept').innerHTML = output;
+12. 부서등록 만들기(html -> ajax -> mapper -> controller -> success)
+
+
+--------------------
+
+multiple.html - 다중셀렉트
+대분류, 소분류
+
+1. vscode로 작성하기
+2. controller
+3. tip 불러오기
+<!--success: (result) => {
+                //console.log(result.dept);
+                let output = "";
+                result.dept.forEach((d) => {
+                    output += `
+                        <span class="tip">
+&lt;!&ndash;                            한글 변수는 '달러{}'&ndash;&gt;
+                            ${d.deptName} <span class="del" onclick="removeDept(${d.deptCode}, '${d.deptName}')">X</span>
+                        </span>
+                    `;
+                });
+                document.querySelector('.disp').innerHTML = output;
+            }-->
+
+
+
