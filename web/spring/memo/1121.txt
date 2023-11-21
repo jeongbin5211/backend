@@ -1,0 +1,50 @@
+1. 회원가입(CRUD) + 로그인
+- ajax(x)
+- thymeleaf
+- 디자인(x)
+
+artifact : member
+
+/		index.html
+/login		login.html
+
+/member		/member/list.html
+/member/insert	/member/insert.html
+/member/delete	x
+/member/update	/member/update.html
+/member/view	/member/view.html
+
+1. index.html 만들기
+href앞에 th, 경로는 @{} 안에 작성
+index컨트롤러 => home 컨트롤러로 작성
+반복
+
+2. list.html 만들기 -> insert.html 만들기
+
+3. insert.html -> onsubmit 이벤트
+autocomplete="off" => 자동완성 끄기(default = on)
+readonly : 입력불가능으로 만들기
+tabindex : 탭순서 설정
+유효성 검사까지 작성
+
+4. member.sql 작성
+
+5. MemberDto 생성 -> MemberController PostMapping("/insert")
+
+6. MemberMapper 작성
+ajax map 대신 RedirectAttributes 사용, ra.addFlashAttribute(일회성)
+list.html -> <p>[[${msg}]]</p> 추가
+-> 새로고침하면 p안에있는 msg 안나옴
+list.html -> table 추가
+
+7. Controller -> getMemberList에 mapper작업
+8. th:each="별명: ${mem}"
+9. 회원목록 페이지에서 검색창 만들기 -> get
+(만들어진 select 페이지 사용해서)
+@RequestParam(defaultValue = "") 잘못된 값이 들어왔을때 기본값 설정
+10. 검색된 개수 표시하기
+11. 삭제 작업
+
+
+
+
