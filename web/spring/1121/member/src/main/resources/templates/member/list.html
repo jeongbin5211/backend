@@ -7,9 +7,12 @@
     <title>코리아아이티 아카데미 > Member > List</title>
 </head>
 <body>
-    <a th:href="@{/}">Home</a>
-    <a th:href="@{/member/insert}">회원가입</a>
-    <a th:href="@{/logout}">로그아웃</a>
+
+<h1>[[${session.user.userid}]] / [[${session.user.username}]]</h1>
+
+<!--<h1>[[${session.uid}]] / [[${session.uname}]]</h1>-->
+<!--<h1>[[${session.user.userid}]] / [[${session.user.username}]]</h1>-->
+<div th:insert="~{fragment/nav::nav_f}"></div>
     <h1>코리아아이티 아카데미 회원목록 페이지</h1>
 
     <p style="background-color:#0f0; color:#fff">[[${msg}]]</p>
@@ -42,12 +45,21 @@
         </tr>
         <tr th:each="m: ${mem}">
             <td>[[${m.id}]]</td>
-            <td>[[${m.userid}]]</td>
+            <td>
+                <!--/member/view?id=11-->
+                <a th:href="@{/member/view?(id=${m.id})}">
+                    [[${m.userid}]]
+                </a>
+            </td>
             <td>[[${m.passwd}]]</td>
-            <td>[[${m.username}]]</td>
+            <td>
+                <a th:href="@{/member/view?(id=${m.id})}">
+                    [[${m.username}]]
+                </a>
+            </td>
             <td th:text="${m.regdate}">[[${m.regdate}]]</td>
             <td>
-                <button>보기</button>
+                <button th:onclick="viewMember([[${m.id}]])">보기</button>
                 <button>수정</button>
                 <button th:onclick="deleteMember([[${m.id}]])">삭제</button>
             </td>
@@ -79,6 +91,11 @@
             if (confirm('회원정보를 삭제하시겠습니까?')) {
                 location.href = "/member/delete?id="+id;
             }
+        }
+
+        function viewMember(id) {
+            //alert(id);
+            location.href = "/member/view?id="+id;
         }
     </script>
 </body>

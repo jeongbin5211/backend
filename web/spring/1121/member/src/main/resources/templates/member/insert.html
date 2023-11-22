@@ -7,9 +7,7 @@
     <title>코리아아이티 아카데미 > Member > Insert</title>
 </head>
 <body>
-<a th:href="@{/}">Home</a>
-<a th:href="@{/login}">로그인</a>
-<a th:href="@{/member}">회원목록</a>
+<div th:insert="~{fragment/nav::nav_f}"></div>
 
 <h1>코리아아이티 아카데미 회원 가입 페이지</h1>
 <form autocomplete="off" method="post" action="/member/insert" onsubmit="return frmCheck()">
