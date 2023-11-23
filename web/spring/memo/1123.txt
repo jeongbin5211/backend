@@ -1,0 +1,10 @@
+update.html수정 -> member/insert 복붙 후 수정
+
+--------------------
+파일 업로드
+
+enctype="multipart/form-data"
+
+config/WebConfig : 설정
+
+http://localhost:8888/7d11d4b1-66a1-4d73-b95f-5788090183c1.jpg -> 웹에서 볼수있음

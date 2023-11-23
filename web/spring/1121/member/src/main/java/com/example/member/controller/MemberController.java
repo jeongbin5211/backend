@@ -69,4 +69,18 @@ public class MemberController {
         model.addAttribute("mem", memberMapper.viewMember(id));
         return "member/view.html";
     }
+
+    @GetMapping("/update")
+    public String getUpdate(@RequestParam int id, Model model) {
+        model.addAttribute("view", memberMapper.viewMember(id));
+        return "member/update.html";
+    }
+
+    @PostMapping("/update")
+    public String setUpdate(@ModelAttribute MemberDto memberDto, RedirectAttributes ra) {
+        System.out.println(memberDto);
+        memberMapper.setUpdate(memberDto);
+        ra.addFlashAttribute("msg", "회원정보가 수정되었습니다.");
+        return "redirect:/member";
+    }
 }

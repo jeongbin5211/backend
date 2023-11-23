@@ -60,7 +60,7 @@
             <td th:text="${m.regdate}">[[${m.regdate}]]</td>
             <td>
                 <button th:onclick="viewMember([[${m.id}]])">보기</button>
-                <button>수정</button>
+                <button th:onclick="updateMember([[${m.id}]])">수정</button>
                 <button th:onclick="deleteMember([[${m.id}]])">삭제</button>
             </td>
         </tr>
@@ -96,6 +96,11 @@
         function viewMember(id) {
             //alert(id);
             location.href = "/member/view?id="+id;
+        }
+
+        function updateMember(id) {
+            //alert(id);
+            location.href = "/member/update?id="+id;
         }
     </script>
 </body>
