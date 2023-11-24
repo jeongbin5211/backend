@@ -1,4 +1,4 @@
-package com.example.upload.config;
+package com.example.fileupload.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 //        addResourceLocations("") : 경로는 src부터 적기 -> 내부 작업 경로 설정
 //        addResourceLocations("file:///D:/temp/") : 외부 저장 경로 설정
         registry.addResourceHandler("/**")
-                .addResourceLocations("file:upload/src/main/resources/static/upload/")
+                .addResourceLocations("file:src/main/resources/static/upload/")
                 .addResourceLocations("file:///D:/temp/");
     }
 }

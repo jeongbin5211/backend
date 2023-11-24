@@ -1,0 +1,12 @@
+upload
+- uploadForm.html
+- uploadView.html
+
+다운로드
+1. uploadView.html 에 download 링크 먼저 작성
+2. controller 에서 download mapping
+
+
+다중 업로드
+templates - v2
+mysql - long없음 -> bigint
