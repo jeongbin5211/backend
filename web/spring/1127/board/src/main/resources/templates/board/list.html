@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>코리아아이티 아카데미 > 글 목록보기</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* ----------------------------------------- */
+
+        .wrap {
+            box-shadow: 0 0 5px 0.25rem #eee;
+            border: 1px solid #ccc;
+            max-width: 95%;
+            margin: 10px auto;
+            height: 300px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        form {
+            text-align: right;
+            margin-bottom: 5px;
+        }
+
+        .searchType, .words {
+            padding: 0.4rem 0.75rem;
+            font-size: 14px;
+            color: #212529;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+        }
+
+        .btn {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0b5ed7;
+            padding: 5px 15px;
+            font-size: 14px;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        tr {
+            height: 45px;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+        }
+
+        tr:first-child {
+           background-color: #f7f7f7; 
+        }
+
+        td {
+            text-align: center;
+        }
+
+        td:nth-child(2) {
+            text-align: left;
+            padding-left: 4px;
+        }
+
+        .update_btn, .delete_btn {
+            padding: 5px 12px;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .update_btn {
+            background-color: blue;
+        }
+
+        .delete_btn {
+            background-color: tomato;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .bottom-center a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #212529;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3>코리아아이티 아카데미 > QnA 게시판 > 글 목록보기</h3>
+        <form action="" method="get">
+            <select name="searchType" class="searchType">
+                <option value="subject">제목</option>
+                <option value="writer" selected >작성자</option>
+                <option value="content">내용</option>
+            </select>
+            <input type="text" name="words" class="words" required>
+            <input type="submit" class="btn" value="검색">
+        </form>
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>등록일</th>
+                <th>첨부파일</th>
+                <th>비고</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>
+                    <a href="" class="update_btn">수정</a>
+                    <a href="" class="delete_btn">삭제</a>
+                </td>
+            </tr>
+        </table>
+        <div class="bottom">
+            <div class="bottom-left">
+                <a th:href="@{/board/list}">목록</a>
+            </div>
+            <div class="bottom-center">
+                <a href="">1</a>
+            </div>
+            <div class="bottom-right">
+                <a th:href="@{/board/write}">글쓰기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

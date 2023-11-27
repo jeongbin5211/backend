@@ -1,0 +1,25 @@
+start.spring.io
+- board
+
+sql
+- board.sql
+
+grp : 그룹핑 -> 게시물 그룹화
+seq : 시퀀스 -> 그룹화한 자료를 2차 정렬, 몇번째 답글인지
+depth : 들여쓰기
+
+답글을 다는 게시물과 원글 grp 동일하게
+
+board
+- list.html
+- write.html
+
+home
+- login.html
+
+
+ckeditor
+
+
+dto
+- BoardDto.java
