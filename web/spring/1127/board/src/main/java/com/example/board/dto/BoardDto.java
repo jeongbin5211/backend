@@ -11,6 +11,8 @@ public class BoardDto {
     private String savedFileName;
     private String savedFilePathName;
     private Long savedFileSize;
+    private String folderName;
+    private String ext;
     private int grp;
     private int seq;
     private int depth;
@@ -119,6 +121,22 @@ public class BoardDto {
         this.depth = depth;
     }
 
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
+    }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
+    }
+
     @Override
     public String toString() {
         return "BoardDto{" +
@@ -132,6 +150,8 @@ public class BoardDto {
                 ", savedFileName='" + savedFileName + '\'' +
                 ", savedFilePathName='" + savedFilePathName + '\'' +
                 ", savedFileSize=" + savedFileSize +
+                ", folderName='" + folderName + '\'' +
+                ", ext='" + ext + '\'' +
                 ", grp=" + grp +
                 ", seq=" + seq +
                 ", depth=" + depth +

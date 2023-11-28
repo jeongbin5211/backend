@@ -98,7 +98,7 @@
 <body>
 <div class="wrap">
     <h3>코리아아이티 아카데미 > QnA 게시판 > 글 쓰기</h3>
-    <form action="/board/write" method="post" enctype="multipart/form-data">
+    <form action="/board/write" method="post" enctype="multipart/form-data" onsubmit="return frmCheck()">
         <ul>
             <li>
                 <label>제목</label>
@@ -127,23 +127,18 @@
             document.querySelector('input[name=subject]').focus();
         }
 
-
         let subject = document.querySelector('input[name=subject]');
         let writer = document.querySelector('input[name=writer]');
         let content = document.querySelector('textarea[name=content]');
-        let submit = document.querySelector('input[type=submit]');
 
-
-        submit.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // alert("성공");
+        function frmCheck() {
 
             if (subject.value == "") {
                 alert("게시물 제목을 입력하세요");
                 subject.focus();
                 return false;
             }
-            
+
             if (!writer.value) {
                 alert("게시물 작성자를 입력해주세요.")
                 writer.focus();
@@ -155,8 +150,7 @@
                 content.focus();
                 return false;
             }
-
-        })
+        }
 
         function move() {
             location.href = "/board/list";

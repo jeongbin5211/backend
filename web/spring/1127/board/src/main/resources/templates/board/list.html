@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>코리아아이티 아카데미 > 글 목록보기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
@@ -41,7 +42,6 @@
             border: 1px solid #ccc;
             max-width: 95%;
             margin: 10px auto;
-            height: 300px;
             padding: 10px;
             border-radius: 3px;
         }
@@ -124,19 +124,62 @@
             line-height: 30px;
             font-size: 14px;
         }
+
+        .cnt {
+            color: #f00;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        a.active:hover {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn2 a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-left: 20px;
+            color:#fff;
+            border-radius: 3px;
+            font-size: 14px;
+            cursor:pointer;
+            border:0;
+        }
+
+        .blue {
+            background-color: #2185D0;
+        }
+
+        .red {
+            background-color: #DB2828;
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
         <h3>코리아아이티 아카데미 > QnA 게시판 > 글 목록보기</h3>
+        <hr style="margin-top: 10px;">
         <form action="" method="get">
-            <select name="searchType" class="searchType">
-                <option value="subject">제목</option>
-                <option value="writer" selected >작성자</option>
-                <option value="content">내용</option>
-            </select>
-            <input type="text" name="words" class="words" required>
-            <input type="submit" class="btn" value="검색">
+            <div class="top">
+                <div class="top_left">
+                    <p>전체 게시물 수 : <span class="cnt">[[${cnt}]]</span> 개</p>
+                </div>
+                <div class="top_right">
+                    <select name="searchType" class="searchType">
+                        <option value="subject">제목</option>
+                        <option value="writer" selected >작성자</option>
+                        <option value="content">내용</option>
+                    </select>
+                    <input type="text" name="words" class="words" required>
+                    <input type="submit" class="btn" value="검색">
+                </div>
+            </div>
         </form>
         <table>
             <tr>
@@ -148,13 +191,26 @@
                 <th>첨부파일</th>
                 <th>비고</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
+            <tr th:each="korBoard: ${list}">
+                <td>[[${korBoard.id}]]</td>
+                <td>
+                    <a th:href="@{/board/view?(id=${korBoard.id})}" class="active">
+                        [[${korBoard.subject}]]
+                    </a>
+                </td>
+                <td>[[${korBoard.writer}]]</td>
+                <td>[[${korBoard.visit}]]</td>
+                <td>[[${korBoard.regdate}]]</td>
+<!--                <td>[[${korBoard.originalName}]]</td>-->
+                <td>
+                    <th:block th:if="${not #strings.isEmpty(korBoard.originalName)}">
+                        <i class="fa-regular fa-file"></i>
+                    </th:block>
+
+                    <th:block th:unless="${not #strings.isEmpty(korBoard.originalName)}">
+                        -
+                    </th:block>
+                </td>
                 <td>
                     <a href="" class="update_btn">수정</a>
                     <a href="" class="delete_btn">삭제</a>
@@ -162,13 +218,13 @@
             </tr>
         </table>
         <div class="bottom">
-            <div class="bottom-left">
+            <div class="bottom-left blue btn2">
                 <a th:href="@{/board/list}">목록</a>
             </div>
             <div class="bottom-center">
                 <a href="">1</a>
             </div>
-            <div class="bottom-right">
+            <div class="bottom-right btn2 red">
                 <a th:href="@{/board/write}">글쓰기</a>
             </div>
         </div>
