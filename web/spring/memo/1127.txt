@@ -32,3 +32,5 @@ ifnull(max(grp) + 1, null이 있을시 초기값설정)
 ifnull(max(grp) + 1, 1)
 
 file unlink - 첨부파일 지우기
+
+html -> db -> Controller -> service -> mapper

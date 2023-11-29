@@ -105,3 +105,16 @@ seq int,
 depth int,
 primary key(id)
 );
+
+
+-- 검색 : 조건(where)
+-- subject
+select * from board where subject = '첨부파일 없는 게시물' order by id desc;
+
+select * from board where writer = '관리자' order by id desc;
+
+select * from board where content like '%d%' order by id desc;
+
+-- service sout 이후 오류 확인
+select * from board where subject = 'asd';
+select * from board where writer = 'qlql';
