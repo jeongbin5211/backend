@@ -15,7 +15,7 @@ public interface BoardMapper {
     @Select("select ifnull(max(grp) + 1, 1) as maxGrp from board")
     int getMaxGrp();
 
-    @Select("select * from board ${searchQuery} order by grp desc, seq asc")
+    @Select("SELECT * FROM board ${searchQuery} ORDER BY grp DESC, seq ASC, depth ASC LIMIT #{startNum}, #{offset}")
     List<BoardDto> getList(Map<String, Object> map);
 
     @Select("select count(*) from board ${searchQuery}")
@@ -32,4 +32,10 @@ public interface BoardMapper {
 
     @Insert("insert into board values(null, #{subject}, #{writer}, #{content}, 0, now(), #{originalName}, #{savedFileName}, #{savedFilePathName}, #{savedFileSize}, #{folderName}, #{ext}, #{grp}, ${seq}, ${depth})")
     void setReply(BoardDto boardDto);
+
+    @Update("update board set subject=#{subject}, writer=#{writer}, content=#{content}, regdate=now(), originalName=#{originalName}, savedFileName=#{savedFileName}, savedFilePathName=#{savedFilePathName}, savedFileSize=#{savedFileSize}, folderName=#{folderName}, ext=#{ext} where id = #{id}")
+    void setUpdate(BoardDto boardDto);
+
+    @Select("select count(*) from board ${searchQuery}")
+    int totalCount();
 }

@@ -193,8 +193,10 @@
                 <th>첨부파일</th>
                 <th>비고</th>
             </tr>
-            <tr th:each="korBoard: ${list}">
-                <td>[[${korBoard.id}]]</td>
+            <tr th:each="korBoard, index: ${list}">
+<!--                <td>[[${index.index}]]</td>-->
+<!--                cnt - ((page.page - 1) * page.pageCount) + index.index-->
+                <td>[[${cnt - ((page.page - 1) * page.pageCount) - index.index}]]</td>
                 <td>
                     <!-- 들여쓰기 -->
                     <th:block th:if="${korBoard.depth > 1}">
@@ -224,7 +226,7 @@
                     </th:block>
                 </td>
                 <td>
-                    <a href="" class="update_btn">수정</a>
+                    <a th:href="@{/board/update?(id=${korBoard.id})}" class="update_btn">수정</a>
                     <a href="#" class="delete_btn" th:onclick="remove([[${korBoard.id}]])">삭제</a>
                 </td>
             </tr>
@@ -234,7 +236,25 @@
                 <a th:href="@{/board/list}">목록</a>
             </div>
             <div class="bottom-center">
-                <a href="">1</a>
+                <a href="#" th:if="${page.page <= 1}"></a>
+                <a th:href="@{/board/list?(page=${page.page - 1})}" th:unless="${page.page <= 1}">prev</a>
+                <!-- page number -->
+
+                <a th:href="@{/board/list?(page=${i})}" th:each="i : ${ #numbers.sequence(page.startPage, page.endPage, 1) }">
+                    <th:block th:if="${page.page eq i}">
+                        <span style="color:#f00;">
+                            <strong>[[${i}]]</strong>
+                        </span>
+                    </th:block>
+                    <th:block th:unless="${page.page eq i}">
+                        <span>
+                            [[${i}]]
+                        </span>
+                    </th:block>
+                </a>
+                <a th:href="#" th:if="${page.page > page.totalPage}"></a>
+                <a th:href="@{/board/list?(page=${page.page + 1})}" th:unless="${page.page >= page.totalPage}"> next </a>
+
             </div>
             <div class="bottom-right btn2 red">
                 <a th:href="@{/board/write}">글쓰기</a>

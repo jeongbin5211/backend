@@ -39,18 +39,16 @@ public class BoardController {
     String fileDir;
 
     @GetMapping("/board/list")
-    public String getList(Model model, @RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value = "words", defaultValue = "") String words) {
+    public String getList(Model model, @RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value = "words", defaultValue = "") String words, @RequestParam(value="page", defaultValue = "1") int page) {
 
 //        model.addAttribute("cnt", boardMapper.getListCount());
 //        model.addAttribute("list", boardMapper.getList());
 
         model.addAttribute("cnt", boardService.getSearchCnt(searchType, words));
-        model.addAttribute("list", boardService.getSearch(searchType, words));
-
+        model.addAttribute("list", boardService.getSearch(page, searchType, words));
+        model.addAttribute("page", boardService.BoardPageCalc(page));
         System.out.println(searchType);
         System.out.println(words);
-
-        boardService.getSearch(searchType, words);
 
         return "board/list.html";
     }
@@ -205,5 +203,66 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    @GetMapping("/board/update")
+    public String getUpdate(@RequestParam int id, Model model) {
+        System.out.println(id);
+
+        BoardDto boardDto = boardMapper.getView(id);
+
+        model.addAttribute("modify", boardDto);
+
+        return "board/update";
+    }
+
+    @PostMapping("/board/update")
+    public String setUpdate(@ModelAttribute BoardDto boardDto, @RequestParam("file") MultipartFile mf) throws IOException {
+        System.out.println(boardDto.toString());
+
+        /* ------------------------------------------------- */
+
+        if (!mf.isEmpty()) {
+
+            String folderName = new SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis());
+            File makeFolder = new File(fileDir + folderName);
+
+            if (!makeFolder.exists()) {
+                makeFolder.mkdir();
+            }
+
+            String OriginalName = mf.getOriginalFilename();
+            String uuid = UUID.randomUUID().toString();
+            String ext = OriginalName.substring(OriginalName.lastIndexOf("."));
+            String savedFileName = uuid + ext;
+            String savedFilePathName = fileDir + folderName + "/" + savedFileName;
+
+            boardDto.setOriginalName(OriginalName);
+            boardDto.setSavedFileSize(mf.getSize());
+            boardDto.setSavedFileName(savedFileName);
+            boardDto.setSavedFilePathName(savedFilePathName);
+            boardDto.setFolderName(folderName);
+            boardDto.setExt(ext);
+
+            System.out.println(boardDto.toString());
+            // grp 값이 0으로 출력됨 -> mapper끌고오기
+
+            mf.transferTo(new File(savedFilePathName));
+        }else {
+            // db 저장 객체             // html 에서 넘어온것
+            boardDto.setOriginalName(boardDto.getOriginalName());
+            boardDto.setSavedFileName(boardDto.getSavedFileName());
+            boardDto.setSavedFilePathName(boardDto.getSavedFilePathName());
+            boardDto.setSavedFileSize(boardDto.getSavedFileSize());
+            boardDto.setFolderName(boardDto.getFolderName());
+            boardDto.setExt(boardDto.getExt());
+
+            System.out.println(boardDto);
+        }
+
+        boardMapper.setUpdate(boardDto);
+
+        /* ------------------------------------------------- */
+
+        return "redirect:/board/list";
+    }
 
 }

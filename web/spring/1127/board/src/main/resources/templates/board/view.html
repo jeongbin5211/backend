@@ -207,6 +207,9 @@
 
                         [[${view.originalName}]]
                         <p>
+                            <img th:src="@{|/${view.folderName}/${view.savedFileName}|}" alt="" width="150" height="150" />
+                        </p>
+                        <p>
                             <a th:href="@{/download?(filename=${view.savedFilePathName})}">다운로드</a>
                         </p>
                     </th:block>
@@ -228,10 +231,18 @@
         <div class="bottom-right btn2 red">
             <a th:href="@{/board/reply?(id=${view.id})}">답글달기</a>
             <a th:href="@{/board/update}">수정하기</a>
-            <a th:href="@{/board/delete}">삭제하기</a>
+            <a href="#" th:onclick="remove([[${view.id}]])">삭제하기</a>
             <a th:href="@{/board/write}">글쓰기</a>
         </div>
     </div>
 </div>
+<script>
+    function remove(id) {
+        // alert(id);
+        if (confirm(id + "게시물을 삭제 하시겠습니까?")) {
+            location.href = "/board/delete?id="+id;
+        }
+    }
+</script>
 </body>
 </html>
