@@ -130,7 +130,7 @@ public class BoardService {
         int totalCount = boardMapper.totalCount();
         int totalPage = (int)Math.ceil((double) totalCount / pageDto.getPageCount());
         int startPage
-                = ((int) (Math.ceil((double) page / pageDto.getBlockCount())) - 1) * pageDto.getPage() + 1;
+                = ((int) (Math.ceil((double) page / pageDto.getBlockCount())) - 1) * pageDto.getBlockCount() + 1;
 
         int endPage = startPage + pageDto.getBlockCount() - 1;
 

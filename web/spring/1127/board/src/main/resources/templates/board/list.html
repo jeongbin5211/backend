@@ -164,6 +164,10 @@
 <body>
     <div class="wrap">
         <h3>코리아아이티 아카데미 > QnA 게시판 > 글 목록보기</h3>
+        <span>[[${session.LoginInfo.userid}]]</span>
+        <span>[[${session.LoginInfo.username}]]</span>
+        <span>최초가입일 : [[${session.LoginInfo.regdate}]]</span>
+        <a th:href="@{/logout}">로그아웃</a>
         <hr style="margin-top: 10px;">
         <form action="" method="get">
             <div class="top">

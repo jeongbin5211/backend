@@ -9,6 +9,39 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>로그인 페이지입니다.</h1>
+    <form action="/login" method="post" onsubmit="return frmCheck()">
+        <ul>
+            <li>
+                <label>Userid</label>
+                <input type="text" name="userid">
+            </li>
+            <li>
+                <label>Password</label>
+                <input type="password" name="passwd">
+            </li>
+            <li>
+                <input type="submit" value="Login">
+            </li>
+        </ul>
+    </form>
+    <script>
+        function frmCheck() {
+            let userid = document.querySelector('input[name=userid]');
+            let passwd = document.querySelector('input[name=passwd]');
 
+            if (userid.value == "") {
+                alert("아이디를 입력하세요.");
+                userid.focus();
+                return false;
+            }
+
+            if (passwd.value == "") {
+                alert("비밀번호를 입력하세요.");
+                passwd.focus();
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>

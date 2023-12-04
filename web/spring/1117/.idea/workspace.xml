@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="428d9f94-83bc-4cb6-a1e3-e6a15ba53387" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../1113/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1113/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1127/board/src/main/java/com/example/board/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../1127/board/src/main/java/com/example/board/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1127/board/src/main/java/com/example/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../1127/board/src/main/java/com/example/board/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/board/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/board/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../1127/board/src/main/resources/templates/home/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../memo/1127.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../memo/1127.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2Z4I0E3XE4wDLTzsffwE4Nt6oLs" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="428d9f94-83bc-4cb6-a1e3-e6a15ba53387" name="Changes" comment="" />
+      <created>1701674699204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701674699204</updated>
+    </task>
+    <servers />
+  </component>
+</project>
