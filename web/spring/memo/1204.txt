@@ -41,3 +41,18 @@ login.css
 
 WebConfig
 
+-----------------------------------------------
+
+12.05
+
+mapper -> service -> controller
+
+구동 순서
+controller에서 데이터 전송 -> service -> mapper -> service -> controller
+
+register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
+
+다중게시판 디자인
+
+
+

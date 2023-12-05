@@ -11,7 +11,7 @@
 /* 색상 변수 설정 */
 :root {
     --table-bg-color: #eee;
-    --tabke-border-color: #e2e2e2;
+    --table-border-color: #e2e2e2;
     --btn-color-green: #198754;
     --btn-color-red: #dc3545;
     --btn-color-blue: #0d6efd;
@@ -99,4 +99,8 @@ textarea {
 
 .en {
     font-family: 'Roboto', sans-serif;
+}
+
+.ko {
+    font-family: 'Noto Sans KR', sans-serif;
 }
