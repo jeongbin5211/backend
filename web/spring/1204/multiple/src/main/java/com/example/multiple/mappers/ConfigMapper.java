@@ -62,9 +62,9 @@ public interface ConfigMapper {
     @Select("drop table board_${configCode}")
     void dropBoard(String configCode);
 
-    @Select("drop table board_${configCode}")
+    @Select("drop table files_${configCode}")
     void dropFiles(String configCode);
 
-    @Select("drop table board_${configCode}")
+    @Select("drop table comment_${configCode}")
     void dropComment(String configCode);
 }
