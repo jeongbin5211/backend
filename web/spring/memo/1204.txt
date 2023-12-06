@@ -54,5 +54,20 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 
 다중게시판 디자인
 
+------------------------------------------------
+
+12.06
+
+1. configWrite.html frmCheck() 작성
+2. ajax (controller, service, mapper)
+3. frmCheck() postmapping controller 작성
+4. insert 기능구현
+5. select *, date_format(config_date, '%Y:%m:%d') as configDate from config;
+6. mapper, service, controller 작성 후 configList.html
+7. th:selected=${} => 만약 ${} 조건이라면 셀렉트합니다.
+8. th:onchange="colorChange('[[${config.configId}]]', this.value)"
+9. onchange ajax 작업하기 (update 기능 구현)
+10. delete
+11. boardList 디자인
 
 
