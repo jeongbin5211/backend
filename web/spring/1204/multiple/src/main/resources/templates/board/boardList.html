@@ -41,7 +41,7 @@
                 <td>2</td>
                 <td>
                     <strong>
-                        <a th:href="@{/board/view?(configCode=notice)}">
+                        <a th:href="@{/board/view?(configCode=${configCode})}">
                             코리아아이티
                         </a>
                     </strong>
@@ -69,55 +69,14 @@
                 </a>
             </div>
             <div class="bottom-right">
-                <a th:href="@{/board/boardList?(configCode=notice)}">
+                <a th:href="@{/board/boardList?(configCode=${configCode})}">
                     <button type="button" class="btn black">게시물 목록</button>
                 </a>
-                <a th:href="@{/board/boardWrite(configCode=notice)}">
+                <a th:href="@{/board/boardWrite(configCode=${configCode})}">
                     <button type="button" class="btn blue">게시물 작성</button>
                 </a>
             </div>
         </div>
     </div>
-    <script>
-        // update 테이블 set 바꿀 where id = ?;
-        function colorChange(id, color) {
-            // alert(id);
-            // alert(color);
-
-            $.ajax({
-                type: 'get',
-                url: "/config/colorChange",
-                dataType: 'json',
-                data: {id, color},
-                success: (result) => {
-                    console.log(result.msg);
-                    if (result.msg == "success") {
-                        alert("색상이 변경되었습니다.");
-                        location.href = "/config/configList";
-                    }
-                }
-            })
-        }
-
-        function dropTable(configCode) {
-            if (confirm("게시판을 삭제하면 첨부파일, 댓글 모두 삭제됩니다.\n삭제하시겠습니까?")) {
-                // alert(configCode);
-
-                $.ajax({
-                type: 'get',
-                url: "/config/deleteConfig",
-                dataType: 'json',
-                data: {configCode},
-                success: (result) => {
-                    console.log(result.msg);
-                    if (result.msg == "success") {
-                        alert("게시판이 삭제되었습니다.");
-                        location.href = "/config/configList";
-                    }
-                }
-            })
-            }
-        }
-    </script>
 </body>
 </html>

@@ -85,6 +85,7 @@ select {
     width: 100%;
     padding: 8px;
     outline: 0;
+    font-weight: bold;
 }
 
 textarea {
@@ -95,6 +96,7 @@ textarea {
     height: 400px;
     padding: 8px;
     outline: 0;
+    font-weight: bold;
 }
 
 .en {

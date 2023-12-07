@@ -70,4 +70,9 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 10. delete
 11. boardList 디자인
 
+------------------------------------------------
+
+12.07
+
+@optionals(useGenerateKey)
 
