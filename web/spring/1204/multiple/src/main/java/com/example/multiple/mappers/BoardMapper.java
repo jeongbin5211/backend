@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.io.File;
+import java.util.List;
 
 @Mapper
 public interface BoardMapper {
@@ -20,6 +21,15 @@ public interface BoardMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     public void setBoard(BoardDto boardDto);
 
-    @Insert("INSERT INTO files_${configCode} VALUES(#{id}, #{orgName}, #{savedFileName}, #{savedPathName}, #{savedFileSize}, #{folderName}, '')")
+    @Insert("INSERT INTO files_${configCode} VALUES(#{id}, #{orgName}, #{savedFileName}, #{savedPathName}, #{savedFileSize}, #{folderName}, #{ext})")
     public void setFiles(FileDto fileDto);
+
+    @Select("select * from board_${configCode} order by id desc;")
+    public List<BoardDto> getBiardList(String configCode);
+
+    @Select("select * from board_${configCode} where id = #{id}")
+    BoardDto getBoard(String configCode, int id);
+
+    @Select("select * from files_${configCode} where id = #{id}")
+    List<FileDto> getFiles(String configCode, int id);
 }

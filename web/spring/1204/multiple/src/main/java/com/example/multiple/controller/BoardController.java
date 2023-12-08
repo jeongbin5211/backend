@@ -31,6 +31,8 @@ public class BoardController {
     @GetMapping("/board/boardList")
     public String getBoardList(@RequestParam String configCode, Model model) {
         model.addAttribute("configCode", configCode);
+
+        model.addAttribute("board", boardService.getBoardList(configCode));
         return "board/boardList";
     }
 
@@ -85,6 +87,7 @@ public class BoardController {
                 fileDto.setSavedFileName(savedFileName);
                 fileDto.setSavedPathName(savedFileName);
                 fileDto.setFolderName(folderName);
+                fileDto.setExt(ext);
 
                 boardService.setFiles(fileDto);
             }
@@ -92,5 +95,15 @@ public class BoardController {
 
         // return "redirect:/board/boardList?configCode="+configCode;
         return "redirect:/board/boardList?configCode="+boardDto.getConfigCode();
+    }
+
+    @GetMapping("/board/boardView")
+    public String getBoardView(@RequestParam String configCode, @RequestParam int id, Model model, @ModelAttribute FileDto fileDto) {
+
+        model.addAttribute("configCode", configCode);
+
+        model.addAttribute("board", boardService.getBoard(configCode, id));
+        model.addAttribute("files", boardService.getFiles(configCode, id));
+        return "board/boardView";
     }
 }

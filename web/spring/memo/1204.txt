@@ -76,3 +76,11 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 
 @optionals(useGenerateKey)
 
+------------------------------------------------
+
+12.08
+
+1. boardList html, mapper, service 처리해서 테이블 보여주기
+2. 타임리프 url 파라미터 & == 쉼표( , )
+   ex) th:href="@{/board/view?(param1=${value1}, param2=${value2})}"
+3. boardView.html , controller, boardView.css
