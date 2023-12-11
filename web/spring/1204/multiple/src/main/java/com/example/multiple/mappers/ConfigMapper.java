@@ -33,6 +33,7 @@ public interface ConfigMapper {
             "grp int,\n" +
             "seq int,\n" +
             "depth int,\n" +
+            "isFiles char(1) default 'N', \n" +
             "primary key(id)\n" +
             ");")
     void makeBoard(String configCode);
@@ -67,4 +68,7 @@ public interface ConfigMapper {
 
     @Select("drop table comment_${configCode}")
     void dropComment(String configCode);
+
+    @Select("select * from config where config_code = #{configCode}")
+    ConfigDto getBoardConfig(String configCode);
 }

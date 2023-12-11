@@ -14,6 +14,7 @@ public class BoardDto {
     private int grp;
     private int seq;
     private int depth;
+    private String isFiles;
 
     public String getConfigCode() {
         return configCode;
@@ -95,19 +96,11 @@ public class BoardDto {
         this.depth = depth;
     }
 
-    @Override
-    public String toString() {
-        return "BoardDto{" +
-                "configCode='" + configCode + '\'' +
-                ", id=" + id +
-                ", subject='" + subject + '\'' +
-                ", writer='" + writer + '\'' +
-                ", content='" + content + '\'' +
-                ", visit=" + visit +
-                ", regdate=" + regdate +
-                ", grp=" + grp +
-                ", seq=" + seq +
-                ", depth=" + depth +
-                '}';
+    public String getIsFiles() {
+        return isFiles;
+    }
+
+    public void setIsFiles(String isFiles) {
+        this.isFiles = isFiles;
     }
 }

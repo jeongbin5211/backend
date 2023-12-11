@@ -84,3 +84,9 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 2. 타임리프 url 파라미터 & == 쉼표( , )
    ex) th:href="@{/board/view?(param1=${value1}, param2=${value2})}"
 3. boardView.html , controller, boardView.css
+
+-----------------------------------------------
+
+12.11
+
+1. 기존 테이블 삭제, configMapper isFiles 추가 default = 'N'

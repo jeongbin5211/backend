@@ -2,6 +2,8 @@ package com.example.multiple.controller;
 
 import com.example.multiple.dto.BoardDto;
 import com.example.multiple.dto.FileDto;
+import com.example.multiple.mappers.BoardMapper;
+import com.example.multiple.mappers.ConfigMapper;
 import com.example.multiple.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,17 +24,21 @@ import java.util.UUID;
 @Controller
 public class BoardController {
 
+    @Autowired
+    ConfigMapper configMapper;
+
     @Value("${fileDir}")
     String fileDir;
 
     @Autowired
     BoardService boardService;
 
-    @GetMapping("/board/boardList")
-    public String getBoardList(@RequestParam String configCode, Model model) {
+    @GetMapping("/board/boardList")                                                                             // page가 없다면 1로 처리
+    public String getBoardList(@RequestParam String configCode, Model model, @ModelAttribute BoardDto boardDto, @RequestParam(value="page", defaultValue = "1") int page) {
         model.addAttribute("configCode", configCode);
 
-        model.addAttribute("board", boardService.getBoardList(configCode));
+        model.addAttribute("board", boardService.getBoardList(configCode, page));
+        model.addAttribute("config", configMapper.getBoardConfig(configCode));
         return "board/boardList";
     }
 
@@ -52,9 +58,13 @@ public class BoardController {
         System.out.println("before : " + boardDto);
         boardDto.setGrp(grp);
         System.out.println("after : " + boardDto);
-        boardService.setBoard(boardDto);
+
+
 
         if ( !files.get(0).isEmpty() ) {
+            boardDto.setIsFiles("Y");
+            boardService.setBoard(boardDto);
+            int fileID = boardDto.getId();
 
             // 20231207
             String folderName = new SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis());
@@ -65,8 +75,6 @@ public class BoardController {
             if (!makeFolder.exists()) {
                 makeFolder.mkdir();
             }
-
-            int fileID = boardDto.getId();
 
             FileDto fileDto = new FileDto();
             for(MultipartFile mf : files) {
@@ -91,7 +99,12 @@ public class BoardController {
 
                 boardService.setFiles(fileDto);
             }
+
+
+        } else {
+            boardService.setBoard(boardDto);
         }
+
 
         // return "redirect:/board/boardList?configCode="+configCode;
         return "redirect:/board/boardList?configCode="+boardDto.getConfigCode();
@@ -105,5 +118,25 @@ public class BoardController {
         model.addAttribute("board", boardService.getBoard(configCode, id));
         model.addAttribute("files", boardService.getFiles(configCode, id));
         return "board/boardView";
+    }
+
+    @GetMapping("/board/boardDelete")
+    public String getBoardDelete(@ModelAttribute BoardDto boardDto) {
+
+        if (!boardDto.getConfigCode().isEmpty() && boardDto.getId() > 0) {
+            boardService.getBoardDelete(boardDto); // 내용
+            
+            // 파일 삭제
+            List<FileDto> files = boardService.getFiles(boardDto.getConfigCode(), boardDto.getId());
+            for(FileDto fd: files) {
+                File file = new File(fd.getSavedPathName() + "/" + fd.getSavedFileName());
+                file.delete();
+            }
+
+            // 파일 디비
+            boardService.setFilesDelete(boardDto);
+        }
+
+        return "redirect:/board/boardList?configCode="+boardDto.getConfigCode();
     }
 }
