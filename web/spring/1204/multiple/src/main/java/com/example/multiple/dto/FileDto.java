@@ -1,14 +1,15 @@
 package com.example.multiple.dto;
 
 public class FileDto {
+
+    private String configCode;
     private int id;
     private String orgName;
     private String savedFileName;
     private String savedPathName;
-    private long savedFileSize;
+    private String savedFileSize;
     private String folderName;
     private String ext;
-    private String configCode;
 
     public String getConfigCode() {
         return configCode;
@@ -50,11 +51,11 @@ public class FileDto {
         this.savedPathName = savedPathName;
     }
 
-    public long getSavedFileSize() {
+    public String getSavedFileSize() {
         return savedFileSize;
     }
 
-    public void setSavedFileSize(long savedFileSize) {
+    public void setSavedFileSize(String savedFileSize) {
         this.savedFileSize = savedFileSize;
     }
 
@@ -72,5 +73,19 @@ public class FileDto {
 
     public void setExt(String ext) {
         this.ext = ext;
+    }
+
+    @Override
+    public String toString() {
+        return "FileDto{" +
+                "configCode='" + configCode + '\'' +
+                ", id=" + id +
+                ", orgName='" + orgName + '\'' +
+                ", savedFileName='" + savedFileName + '\'' +
+                ", savedPathName='" + savedPathName + '\'' +
+                ", savedFileSize='" + savedFileSize + '\'' +
+                ", folderName='" + folderName + '\'' +
+                ", ext='" + ext + '\'' +
+                '}';
     }
 }

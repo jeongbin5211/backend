@@ -90,3 +90,10 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 12.11
 
 1. 기존 테이블 삭제, configMapper isFiles 추가 default = 'N'
+
+-----------------------------------------------
+
+12.12
+
+1. 다운로드 구현
+2. 페이징 기능 구현 -> boardList 에서 a태그 루프시키기 th:block

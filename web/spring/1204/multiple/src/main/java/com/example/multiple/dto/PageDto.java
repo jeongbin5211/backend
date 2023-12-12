@@ -2,12 +2,27 @@ package com.example.multiple.dto;
 
 public class PageDto {
     private int startNum;
-    private int pageCount = 10;
+    private int pageCount = 2;
     private int blockCount = 5;
+
     private int page;
     private int totalPage;
+
     private int startPage;
     private int endPage;
+
+    @Override
+    public String toString() {
+        return "PageDto{" +
+                "startNum=" + startNum +
+                ", pageCount=" + pageCount +
+                ", blockCount=" + blockCount +
+                ", page=" + page +
+                ", totalPage=" + totalPage +
+                ", startPage=" + startPage +
+                ", endPage=" + endPage +
+                '}';
+    }
 
     public int getStartNum() {
         return startNum;
@@ -63,18 +78,5 @@ public class PageDto {
 
     public void setEndPage(int endPage) {
         this.endPage = endPage;
-    }
-
-    @Override
-    public String toString() {
-        return "PageDto{" +
-                "startNum=" + startNum +
-                ", pageCount=" + pageCount +
-                ", blockCount=" + blockCount +
-                ", page=" + page +
-                ", totalPage=" + totalPage +
-                ", startPage=" + startPage +
-                ", endPage=" + endPage +
-                '}';
     }
 }

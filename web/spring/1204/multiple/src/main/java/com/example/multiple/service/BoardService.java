@@ -31,39 +31,59 @@ public class BoardService {
         boardMapper.setFiles(fileDto);
     }
 
-    public PageDto PageInfo(String configCode, int page) {
+    public PageDto PageInfo(String configCode, int page, String searchType, String words) {
         PageDto pageDto = new PageDto();
 
+        String searchQuery = getSearch(searchType, words);
+
         // 전체 게시물 수
-        int totalCount = boardMapper.getBoardCount(configCode);
+        int totalCount = boardMapper.getBoardCount(configCode, searchQuery);
 
         // 1 / 10 = 0.1 => 강제 올림 필요 => Math.ceil()
         int totalPage = (int) Math.ceil((double) totalCount / pageDto.getPageCount());
-        int startPage = (((int) Math.ceil((double) page / pageDto.getBlockCount())) - 1) * pageDto.getBlockCount();
+        int startPage =  ((int) (Math.ceil((double) page / pageDto.getBlockCount())) - 1) * pageDto.getBlockCount() + 1;
         int endPage = startPage + pageDto.getBlockCount() - 1;
 
         if (endPage > totalPage) {
             endPage = totalPage;
         }
 
-        pageDto.setStartNum((page - 1) * pageDto.getPageCount());
+        pageDto.setStartNum( (page - 1) * pageDto.getPageCount()  );
         pageDto.setTotalPage(totalPage);
         pageDto.setStartPage(startPage);
         pageDto.setEndPage(endPage);
+        pageDto.setPage(page);
 
         return pageDto;
     }
-    
-    public List<BoardDto> getBoardList(String configCode, int page) {
+
+    public String getSearch(String searchType, String words) {
+
+        String searchQuery = "";
+        if(searchType.equals("writer")) {
+            searchQuery = " where writer = '"+ words +"'";
+        }else if (searchType.equals("content")) {
+            searchQuery = " where content like '%"+ words +"%'";
+        }else {
+
+        }
+
+        return searchQuery;
+    }
+
+    public List<BoardDto> getBoardList(String configCode, int page, String searchType, String words) {
         // PageInfo pageInfo = new PageInfo(); -> 같은 페이지 내에 있으니까 아래처럼 작성
-        PageDto pd = PageInfo(configCode, page);
+        PageDto pd = PageInfo(configCode, page, searchType, words);
+
+        String searchQuery = getSearch(searchType, words);
 
         Map<String, Object> map = new HashMap<>();
         map.put("configCode", configCode);
         map.put("startNum", pd.getStartNum());
         map.put("offset", pd.getPageCount());
+        map.put("searchQuery", searchQuery);
 
-        return boardMapper.getBiardList(map);
+        return boardMapper.getBoardList(map);
     }
 
     public BoardDto getBoard(String configCode, int id) {
@@ -79,8 +99,8 @@ public class BoardService {
     }
 
     public void setFilesDelete(BoardDto boardDto) {
-        boardMapper.getBoardDelete(boardDto);
+        boardMapper.setFilesDelete(boardDto);
     }
 
-    
+
 }

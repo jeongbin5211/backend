@@ -83,3 +83,18 @@ th:nth-child(8) {
 .bottom-left a:not(:first-child) {
     margin-left: -4px;
 }
+
+select {
+    width: 100px;
+    padding: 5px 10px;
+}
+
+input {
+    width: 150px;
+    padding: 6px 10px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
