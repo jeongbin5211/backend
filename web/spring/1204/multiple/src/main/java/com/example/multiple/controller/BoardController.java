@@ -73,6 +73,9 @@ public class BoardController {
 
         int grp = boardService.getGrpMaxCnt(boardDto.getConfigCode());
 
+        /* 답변형 게시판 처리를 위한 부분 */
+        boardDto.setSeq(boardDto.getSeq() + 1);
+
         System.out.println("before : " + boardDto);
         boardDto.setGrp(grp);
         System.out.println("after : " + boardDto);
@@ -143,6 +146,7 @@ public class BoardController {
 
         if (!boardDto.getConfigCode().isEmpty() && boardDto.getId() > 0) {
             boardService.getBoardDelete(boardDto); // 내용
+            boardMapper.setFilesDelete(boardDto);
 
             // 파일 삭제
             List<FileDto> files = boardService.getFiles(boardDto.getConfigCode(), boardDto.getId());
@@ -208,5 +212,19 @@ public class BoardController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
                 .body(resource);
+    }
+
+    @GetMapping("/board/boardReply")
+    public String getBoardReply(@RequestParam String configCode, @RequestParam int id, Model model) {
+
+        BoardDto bd = boardMapper.getBoard(configCode, id);
+        model.addAttribute("reply", bd);
+        return "board/boardReply";
+    }
+
+    @PostMapping("/board/boardReply")
+    public String setBoardReply() {
+
+        return "/board/boardList";
     }
 }

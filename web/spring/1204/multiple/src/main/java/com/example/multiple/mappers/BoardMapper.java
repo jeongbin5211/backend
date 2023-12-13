@@ -14,7 +14,7 @@ public interface BoardMapper {
     @Select("SELECT IFNULL( MAX(grp) + 1,  1) FROM board_${configCode}")
     public int getGrpMaxCnt(String configCode);
 
-    @Insert("INSERT INTO board_${configCode} VALUES(null, #{subject}, #{writer}, #{content}, 0, now(), #{grp}, 1, 1, #{isFiles})")
+    @Insert("INSERT INTO board_${configCode} VALUES(null, #{subject}, #{writer}, #{content}, 0, now(), #{grp}, #{seq}, 1, #{isFiles})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     public void setBoard(BoardDto boardDto);
 
@@ -22,7 +22,7 @@ public interface BoardMapper {
             "#{savedFileName}, #{savedPathName}, #{savedFileSize}, #{folderName}, #{ext})")
     public void setFiles(FileDto fileDto);
 
-    @Select("SELECT * FROM board_${configCode} ${searchQuery} ORDER BY id DESC LIMIT #{startNum}, #{offset}")
+    @Select("SELECT * FROM board_${configCode} ${searchQuery} ORDER BY id DESC, seq asc LIMIT #{startNum}, #{offset}")
     public List<BoardDto> getBoardList(Map<String, Object> map);
 
     @Select("SELECT * FROM board_${configCode} WHERE id = #{id}")
@@ -34,7 +34,7 @@ public interface BoardMapper {
     @Delete("DELETE FROM board_${configCode} WHERE id = #{id}")
     public void getBoardDelete(BoardDto boardDto);
 
-    @Delete("DELETE FROM files_${configCode} WHERE id = #{id}")
+    @Delete("DELETE FROM files_${configCode} WHERE b_id = #{id}")
     public void setFilesDelete(BoardDto boardDto);
 
     @Select("SELECT COUNT(*) FROM board_${configCode} ${searchQuery}")
@@ -43,6 +43,9 @@ public interface BoardMapper {
     @Select("SELECT * FROM files_${configCode} WHERE savedFileName = #{savedFileName}")
     FileDto getFile(String configCode, String savedFileName);
 
+    /* 계층형 게시판에서 답글 순서를 변경하는 업데이트 작업 */
+    @Update("update board_${configCode} set seq = seq + 1 where grp = #{grp} and seq > #{seq}")
+    void setReplyUpdate(BoardDto boardDto);
 }
 
 

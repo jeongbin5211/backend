@@ -1,0 +1,40 @@
+
+
+JSP -> MVC방식이 아닌 Model 1방식 -> 이클립스, 오라클, 외장형 Tomcat
+j2ee 다운로드 압축
+Tomcat 다운로드 압축 -> 이클립스 등록 사용
+
+ex) <h1><%=name%></h1>
+
+Model 2 방식 -> Spring MVC -> 프론트 백엔드 구분하는 방식 
+
+
+
+C:\hrdKorea 생성
+- util
+- source
+
+www.eclipse.org/downloads.packages/
+Enterprise Java and Web Developers 다운로드
+
+tomcat.apache.org 9 -> 나라 일 : 9버전, 민간기업 : 10버전
+
+개발용 : 64-bit Windows zip
+실제 서비스용 : 32-bit/64-bit Windows Servicee Installer -> 개발 시 충돌 유발 위험
+
+아파치 다큐먼트 25번 Virtual Hosting - server.xml
+
+리눅스 httpd.conf
+
+
+ojdbc.jar 11 
+
+Create a Dynamic Web project
+
+HRD_1234
+
+src/main/webapp == resources 와 비슷
+
+src/main/webapp/WEB-INF/lib 에 ojdbc11.jar 복붙
+
+리눅스는 아파치 가지고있음

@@ -51,6 +51,7 @@ public interface ConfigMapper {
 
     @Select("create table comment_${configCode}(\n" +
             "c_id int not null auto_increment,\n" +
+            "b_id int not null,\n" +
             "c_subject varchar(50),\n" +
             "c_writer varchar(20),\n" +
             "c_comment varchar(100),\n" +

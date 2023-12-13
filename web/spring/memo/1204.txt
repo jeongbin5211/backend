@@ -97,3 +97,9 @@ register.html - 아이디 중복체크 ajax -> mapper -> service -> controller
 
 1. 다운로드 구현
 2. 페이징 기능 구현 -> boardList 에서 a태그 루프시키기 th:block
+
+-----------------------------------------------
+
+12.13
+
+1. ConfigMapper
