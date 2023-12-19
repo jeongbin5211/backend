@@ -10,8 +10,8 @@ public class Employee {
 	public Long getEmp_id() {
 		return emp_id;
 	}
-	public void setEmp_id(Long emp_id) {
-		this.emp_id = emp_id;
+	public void setEmp_id(int i) {
+		this.emp_id = i;
 	}
 	public String getEmp_name() {
 		return emp_name;

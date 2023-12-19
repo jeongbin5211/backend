@@ -23,3 +23,8 @@ on delete cascade
 );
 
 insert into employees values(emp_seq.nextval, '홍길동', 'email@email.com', '부산광역시 부산진구', '100');
+
+commit;
+
+select B.buseo_name, B.buseo_code, count(emp_id) as cnt from buseo B left join employees E on B.buseo_code = E.buseo_code
+group by B.buseo_name, B.buseo_code;

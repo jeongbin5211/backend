@@ -17,6 +17,7 @@ public class EmpDao {
 	DBConnect db = new DBConnect();
 	
 	List<Buseo> list = new ArrayList<Buseo>();
+	List<Employee> empList = new ArrayList<Employee>();
 	
 	public List<Buseo> getBuseoAll() throws SQLException {
 		conn = db.getConnection();
@@ -30,7 +31,7 @@ public class EmpDao {
 				// 객체에 담아서 리스트 배열에 저장해서 jsp 넘기기
 				Buseo buseo = new Buseo();
 				buseo.setBuseo_code(rs.getString("buseo_code"));
-				buseo.setBuseo_name("buseo_name");
+				buseo.setBuseo_name(rs.getString("buseo_name"));
 				
 				list.add(buseo);
 				
@@ -69,9 +70,30 @@ public class EmpDao {
 	}
 	
 	// 출력
-		public List<Employee> getEmployeeAll() {
+		public List<Employee> getEmployeeAll() throws SQLException {
+			conn = db.getConnection();
+			String sql = "select * from employees order by emp_id desc";
 			
-			return null;
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "");
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				do {
+					Employee emp = new Employee();
+					emp.setEmp_id(rs.getInt("emp_id"));
+					emp.setEmp_name(rs.getString("emp_name"));
+					emp.setEmp_email(rs.getString("emp_email"));
+					emp.setEmp_addr(rs.getString("emp_addr"));
+					emp.setBuseo_code(rs.getString("buseo_code"));
+					
+					
+				}while(rs.next());
+				
+			}
+			
+			return empList;
 		}
 	
 	// 수정
