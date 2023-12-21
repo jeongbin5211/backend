@@ -4,10 +4,10 @@ buseo_name varchar2(20) not null,
 primary key(buseo_code)
 );
 
-insert into buseo values('100', '인사과');
-insert into buseo values('200', '자재과');
-insert into buseo values('300', '비서실');
-insert into buseo values('900', '임원실');
+INSERT INTO buseo VALUES('100', '인사과');
+INSERT INTO buseo VALUES('200', '자재과');
+INSERT INTO buseo VALUES('300', '비서실');
+INSERT INTO buseo VALUES('900', '임원실');
 
 create sequence emp_seq start with 100001 increment by 1 nocycle;
 
@@ -19,12 +19,38 @@ emp_addr varchar2(100) not null,
 buseo_code varchar2(3) not null,
 primary key(emp_id),
 foreign key(buseo_code) references buseo(buseo_code) 
-on delete cascade
+ON DELETE cascade
 );
 
-insert into employees values(emp_seq.nextval, '홍길동', 'email@email.com', '부산광역시 부산진구', '100');
+INSERT INTO employees VALUES(emp_seq.nextval, '홍길동', 'mail@mail.com', '부산광역시 부산진구', '100');
 
 commit;
 
-select B.buseo_name, B.buseo_code, count(emp_id) as cnt from buseo B left join employees E on B.buseo_code = E.buseo_code
-group by B.buseo_name, B.buseo_code;
+
+SELECT B.buseo_name, B.buseo_code, count(emp_id) as cnt FROM 
+buseo B INNER JOIN employees E ON B.buseo_code = E.buseo_code 
+GROUP BY B.buseo_name, B.buseo_code;
+
+인사과(1) 자재과(1) 비서실(0) 임원실(0)
+
+SELECT B.buseo_name, B.buseo_code, count(emp_id) as cnt FROM 
+buseo B LEFT JOIN employees E ON B.buseo_code = E.buseo_code 
+GROUP BY B.buseo_name, B.buseo_code;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,8 +3,14 @@ package dto;
 public class Buseo {
 	private String buseo_code;
 	private String buseo_name;
-	private int cnt;
+	private int cnt;	
 	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public String getBuseo_code() {
 		return buseo_code;
 	}
@@ -18,15 +24,10 @@ public class Buseo {
 		this.buseo_name = buseo_name;
 	}
 	
-	public int getCnt() {
-		return cnt;
-	}
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
-	
 	@Override
 	public String toString() {
 		return "Buseo [buseo_code=" + buseo_code + ", buseo_name=" + buseo_name + "]";
 	}
+	
+	
 }
