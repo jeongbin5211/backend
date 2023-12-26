@@ -86,6 +86,7 @@ public class BoardController {
             boardDto.setIsFiles("Y");
             boardService.setBoard(boardDto);
             int fileID = boardDto.getId();
+            System.out.println("fileID : "+ fileID);
 
             // 20231207
             String folderName = new SimpleDateFormat("yyyyMMdd").format(System.currentTimeMillis());

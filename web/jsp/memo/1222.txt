@@ -1,0 +1,2 @@
+select ifnull(max(*), 0) from -> 오라클은 ifnull 없음
+        nvl(max(*) + 1, 1)

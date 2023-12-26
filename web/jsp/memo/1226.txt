@@ -1,0 +1,8 @@
+1. jsp
+2. MVC 1
+3. MVC 2
+4. Servlet == Controller
+5. Spring MVC
+6. Spring Framework
+7. Spring Boot
+8. jpa
