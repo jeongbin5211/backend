@@ -1,0 +1,25 @@
+HRD_003
+
+다이나믹 프로젝트 생성
+
+Properties -> facets -> 다이나믹 웹 모듈 4.0
+
+런타임 톰캣 없으면 new apache
+
+ojdbc11.jar 사용 (자바버전 높아서)
+
+lib에 ojdbc 복붙
+
+db dao db -> 자바 관리
+
+webapp 우클릭 -> 폴더 생성 -> css js include
+	shop.sql 생성
+
+sql -> commit 먼저 해두기
+오라클에서는 한글 3바이트일수도 있음 -> 여유롭게 varchar2() 설정하기
+
+sqlplus 에 sql 붙여넣기 한 후 commit 반드시 하기
+
+SQL developer 사용하기
+
+NVL() == ifnull
