@@ -45,7 +45,7 @@
 				<tr>
 					<th>가입일자</th>
 					<td>
-						<input type="text" name="joindate" />
+						<input type="text" name="joindate" placeholder="예시:20231228" />
 					</td>
 				</tr>
 				<tr>

@@ -1,0 +1,19 @@
+ drop table member_tbl_02;
+
+ drop table money_tbl_02;
+
+commit;
+
+date -> varchar2() 로 바꾸기
+
+dto
+- Member.java
+- Money.java
+필드, getter setter 만들기
+
+날짜 삽입시 날짜 형식으로 변환해서 넣기
+
+add_pro.jsp
+
+TO_DATE()
+DECODE() == if
