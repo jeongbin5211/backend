@@ -112,4 +112,53 @@ public class MemberDao {
 		
 		return mList;
 	}
+	
+	public void delete(int custno) throws ClassNotFoundException, SQLException {
+		conn = getConnection();
+		
+		String sql = "delete from member_tbl_02 where custno = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, custno);
+		int result = pstmt.executeUpdate();
+	}
+	
+	public Member view(int custno) throws ClassNotFoundException, SQLException {
+		conn = getConnection();
+		String sql = "select custno, custname, phone, address, TO_CHAR(joindate, 'YYYY-MM-DD') as joindate, grade, city from member_tbl_02 where custno = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, custno);
+		rs = pstmt.executeQuery();
+		
+		Member member = new Member();
+		if (rs.next()) {
+			
+			member.setCustno(rs.getInt(1));
+			member.setCustname(rs.getString(2));
+			member.setPhone(rs.getString(3));
+			member.setAddress(rs.getString(4));
+			member.setJoindate(rs.getString(5));
+			member.setGrade(rs.getString(6));
+			member.setCity(rs.getString(7));
+		}
+		
+		return member;
+	}
+	
+	public void update(Member member) throws ClassNotFoundException, SQLException {
+		conn = getConnection();
+		// TO_DATE(값, 포맷)
+		String sql = "update member_tbl_02 set custname=?, phone=?, address = ?, joindate = TO_DATE(?, 'YYYY-MM-DD'), grade = ?, city = ? where custno = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, member.getCustname());
+		pstmt.setString(2, member.getPhone());
+		pstmt.setString(3, member.getAddress());
+		pstmt.setString(4, member.getJoindate());
+		pstmt.setString(5, member.getGrade());
+		pstmt.setString(6, member.getCity());
+		pstmt.setInt(7, member.getCustno());
+		
+		pstmt.executeUpdate();
+	}
 }

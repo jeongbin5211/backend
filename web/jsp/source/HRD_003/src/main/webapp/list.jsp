@@ -65,14 +65,31 @@
 					<td>
 						<%= list.get(i).getCity() %>
 					</td>
-					<td>수정/삭제</td>
+					<td>
+						<button type="button" onclick="memModify(<%= list.get(i).getCustno() %>)">수정</button>
+						<button type="button" onclick="memDelete(<%= list.get(i).getCustno() %>)">삭제</button>
+					</td>
 				</tr>
-			<% } %>
+			<% 
+				} 	
+			%>
 			</tbody>
 		</table>
 	
 	</div>	
 </section>
 <%@ include file="include/footer.jsp" %>
+<script type="text/javascript">
+	function memDelete(custno) {
+		// alert(custno);
+		if (confirm("회원정보를 삭제하시겠습니까?")) {
+			location.href = "delete.jsp?custno="+custno;
+		}
+	}
+	
+	function memModify(custno) {
+		location.href = "modify.jsp?custno="+custno;
+	}
+</script>
 </body>
 </html>

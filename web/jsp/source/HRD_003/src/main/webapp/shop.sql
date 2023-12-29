@@ -29,7 +29,8 @@ amount number,
 price number,
 pcode varchar2(5),
 sdate date,
-primary key(custno, saleno)
+primary key(custno, saleno),
+foreign key(custno) references member_tbl_02(custno) on delete cascade
 );
 
 insert into money_tbl_02 values(100001, 20160001, 500, 5, 2500, 'A001', '20160101');
