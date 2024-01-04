@@ -1,0 +1,27 @@
+Servlet(java) -> httpServlet 상속(extends) - servlet-api.jar
+
+실행 : jsp, html
+
+1.Servlet, ejb -> spring framework -> spring boot
+       xml, @             xml, @                 @
+  tomcat x	  tomcat x	  + tomcat
+
+spring boot만 내장 톰캣 있음
+
+web.xml -> context.xml server.xml : application.properties
+	        실제 서비스                     작업
+
+shell script : c
+
+Servlet01
+
+controller : servlet + web.xml
+
+Generate web.xml 체크
+
+controller -> HelloWorld.java -> extends HttpServlet => 톰캣 lib 에서 servlet-api을 WEB-INF lib에 복붙해야 나옴
+
+override GenericServlet init(ServletConfig), destroy, doget, dopost
+
+프로젝트 우클릭 runas로 시작
+
