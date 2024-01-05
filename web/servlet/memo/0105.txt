@@ -1,0 +1,19 @@
+servlet04
+
+index.jsp -> HomeController.java
+Register.jsp -> RegisterController.java
+
+css
+
+Generate web.xml check
+
+서버 실행 후 직접 주소 입력해서 접속
+
+http://localhost:8888/servlet04
+http://localhost:8888/servlet04/register.do
+
+web.xml
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>*.css</url-pattern>
+  </servlet-mapping>
