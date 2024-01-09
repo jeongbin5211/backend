@@ -1,0 +1,19 @@
+servlet06
+oracle db 입력
+
+jstl == thymeleaf
+
+RegisterController.java
+RegisterDto.java
+RegisterDao.java
+
+화면을 띄우는 servlet
+화면 내용을 저장하는 servlet
+
+register.jsp => action="/패키지이름/register" => 패키지이름을 컨텍스변수 사용
+
+servlet은 jsp에서 실행x => 자바에서 실행해야함
+
+RequestDispatcher -> 포워드 방식으로 보통함
+
+http://localhost:포트번호/servlet06/register
