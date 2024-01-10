@@ -1,0 +1,22 @@
+입력
+
+M V C
+1. jstl(view) -> thymeleaf
+2. mysql
+3. M V C
+
+jstl 다운
+https://atoz-develop.tistory.com/entry/JSP-JSTL-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%B0%8F-%EC%84%B8%ED%8C%85
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+user-form.jsp
+
+dto(class)
+
+User.java
+
+dao(class)
+-UserDao
+
+controller(servlet)
+- UserController
